@@ -1,0 +1,6 @@
+docker run -d -it --name was-server -h was-server -e UPDATE_HOSTNAME=false \
+  -e PROFILE_NAME=AppSrv01 -e NODE_NAME=DefaultNode01 -e SERVER_NAME=server1 \
+  -v /Users/lloyd.williams/u01/was/etc/websphere:/etc/websphere \
+  -v /Users/lloyd.williams/u01/was/logs:/logs \
+  -p 8880:8880 -p 9401:9401 -p 9402:9402 -p 9403:9403 -p 9100:9100 \
+  -p 2022:22 -p 2809:2809 -p 9633:9633 -p 9043:9043 -p 9443:9443 -d websphere-jmx:latest

@@ -1,0 +1,20 @@
+
+kubernetes/bitnami/kafka/lloyd.md
+docker/graphql/old/book-details-0.0.2.jar
+docker/graphql/old/book-details-0.0.4.jar
+docker/graphql/old/docker-run copy.sh
+docker/graphql/old/Dockerfile
+docker/graphql/old/Dockerfile copy
+kubernetes/graphql/old/bookdetails-deployment-0.0.4.yaml
+kubernetes/graphql/old/bookdetails-deployment.yaml
+kubernetes/tomcat/tomcat-deployment.backup
+kubernetes/tomcat/tomcat-deployment.backup
+kubernetes/tomcat/tomcat-deployment.backup
+kubernetes/tomcat/temp/tomcat-deployment.working
+kubernetes/tomcat/tomcat-deployment.backup
+kubernetes/tomcat/temp/tomcat-deployment.notworking
+kubernetes/tomcat/temp/tomcat-deployment.backup
+kubernetes/tomcat/temp/datadog-values copy.yaml
+docker/tomcat.zip
+logs/time-difference/curl/LW_send_warn_log.sh
+logs/time-difference/curl/LW_loop_send_100_info_logs.sh

@@ -1,0 +1,3 @@
+#!/bin/sh
+echo 'exposing operator service'
+kubectl apply -f my-datadog-operator-service.yaml

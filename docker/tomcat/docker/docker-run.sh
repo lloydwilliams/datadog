@@ -1,0 +1,4 @@
+#!/bin/bash
+docker run -d --name tomcat --rm -p 8080:8080 -p 9012:9012 \
+ -e CATALINA_OPTS="-javaagent:/dd-java-agent.jar -Ddd.agent.host=host.docker.internal -Ddd.version=0.0.2 -Ddd.profiling.enabled=true -XX:FlightRecorderOptions=stackdepth=256 -Ddd.logs.injection=true -Ddd.trace.sample.rate=1 -Ddd.service=bookdetails -Ddd.env=prod -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.port=9012 -Djava.rmi.server.hostname=localhost" \
+ lloydwilliams/bookdetails

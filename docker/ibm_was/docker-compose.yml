@@ -1,0 +1,59 @@
+version: '3.6'
+
+services:
+  ibmwas:
+    image: 'lloydwilliams/websphere-jmx:latest'
+    container_name: ibmwas
+    labels:
+      com.datadoghq.ad.check_names: '["ibm_was"]' 
+      com.datadoghq.ad.init_configs: '[{}]'
+      com.datadoghq.ad.instances: '[{"servlet_url":"https://%%host%%:9443/wasPerfTool/servlet/perfservlet","tls_verify": "false", "tls_ignore_warning": "true"}]'
+      #com.datadoghq.ad.logs: '[{"source": "ibm_was", "service": "WebSphere"}]'
+    networks:
+      - network1
+    expose:
+      - "9443"
+    ports:
+      - "8880:8880"
+      - "9401:9401" 
+      - "9402:9402" 
+      - "9403:9403" 
+      - "9100:9100"
+      - "2022:22" 
+      - "2809:2809" 
+      - "9633:9633" 
+      - "9043:9043" 
+      - "9443:9443"
+       
+  datadog-agent:
+    image: 'gcr.io/datadoghq/agent:latest-jmx'
+    container_name: datadog-agent
+    networks:
+      - network1
+    expose:
+      - "8125"
+      - "8126"
+    links: 
+      - ibmwas #ensures that ibmwas is a host that the container can find
+    env_file:
+      - ~/sandbox.docker.env
+    volumes:
+      - /Users/lloyd.williams/GitHub/lloydwilliams/docker/ibm_was/logs/datadog:/var/log/datadog
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /proc/:/host/proc/:ro
+      - /sys/fs/cgroup:/host/sys/fs/cgroup:ro  
+    environment:
+      - DD_JMXFETCH_ENABLED=true     
+      - DD_LOG_LEVEL=WARNING
+      - DD_DOGSTATSD_NON_LOCAL_TRAFFIC=true
+      - DD_AC_EXCLUDE=name:datadog-agent
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - SD_BACKEND=docker
+    ports:
+      - "8125:8125"
+      - "8126:8126"
+    depends_on:
+      - ibmwas
+networks:
+  network1:
+    driver: bridge

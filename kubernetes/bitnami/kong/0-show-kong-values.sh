@@ -1,0 +1,1 @@
+helm show values bitnami/kong > kong-values.yaml

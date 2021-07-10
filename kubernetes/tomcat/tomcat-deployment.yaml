@@ -1,0 +1,65 @@
+# This will create the Tomcat Pod with AutoDiscovery Annotations similar to tomcat-basic-ad
+# Important note is that the annotations are on the pod itself, done through the spec.template.metadata
+# rather than on the metadata of the Deployment. The same would be true for Daemonsets/ReplicaSets
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-tomcat-deployment
+  labels:
+    app: my-tomcat-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-tomcat-deployment
+  template:
+    metadata:
+      labels:
+        app: my-tomcat-deployment
+      annotations:
+        ad.datadoghq.com/tomcat.check_names: '["tomcat"]'
+        ad.datadoghq.com/tomcat.init_configs: '[{"is_jmx": true, "collect_default_metrics": true}]'
+        ad.datadoghq.com/tomcat.instances: '[{"host": "%%host%%","port":"9012"}]'
+        ad.datadoghq.com/tomcat.logs: '[{"type":"file","path":"/usr/local/tomcat/logs/*.log","source":"tomcat","service":"tomcat"}]'
+    spec:
+      containers:
+        - name: tomcat
+          image: lloydwilliams/tomcatdd:latest
+          imagePullPolicy: Always
+          ports:
+              - containerPort: 9012
+          env:
+            - name: CATALINA_OPTS 
+              value: "-javaagent:/dd-java-agent.jar -XX:FlightRecorderOptions=stackdepth=256"
+            - name: DD_AGENT_HOST
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.hostIP
+            - name: DD_TAGS
+              value: "owner:lloyd"
+            - name: DD_ENV
+              value: "prod"
+            - name: DD_VERSION
+              value: "1.0.0"
+            - name: DD_PROFILING_ENABLED
+              value: "true"
+            - name: DD_TRACE_ENABLED
+              value: "true"
+            - name: DD_JMXFETCH_ENABLED
+              value: "true"
+            - name: DD_LOGS_INJECTION
+              value: "true"                                                                                                       
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+            - name: JAVA_OPTS
+              value: >-
+                -Xms256m -Xmx6144m
+                -Dcom.sun.management.jmxremote
+                -Dcom.sun.management.jmxremote.authenticate=false
+                -Dcom.sun.management.jmxremote.ssl=false
+                -Dcom.sun.management.jmxremote.local.only=false
+                -Dcom.sun.management.jmxremote.port=9012
+                -Dcom.sun.management.jmxremote.rmi.port=9012
+                -Djava.rmi.server.hostname=$(POD_IP)

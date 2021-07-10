@@ -1,0 +1,22 @@
+---
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  name: "my-datadog-operator-service"
+  namespace: "datadog"
+  labels:
+    app.kubernetes.io/instance: "my-datadog-operator"
+    app.kubernetes.io/managed-by: "Helm"
+    app.kubernetes.io/name: "datadog-operator"
+    app.kubernetes.io/version: "0.6.0"
+    helm.sh/chart: "datadog-operator-0.6.1"
+spec:
+  ports:
+  - protocol: "TCP"
+    port: 8383
+    targetPort: 8383
+  selector:
+    app.kubernetes.io/instance: "my-datadog-operator"
+    app.kubernetes.io/name: "datadog-operator"
+  type: "LoadBalancer"
+  loadBalancerIP: ""

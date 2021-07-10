@@ -1,0 +1,35 @@
+  ad.datadoghq.com/kafka.check_names: '["kafka"]'
+  ad.datadoghq.com/kafka.init_configs: '[{"is_jmx": true, "collect_default_metrics": true}]'
+  ad.datadoghq.com/kafka.instances: '[{"host": "%%host%%","port":"5556"}]'
+
+
+
+extraEnvVars:
+  - name: POD_IP
+    valueFrom:
+      fieldRef:
+        fieldPath: status.podIP
+  - name: JAVA_OPTS
+    value: >-
+      -Xms256m -Xmx6144m
+      -Dcom.sun.management.jmxremote
+      -Dcom.sun.management.jmxremote.authenticate=false
+      -Dcom.sun.management.jmxremote.ssl=false
+      -Dcom.sun.management.jmxremote.local.only=false
+      -Dcom.sun.management.jmxremote.port=9012
+      -Dcom.sun.management.jmxremote.rmi.port=9012
+      -Djava.rmi.server.hostname=$(POD_IP)
+  - name: JMX_PORT
+    value: "5556"
+
+podAnnotations:
+  ad.datadoghq.com/kafka.check_names: '["kafka"]'
+  ad.datadoghq.com/kafka.init_configs: '[{"is_jmx": true, "collect_default_metrics": true}]'
+  ad.datadoghq.com/kafka.instances: '[{"host": "%%host%%","port":"5556"}]'
+  ad.datadoghq.com/kafka.logs: '[{"source":"kafka","service":"kafka"}]'
+
+helm show values bitnami/kafka > values.yaml
+
+confluentinc/cp-zookeeper-operator:6.1.0.0
+helm show values confluentinc/cp-zookeeper-operator:6.1.0.0 > cp-z-o-values.yaml
+

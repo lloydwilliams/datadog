@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bookdetails-deployment
+  labels:
+    app: bookdetails-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bookdetails-deployment
+  template:
+    metadata:
+      labels:
+        app: bookdetails-deployment
+      annotations:
+        ad.datadoghq.com/custom_log_collection.logs: '[{"type":"file","path":"/logs/*.log","source":"bookdetails","service":"bookdetails"}]'
+    spec:
+      containers:
+        - name: bookdetails
+          image: lloydwilliams/bookdetails:latest
+          imagePullPolicy: Always
+          env:
+            - name: JAVA_OPTS
+              value: "-XX:FlightRecorderOptions=stackdepth=256"
+            - name: DD_TRACE_METHODS
+              value: "com.graphqljava.tutorial.bookdetails.GraphQLDataFetchers[getBookByIdDataFetcher,getAuthorDataFetcher];com.graphqljava.tutorial.bookdetails.GraphQLProvider[buildWiring]"
+            - name: DD_AGENT_HOST
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.hostIP
+            - name: DD_SERVICE
+              value: "bookdetails"
+            - name: DD_SOURCE
+              value: "bookdetails"
+            - name: DD_TAGS
+              value: "owner:lloyd"
+            - name: DD_ENV
+              value: "prod"
+            - name: DD_VERSION
+              value: "0.0.5"
+            - name: DD_PROFILING_ENABLED
+              value: "true"
+            - name: DD_TRACE_ENABLED
+              value: "true"
+            - name: DD_JMXFETCH_ENABLED
+              value: "true"
+            - name: DD_LOGS_INJECTION
+              value: "true"                                                                                                       
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP

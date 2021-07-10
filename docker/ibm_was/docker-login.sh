@@ -1,0 +1,1 @@
+cat ~/docker-password.txt | docker login --username lloydwilliams --password-stdin
