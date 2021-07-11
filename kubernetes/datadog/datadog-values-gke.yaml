@@ -19,9 +19,10 @@ targetSystem: "linux"
 registry: gcr.io/datadoghq
 
 datadog:
+  
   # datadog.apiKey -- Your Datadog API key
   # ref: https://app.datadoghq.com/account/settings#agent/kubernetes
-  # apiKey: <DATADOG_API_KEY>
+  apiKey: # <DATADOG_API_KEY>
 
   # datadog.apiKeyExistingSecret -- Use existing Secret which stores API key instead of creating a new one
   ## If set, this parameter takes precedence over "apiKey".
@@ -30,7 +31,7 @@ datadog:
   # datadog.appKey -- Datadog APP key required to use metricsProvider
   ## If you are using clusterAgent.metricsProvider.enabled = true, you must set
   ## a Datadog application key for read access to your metrics.
-  # appKey:  <DATADOG_APP_KEY>
+  appKey:  # <DATADOG_APP_KEY>
 
   # datadog.appKeyExistingSecret -- Use existing Secret which stores APP key instead of creating a new one
   ## If set, this parameter takes precedence over "appKey".
@@ -118,6 +119,10 @@ datadog:
   #   - "<KEY_1>:<VALUE_1>"
   #   - "<KEY_2>:<VALUE_2>"
 
+  # datadog.checksCardinality -- Sets the tag cardinality for the checks run by the Agent.
+  ## https://docs.datadoghq.com/getting_started/tagging/assigning_tags/?tab=containerizedenvironments#environment-variables
+  checksCardinality:  # low, orchestrator or high (not set by default to avoid overriding existing DD_CHECKS_TAG_CARDINALITY configurations, the default value in the Agent is low)   
+  
   # kubelet configuration
   kubelet:
     # datadog.kubelet.host -- Override kubelet IP
@@ -301,7 +306,7 @@ datadog:
 
     # datadog.processAgent.processCollection -- Set this to true to enable process collection in process monitoring agent
     ## Requires processAgent.enabled to be set to true to have any effect
-    processCollection: false
+    processCollection: true
 
   ## Enable systemProbe agent and provide custom configs
   systemProbe:
@@ -336,7 +341,7 @@ datadog:
     collectDNSStats: false
 
     # datadog.systemProbe.maxTrackedConnections -- the maximum number of tracked connections
-    maxTrackedConnections: 65536
+    maxTrackedConnections: 131072
 
     # datadog.systemProbe.conntrackMaxStateSize -- the maximum size of the userspace conntrack cache
     conntrackMaxStateSize: 131072  # 2 * maxTrackedConnections by default, per  https://github.com/DataDog/datadog-agent/blob/d1c5de31e1bba72dfac459aed5ff9562c3fdcc20/pkg/process/config/config.go#L229
@@ -357,7 +362,7 @@ datadog:
 
   networkMonitoring:
     # datadog.networkMonitoring.enabled -- Enable network performance monitoring
-    enabled: false
+    enabled: true
 
   ## Enable security agent and provide custom configs
   securityAgent:
@@ -480,7 +485,7 @@ clusterAgent:
     name: cluster-agent
 
     # clusterAgent.image.tag -- Cluster Agent image tag to use
-    tag: 1.12.0
+    tag: 1.13.1
 
     # clusterAgent.image.repository -- Override default registry + image.name for Cluster Agent
     repository:
@@ -609,7 +614,7 @@ clusterAgent:
   affinity: {}
 
   # clusterAgent.healthPort -- Port number to use in the Cluster Agent for the healthz endpoint
-  healthPort: 5555
+  healthPort: 5556
 
   # clusterAgent.livenessProbe -- Override default Cluster Agent liveness probe settings
   # @default -- Every 15s / 6 KO / 1 OK
@@ -697,6 +702,9 @@ existingClusterAgent:
 
   # existingClusterAgent.serviceName -- Existing service name to use for reaching the external Cluster Agent
   serviceName:  # <EXISTING_DCA_SERVICE_NAME>
+  
+  # existingClusterAgent.clusterchecksEnabled -- set this to false if you don’t want the agents to run the cluster checks of the joined external cluster agent
+  clusterchecksEnabled: true
 
 agents:
   # agents.enabled -- You should keep Datadog DaemonSet enabled!
@@ -1070,7 +1078,7 @@ clusterChecksRunner:
 
     # clusterChecksRunner.image.tag -- Define the Agent version to use
     ## Use 7-jmx to enable jmx fetch collection
-    #tag: 7.26.0
+    #tag: 7.29.0
     tag: 7-jmx
 
     # clusterChecksRunner.image.repository -- Override default registry + image.name for Cluster Check Runners

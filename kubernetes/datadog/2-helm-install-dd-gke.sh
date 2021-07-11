@@ -14,6 +14,14 @@
 #export DATADOG_API_KEY=
 #export DATADOG_APP_KEY=
 # -----
-helm install datadog-agent -f datadog-values-gke.yaml --set datadog.site='datadoghq.com' --set datadog.apiKey=$DATADOG_API_KEY --set datadog.appKey=$DATADOG_APP_KEY --create-namespace=true datadog/datadog 
+#helm install datadog-agent -f datadog-values-gke.yaml --set datadog.site='datadoghq.com' --set datadog.apiKey=$DATADOG_API_KEY --set datadog.appKey=$DATADOG_APP_KEY --create-namespace=true datadog/datadog 
 #https://helm.sh/docs/helm/helm_install/
 #--insecure-skip-tls-verify     skip tls certificate checks for the chart download
+
+#Using existing secrets in the datadog-values-gke.yaml file
+#Using apiKeyExistingSecret: datadog-api-secret
+#Using appKeyExistingSecret: datadog-app-secret 
+# 
+# 
+# Using variables from env for keys
+helm install datadog-agent -f datadog-values-gke.yaml --set datadog.site='datadoghq.com' --set datadog.apiKey=$DATADOG_API_KEY --set datadog.appKey=$DATADOG_APP_KEY datadog/datadog
