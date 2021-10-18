@@ -19,10 +19,9 @@ targetSystem: "linux"
 registry: gcr.io/datadoghq
 
 datadog:
-  
   # datadog.apiKey -- Your Datadog API key
   # ref: https://app.datadoghq.com/account/settings#agent/kubernetes
-  apiKey: # <DATADOG_API_KEY>
+  apiKey: <DATADOG_API_KEY>
 
   # datadog.apiKeyExistingSecret -- Use existing Secret which stores API key instead of creating a new one
   ## If set, this parameter takes precedence over "apiKey".
@@ -57,8 +56,7 @@ datadog:
   ## * Overall length should not be higher than 80 characters.
   ## Compared to the rules of GKE, dots are allowed whereas they are not allowed on GKE:
   ## https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1beta1/projects.locations.clusters#Cluster.FIELDS.name
-  #clusterName:  # <CLUSTER_NAME>
-  clusterName:  lloyd-cluster
+  clusterName:  # <CLUSTER_NAME>
 
   # datadog.site -- The site of the Datadog intake to send Agent data to
   ## Set to 'datadoghq.eu' to send data to the EU site.
@@ -72,7 +70,7 @@ datadog:
   logLevel: INFO
 
   # datadog.kubeStateMetricsEnabled -- If true, deploys the kube-state-metrics deployment
-  ## ref: https://github.com/kubernetes/charts/tree/master/stable/kube-state-metrics
+  ## ref: https://github.com/kubernetes/kube-state-metrics/tree/kube-state-metrics-helm-chart-2.13.2/charts/kube-state-metrics
   kubeStateMetricsEnabled: true
 
   kubeStateMetricsNetworkPolicy:
@@ -121,8 +119,8 @@ datadog:
 
   # datadog.checksCardinality -- Sets the tag cardinality for the checks run by the Agent.
   ## https://docs.datadoghq.com/getting_started/tagging/assigning_tags/?tab=containerizedenvironments#environment-variables
-  checksCardinality:  # low, orchestrator or high (not set by default to avoid overriding existing DD_CHECKS_TAG_CARDINALITY configurations, the default value in the Agent is low)   
-  
+  checksCardinality:  # low, orchestrator or high (not set by default to avoid overriding existing DD_CHECKS_TAG_CARDINALITY configurations, the default value in the Agent is low)
+
   # kubelet configuration
   kubelet:
     # datadog.kubelet.host -- Override kubelet IP
@@ -139,7 +137,7 @@ datadog:
     # datadog.kubelet.agentCAPath -- Path (inside Agent containers) where the Kubelet CA certificate is stored
     # @default -- /var/run/host-kubelet-ca.crt if hostCAPath else /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
     agentCAPath:
-      
+
   ## dogstatsd configuration
   ## ref: https://docs.datadoghq.com/agent/kubernetes/dogstatsd/
   ## To emit custom metrics from your Kubernetes application, use DogStatsD.
@@ -162,7 +160,7 @@ datadog:
     ## https://docs.datadoghq.com/developers/dogstatsd/unix_socket/#using-origin-detection-for-container-tagging
     tagCardinality: low
 
-    # datadog.dogstatsd.useSocketVolume -- Enable dogstatsd over Unix Domain Socket
+    # datadog.dogstatsd.useSocketVolume -- Enable dogstatsd over Unix Domain Socket with an HostVolume
     ## ref: https://docs.datadoghq.com/developers/dogstatsd/unix_socket/
     useSocketVolume: false
 
@@ -203,13 +201,11 @@ datadog:
   logs:
     # datadog.logs.enabled -- Enables this to activate Datadog Agent log collection
     ## ref: https://docs.datadoghq.com/agent/basic_agent_usage/kubernetes/#log-collection-setup
-    #enabled: false
-    enabled: true
+    enabled: false
 
     # datadog.logs.containerCollectAll -- Enable this to allow log collection for all containers
     ## ref: https://docs.datadoghq.com/agent/basic_agent_usage/kubernetes/#log-collection-setup
-    #containerCollectAll: false
-    containerCollectAll: true
+    containerCollectAll: false
 
     # datadog.logs.containerCollectUsingFiles -- Collect logs from files in /var/log/pods instead of using container runtime API
     ## It's usually the most efficient way of collecting logs.
@@ -220,8 +216,7 @@ datadog:
   apm:
     # datadog.apm.enabled -- Enable this to enable APM and tracing, on port 8126
     ## ref: https://github.com/DataDog/docker-dd-agent#tracing-from-the-host
-    #enabled: false
-    enabled: true
+    enabled: false
 
     # datadog.apm.port -- Override the trace Agent port
     ## Note: Make sure your client is sending to the same UDP port.
@@ -306,7 +301,7 @@ datadog:
 
     # datadog.processAgent.processCollection -- Set this to true to enable process collection in process monitoring agent
     ## Requires processAgent.enabled to be set to true to have any effect
-    processCollection: true
+    processCollection: false
 
   ## Enable systemProbe agent and provide custom configs
   systemProbe:
@@ -362,7 +357,7 @@ datadog:
 
   networkMonitoring:
     # datadog.networkMonitoring.enabled -- Enable network performance monitoring
-    enabled: true
+    enabled: false
 
   ## Enable security agent and provide custom configs
   securityAgent:
@@ -439,9 +434,7 @@ datadog:
   # datadog.containerExclude -- Exclude containers from the Agent
   # Autodiscovery, as a space-sepatered list
   ## ref: https://docs.datadoghq.com/agent/guide/autodiscovery-management/?tab=containerizedagent#exclude-containers
-  ##containerExclude:  # "image:datadog/agent"
-  # containerExclude: "image:datadog/agent"
-  containerExclude:
+  containerExclude:  # "image:datadog/agent"
 
   # datadog.containerInclude -- Include containers in the Agent Autodiscovery,
   # as a space-separated list.  If a container matches an include rule, it’s
@@ -451,9 +444,7 @@ datadog:
 
   # datadog.containerExcludeLogs -- Exclude logs from the Agent Autodiscovery,
   # as a space-separated list
-  # https://docs.datadoghq.com/agent/docker/?tab=standard#ignore-containers
-  # containerExcludeLogs: "name:datadog-agent" 
-  containerExcludeLogs: "image:gcr.io/datadoghq/agent image:gcr.io/datadoghq/cluster-agent image:gke.gcr.io/calico/node image:k8s.gcr.io/metrics-server-amd64 image:gcr.io/datadoghq/synthetics-private-location-worker"
+  containerExcludeLogs:
 
   # datadog.containerIncludeLogs -- Include logs in the Agent Autodiscovery, as
   # a space-separated list
@@ -501,11 +492,11 @@ clusterAgent:
 
   # clusterAgent.securityContext -- Allows you to overwrite the default PodSecurityContext on the cluster-agent pods.
   securityContext: {}
-  
+
   containers:
     clusterAgent:
       # clusterAgent.containers.clusterAgent.securityContext -- Specify securityContext on the cluster-agent container.
-      securityContext: {} 
+      securityContext: {}
 
   # clusterAgent.command -- Command to run in the Cluster Agent container as entrypoint
   command: []
@@ -524,13 +515,13 @@ clusterAgent:
     # clusterAgent.rbac.create -- If true, create & use RBAC resources
     create: true
 
-    # clusterAgent.rbac.serviceAccountName -- Specify service account name to use (usually pre-existing, created if create is true)
+    # clusterAgent.rbac.serviceAccountName -- Specify a preexisting ServiceAccount to use if clusterAgent.rbac.create is false
     serviceAccountName: default
-  
+
     # clusterAgent.rbac.serviceAccountAnnotations -- Annotations to add to the ServiceAccount if clusterAgent.rbac.create is true
     serviceAccountAnnotations: {}
 
-  ## Provide Cluster Agent PodSecurityPolicy configuration
+  ## Provide Cluster Agent pod security configuration
   podSecurity:
     podSecurityPolicy:
       # clusterAgent.podSecurity.podSecurityPolicy.create -- If true, create a PodSecurityPolicy resource for Cluster Agent pods
@@ -655,7 +646,7 @@ clusterAgent:
   ## WARNING: Make sure that hosts using this are properly firewalled otherwise
   ## metrics and traces are accepted from any host able to connect to this host.
   #
-  useHostNetwork:  # true
+  useHostNetwork: false
 
   # clusterAgent.dnsConfig -- Specify dns configuration options for datadog cluster agent containers e.g ndots
   ## ref: https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-dns-config
@@ -703,7 +694,7 @@ existingClusterAgent:
 
   # existingClusterAgent.serviceName -- Existing service name to use for reaching the external Cluster Agent
   serviceName:  # <EXISTING_DCA_SERVICE_NAME>
-  
+
   # existingClusterAgent.clusterchecksEnabled -- set this to false if you don’t want the agents to run the cluster checks of the joined external cluster agent
   clusterchecksEnabled: true
 
@@ -725,8 +716,7 @@ agents:
 
     # agents.image.tag -- Define the Agent version to use
     ## Use 7-jmx to enable jmx fetch collection
-    #tag: 7.26.0
-    tag: latest-jmx
+    tag: 7.29.0
 
     # agents.image.repository -- Override default registry + image.name for Agent
     repository:
@@ -752,7 +742,7 @@ agents:
     # agents.rbac.create -- If true, create & use RBAC resources
     create: true
 
-    # agents.rbac.serviceAccountName -- Specify service account name to use (usually pre-existing, created if create is true)
+    # agents.rbac.serviceAccountName -- Specify a preexisting ServiceAccount to use if agents.rbac.create is false
     serviceAccountName: default
 
     # agents.rbac.serviceAccountAnnotations -- Annotations to add to the ServiceAccount if agents.rbac.create is true
@@ -1048,11 +1038,6 @@ agents:
   #     - name: docker
   #       polling: true
   #
-  #   # Enable APM by setting the DD_APM_ENABLED envvar to true, or override this configuration
-  #   apm_config:
-  #     enabled: false
-  #     apm_non_local_traffic: true
-  #
   #   # Enable java cgroup handling. Only one of those options should be enabled,
   #   # depending on the agent version you are using along that chart.
   #
@@ -1079,8 +1064,7 @@ clusterChecksRunner:
 
     # clusterChecksRunner.image.tag -- Define the Agent version to use
     ## Use 7-jmx to enable jmx fetch collection
-    #tag: 7.29.0
-    tag: 7-jmx
+    tag: 7.29.0
 
     # clusterChecksRunner.image.repository -- Override default registry + image.name for Cluster Check Runners
     repository:
@@ -1107,7 +1091,7 @@ clusterChecksRunner:
     # clusterChecksRunner.rbac.serviceAccountAnnotations -- Annotations to add to the ServiceAccount if clusterChecksRunner.rbac.dedicated is true
     serviceAccountAnnotations: {}
 
-    # clusterChecksRunner.rbac.serviceAccountName -- Specify service account name to use (usually pre-existing, created if create is true)
+    # clusterChecksRunner.rbac.serviceAccountName -- Specify a preexisting ServiceAccount to use if clusterChecksRunner.rbac.create is false
     serviceAccountName: default
 
   # clusterChecksRunner.replicas -- Number of Cluster Checks Runner instances
@@ -1260,7 +1244,17 @@ kube-state-metrics:
   nodeSelector:
     kubernetes.io/os: linux
 
+  # # kube-state-metrics.image -- Override default image information for the kube-state-metrics container.
+  # image:
+  #  # kube-state-metrics.repository -- Override default image registry for the kube-state-metrics container.
+  #  repository: k8s.gcr.io/kube-state-metrics/kube-state-metrics
+  #  # kube-state-metrics.tag -- Override default image tag for the kube-state-metrics container.
+  #  tag: v1.9.8
+  #  # kube-state-metrics.pullPolicy -- Override default image pullPolicy for the kube-state-metrics container.
+  #  pullPolicy: IfNotPresent
+
 providers:
   gke:
     # providers.gke.autopilot -- Enables Datadog Agent deployment on GKE Autopilot
     autopilot: false
+

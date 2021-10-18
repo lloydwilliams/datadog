@@ -18,3 +18,13 @@ kubernetes/tomcat/temp/datadog-values copy.yaml
 docker/tomcat.zip
 logs/time-difference/curl/LW_send_warn_log.sh
 logs/time-difference/curl/LW_loop_send_100_info_logs.sh
+kubernetes/datadog/temp/1-create-secrets.sh
+kubernetes/datadog/temp/datadog-values.yaml
+kubernetes/datadog/temp/secrets.yaml
+kubernetes/datadog/secrets.yaml
+kubernetes/datadog/secrets.yaml
+kubernetes/datadog/RC-remove-context.sh
+kubernetes/datadog/helm-install-notes.txt
+kubernetes/datadog/DS-delete-secrets.sh
+kubernetes/datadog-operator/temp/4-kubectl-apply-operator.sh
+kubernetes/datadog-operator/temp/datadog-operator.yaml

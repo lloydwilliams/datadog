@@ -164,7 +164,8 @@ datadog:
     ##
     ## WARNING: Make sure that hosts using this are properly firewalled otherwise
     ## metrics and traces are accepted from any host able to connect to this host.
-    useHostPort: false
+    #useHostPort: false
+    useHostPort: true
 
     # datadog.dogstatsd.useHostPID -- Run the agent in the host's PID namespace
     ## This is required for Dogstatsd origin detection to work.
@@ -324,7 +325,7 @@ datadog:
     enableOOMKill: false
 
     # datadog.systemProbe.collectDNSStats -- Enable DNS stat collection
-    collectDNSStats: false
+    collectDNSStats: true
 
     # datadog.systemProbe.maxTrackedConnections -- the maximum number of tracked connections
     maxTrackedConnections: 65536

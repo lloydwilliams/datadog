@@ -7,9 +7,6 @@ metadata:
   name: my-tomcat-deployment
   labels:
     app: my-tomcat-deployment
-    tags.datadoghq.com/env: "prod"
-    tags.datadoghq.com/service: "tomcat"
-    tags.datadoghq.com/version: "1.0.2"
 spec:
   replicas: 1
   selector:
@@ -19,9 +16,6 @@ spec:
     metadata:
       labels:
         app: my-tomcat-deployment
-        tags.datadoghq.com/env: "prod"
-        tags.datadoghq.com/service: "tomcat"
-        tags.datadoghq.com/version: "1.0.2"
       annotations:
         ad.datadoghq.com/tomcat.check_names: '["tomcat"]'
         ad.datadoghq.com/tomcat.init_configs: '[{"is_jmx": true, "collect_default_metrics": true}]'
@@ -34,7 +28,6 @@ spec:
           imagePullPolicy: Always
           ports:
               - containerPort: 9012
-                protocol: TCP
           env:
             - name: CATALINA_OPTS 
               value: "-javaagent:/dd-java-agent.jar -XX:FlightRecorderOptions=stackdepth=256"
@@ -45,17 +38,9 @@ spec:
             - name: DD_TAGS
               value: "owner:lloyd"
             - name: DD_ENV
-              valueFrom:
-                fieldRef:
-                  fieldPath: metadata.labels['tags.datadoghq.com/env']
-            - name: DD_SERVICE
-              valueFrom:
-                fieldRef:
-                  fieldPath: metadata.labels['tags.datadoghq.com/service']
+              value: "prod"
             - name: DD_VERSION
-              valueFrom:
-                fieldRef:
-                  fieldPath: metadata.labels['tags.datadoghq.com/version']
+              value: "1.0.0"
             - name: DD_PROFILING_ENABLED
               value: "true"
             - name: DD_TRACE_ENABLED

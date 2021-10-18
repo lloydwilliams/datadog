@@ -5,7 +5,7 @@ metadata:
   labels:
     app: bookdetails-deployment
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: bookdetails-deployment
@@ -51,10 +51,3 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.podIP
-# Don't use this.
-# This was done to try to replicate an APM trace problem
-# it makes: DD_HOSTNAME=bookdetails-deployment-649c48fd4f-ccdk5
-#            - name: DD_HOSTNAME
-#              valueFrom:
-#                fieldRef:
-#                  fieldPath: metadata.name

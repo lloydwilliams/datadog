@@ -1,3 +1,4 @@
+#!/bin/sh
 #https://app.datadoghq.com/account/settings#agent/kubernetes
 
 #Install Helm.
