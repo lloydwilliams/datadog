@@ -1,0 +1,16 @@
+{
+  "name": "myproject",
+  "version": "1.0.0",
+  "description": "hapi-sample with datadog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^20.2.1",
+    "dd-trace": "^1.5.0",
+    "winston": "^3.3.3"
+  }
+}

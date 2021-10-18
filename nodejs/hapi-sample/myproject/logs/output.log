@@ -1,0 +1,4 @@
+2021-10-18T17:11:47: Server running on http://localhost:4000
+2021-10-18T17:14:23: I am writing a console log also!
+2021-10-18T17:14:24: DATADOG TRACER CONFIGURATION - {"date":"2021-10-18T17:14:24.749Z","os_name":"Linux","os_version":"4.14.243-185.433.amzn2.x86_64","architecture":"x64","version":"1.5.0","lang":"nodejs","lang_version":"16.11.1","env":"dev","enabled":true,"service":"bba-opo-server","agent_url":"http://127.0.0.1:8126","debug":false,"sample_rate":1,"sampling_rules":[],"tags":{"owner":"lloyd","cloud_provider":"aws","service":"bba-opo-server","env":"dev","version":"1.1.6","runtime-id":"19227238-4e00-4276-9901-261f56bc2cae"},"dd_version":"1.1.6","log_injection_enabled":true,"runtime_metrics_enabled":true,"profiling_enabled":false,"integrations_loaded":["http","https","fs","@hapi/hapi@20.2.1","winston@3.3.3"]}
+2021-10-18T17:23:42: I am writing a console log also!

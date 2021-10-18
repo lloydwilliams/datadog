@@ -1,0 +1,27 @@
+init_config:
+
+instances:
+
+##Log section
+logs:
+
+  - type: file
+    path: "/u01/nodejs/hapi-sample/myproject/logs/hapi-sample.log"
+    service: bba-opo-server
+    source: nodejs
+    sourcecategory: sourcecode
+
+  - type: file
+    path: "/u01/nodejs/hapi-sample/myproject/logs/output.log"
+#    path: "/home/ec2-user/.pm2/logs/index-out.log"
+    service: bba-opo-server
+    source: nodejs
+    sourcecategory: sourcecode 
+    
+  - type: file
+    path: "/u01/nodejs/hapi-sample/myproject/logs/error.log"
+#    path: "/home/ec2-user/.pm2/logs/index-error.log"
+    service: bba-opo-server
+    source: nodejs
+    sourcecategory: sourcecode    
+  
