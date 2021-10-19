@@ -2,7 +2,7 @@
 
 
 
-[Datadog NodeJS Sample with Hapi and Winston](hapi-sample/README.md)
+[Datadog NodeJS Sample with Hapi and Winston](hapi-sample/)
 
 
 
