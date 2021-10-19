@@ -8,13 +8,13 @@ This will enable you to trace your requests using Datadog APM. https://docs.data
 
 https://docs.datadoghq.com/tracing/setup_overview/setup/nodejs/?tab=otherenvironments
 
-![01 NodeJS APM Trace](images/01 NodeJS APM Trace.png)
+![01 NodeJS APM Trace](images/01_NodeJS_APM_Trace.png)
 
 It will also show you how to correlate your logs with the traces by injecting the trace id into the logs.
 
 https://docs.datadoghq.com/tracing/connect_logs_and_traces/nodejs/
 
-![02 NodeJS Traces with Logs](images/02 NodeJS Traces with Logs.png)
+![02 NodeJS Traces with Logs](images/02_NodeJS_Traces_with_Logs.png)
 
 You can create logs with different statuses that will appear color-coded within Datadog.
 
