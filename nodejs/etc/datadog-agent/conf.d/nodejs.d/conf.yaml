@@ -16,12 +16,11 @@ logs:
 #    path: "/home/ec2-user/.pm2/logs/index-out.log"
     service: bba-opo-server
     source: nodejs
-    sourcecategory: sourcecode 
-    
+    sourcecategory: sourcecode
+
   - type: file
     path: "/u01/nodejs/hapi-sample/myproject/logs/error.log"
 #    path: "/home/ec2-user/.pm2/logs/index-error.log"
     service: bba-opo-server
     source: nodejs
-    sourcecategory: sourcecode    
-  
+    sourcecategory: sourcecode
