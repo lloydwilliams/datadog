@@ -18,18 +18,18 @@ https://docs.datadoghq.com/tracing/connect_logs_and_traces/nodejs/
 
 You can create logs with different statuses that will appear color-coded within Datadog.
 
-![03 NodeJS Logs](images/03 NodeJS Logs.png)
+![03 NodeJS Logs](images/03_NodeJS_Logs.png)
 
 You can filter by the status and click on the log to bring up more details. 
 
-![04 NodeJS Logs WARN](images/04 NodeJS Logs WARN.png)
+![04 NodeJS Logs WARN](images/04_NodeJS_Logs_WARN.png)
 
 Notice how the logs also correlate back to the APM traces. 
 
-![05 NodeJS Logs with Trace](images/05 NodeJS Logs with Trace.png)
+![05 NodeJS Logs with Trace](images/05_NodeJS_Logs_with_Trace.png)
 
 and you will also see how to create logs which contain additional information in the event attributes. 
 
-![06 NodeJS Logs with Error and Event Attr](images/06 NodeJS Logs with Error and Event Attr.png)
+![06 NodeJS Logs with Error and Event Attr](images/06_NodeJS_Logs_with_Error_and_Event_Attr.png)
 
 You can create facets from any of the event attributes to allow you to analyze the logs any way you want. 
