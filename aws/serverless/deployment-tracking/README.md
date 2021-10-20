@@ -46,3 +46,6 @@ If you click in the Deployment Event Time, a new tab will open to show you the d
 
 ![AWS_Serverless_Deployment_Event](images/AWS_Serverless_Deployment_Event.png)
 
+If you are experiencing issues, make sure that your AWS IAM Policy has all the appropriate permissions:
+
+ ![AWS_Lamba_Integration_Problem](images/AWS_Lamba_Integration_Problem.png)
