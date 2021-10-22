@@ -194,13 +194,21 @@ JAVA_AGENT="-javaagent:/u01/datadog/dd-java-agent.jar"
 
 JAVA_OPTIONS="-XX:+UnlockCommercialFeatures -XX:+FlightRecorder -XX:FlightRecorderOptions=stackdepth=256 -Ddd.trace.config=/u01/datadog/dd-config.properties ${SAVE_JAVA_OPTIONS}"
 
+Then in the section below change the Java startup line so it looks like this:
+
+![WL-JavaStartUp](images/WL-JavaStartUp.png)
+
 And creating a dd-config.properties file:
 
 Datadog has instrumentation that is off by default for JAX-WS, specifically for endpoints instrumented with @WebService (JAX-WS 1.x) and @WebServiceProvider (JAX-WS 2.x). This was added in version 0.76.0+, and can be enabled with: `DD_INTEGRATION_JAX_WS_ENABLED=true` or -Ddd.integration.jax-ws.enabled=true 
 
 You can set the service name to be defined by the servlet context by setting: -Ddd.trace.split-by-tags=servlet.context
 
-dd.agent.host=localhost
+Create the file:
+
+**/u01/datadog/dd-config.properties**
+
+```dd.agent.host=localhost
 dd.trace.agent.port=8126
 dd.service=weblogic
 dd.env=dev
@@ -213,8 +221,15 @@ dd.integration.jax-ws.enabled=true
 dd.trace.split-by-tags=servlet.context
 #dd.trace.classes.exclude=com.riverbed*
 #dd.trace.sample.rate=1.0
+```
 
 For all the parameters and an explanation of their values, see: [Tracing Java Applications (datadoghq.com)](https://docs.datadoghq.com/tracing/setup_overview/setup/java/?tab=websphere#configuration)
+
+Of course, you need to restart the WebLogic server after making the changes. 
+
+You should see a line when it starts up showing that the Datadog Java Agent (-javaagent = Tracing Library) is being used. 
+
+![DD_TRACE-CONFIG](images/DD_TRACE-CONFIG.png)
 
 ## SOAP Requests
 
