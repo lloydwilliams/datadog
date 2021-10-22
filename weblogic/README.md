@@ -1,4 +1,4 @@
-# WebLogic Server on AWS Tracing on RedHat Linux
+# Tracing SOAP (JAX-WS) Requests on WebLogic Server running on RedHat Linux on AWS
 
 
 
