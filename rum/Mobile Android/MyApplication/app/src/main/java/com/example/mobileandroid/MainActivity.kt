@@ -26,8 +26,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         //Datadog
-        val clientToken = "pubfa03641f5f6a8cf041921140ff8f2d60"
-        val applicationId = "37c044be-5c12-4ec9-bdef-1e36ea90daba"
+        val clientToken = "<<USE YOUR OWN CLIENT TOKEN>>"
+        val applicationId = "<<USE YOUR OWN APPLICATION ID>>"
 
         val environmentName = "dev"
         val appVariantName = "myAppVariantName"
