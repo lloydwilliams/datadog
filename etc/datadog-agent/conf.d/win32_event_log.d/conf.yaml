@@ -1,0 +1,22 @@
+init_config:  
+  tag_event_id: true
+instances:  
+  - path: System
+    legacy_mode: false    
+    start: oldest
+    filters:      
+      id:        
+        - 41
+        - 1074
+        - 6006
+        - 6008
+logs:  
+  - type: windows_event
+    channel_path: System
+    source: windows.events
+  - type: windows_event
+    channel_path: Application
+    source: windows.events
+  - type: windows_event
+    channel_path: Security
+    source: windows.events

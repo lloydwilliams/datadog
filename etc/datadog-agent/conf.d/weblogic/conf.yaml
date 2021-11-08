@@ -1,0 +1,5 @@
+logs:
+    - type: file
+      path: /opt/weblogic/domains/bws_dev/servers/BWSServicesServer1/logs/*.log
+      source: java
+      service: weblogic

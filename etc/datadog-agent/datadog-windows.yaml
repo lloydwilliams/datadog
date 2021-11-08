@@ -1,0 +1,15 @@
+#rename to datadog.yaml and replace values below << >>. removing the << >> also.
+api_key: <<API-KEY>>
+env: dev
+tags:  
+  - site:<<YOUR-VALUE>> 
+logs_enabled: true
+process_config:  
+  enabled: true
+logs_config:  
+  container_collect_all: true
+  config_providers:  
+  - name: docker
+    polling: true
+listeners:  
+  - name: docker
