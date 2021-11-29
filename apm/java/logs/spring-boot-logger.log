@@ -31,3 +31,7 @@
 2021-11-29 17:14:34 INFO  o.s.w.s.DispatcherServlet:547 - 6504997720050746062 4984319850129543290 - Completed initialization in 1 ms
 2021-11-29 17:14:49 INFO  c.g.t.b.GraphQLDataFetchers:63 - 1759653083797544137 8176141486682367923 - Getting book with id: book-1
 2021-11-29 17:18:58 INFO  c.g.t.b.GraphQLDataFetchers:63 - 2871783446294766685 2686200942194310138 - Getting book with id: book-1
+2021-11-29 17:51:04 INFO  c.g.t.b.GraphQLDataFetchers:63 - 2646623314327360170 5638692856658262593 - Getting book with id: book-1
+2021-11-29 17:52:05 INFO  c.g.t.b.GraphQLDataFetchers:63 - 5763500267894727135 4844088209251690605 - Getting book with id: book-1
+2021-11-29 17:52:06 INFO  c.g.t.b.GraphQLDataFetchers:63 - 8985732703743496066 21143309433050418 - Getting book with id: book-1
+2021-11-29 17:52:06 INFO  c.g.t.b.GraphQLDataFetchers:63 - 394135336053109875 7721707450899501721 - Getting book with id: book-1

@@ -31,7 +31,9 @@ wget -O dd-java-agent.jar https://dtdg.co/latest-java-tracer
 
 ### Java Program
 
-Download the sample Java program (book-details-0.0.7.jar) and the script to run it. The script should run without any changes required, if Java is installed in your environment and you place the dd-java-agent.jar in the same folder as the book-details-0.0.7.jar.  
+Download the sample Java program (book-details-0.0.7.jar) and the script to run it (run-bookdetails-0.0.7.sh).![run-book-details](images/run-book-details.png)
+
+The script should run without any changes required, if Java is installed in your environment and you place the dd-java-agent.jar in the same folder as the book-details-0.0.7.jar.  
 
 If necessary, modify the startup script (run-bookdetails-0.0.7.sh) with the options that you want to use. For example, you may want to modify the values for the tags that are used. For a list of possible values and theirs definitions, please refer to the [Datadog documentation](https://docs.datadoghq.com/tracing/setup_overview/setup/java/?tab=otherenvironments#configuration). 
 
@@ -69,6 +71,8 @@ After any agent configuration changes, restart the agent. Use the agent manger o
  
 
 ![restart](images/restart.png)
+
+
 
 
 
@@ -119,6 +123,14 @@ Also go to the logs to see the [Live Tail](https://app.datadoghq.com/logs/liveta
 ![logs-live-tail](images/logs-live-tail.png)
 
 You can also pivot back to the trace from the logs. 
+
+### Troubleshooting 
+
+You can scroll down in the status window of the Datadog Agent Manager Web UI to see of the logs are being collected. 
+
+![logs-agent-status](images/logs-agent-status.png)
+
+
 
 
 
