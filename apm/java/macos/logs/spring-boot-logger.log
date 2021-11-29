@@ -1,0 +1,33 @@
+2021-11-29 16:39:14 INFO  c.g.t.b.BookDetailsApplication:55 - 5575425732109718198 1642326604106688113 - Starting BookDetailsApplication v0.0.5 using Java 1.8.0_291 on COMP-C02DW0E1ML87 with PID 83778 (/Users/lloyd.williams/GitHub/lloydwilliams/datadog/apm/java/macos/book-details-0.0.7.jar started by lloyd.williams in /Users/lloyd.williams/GitHub/lloydwilliams/datadog/apm/java/macos)
+2021-11-29 16:39:14 DEBUG c.g.t.b.BookDetailsApplication:56 - 5575425732109718198 1642326604106688113 - Running with Spring Boot v2.5.1, Spring v5.3.8
+2021-11-29 16:39:14 INFO  c.g.t.b.BookDetailsApplication:659 - 5575425732109718198 1642326604106688113 - No active profile set, falling back to default profiles: default
+2021-11-29 16:39:16 INFO  o.s.b.w.e.t.TomcatWebServer:108 - 5575425732109718198 1642326604106688113 - Tomcat initialized with port(s): 8080 (http)
+2021-11-29 16:39:16 INFO  o.a.c.h.Http11NioProtocol:173 - 5575425732109718198 1642326604106688113 - Initializing ProtocolHandler ["http-nio-8080"]
+2021-11-29 16:39:16 INFO  o.a.c.c.StandardService:173 - 5575425732109718198 1642326604106688113 - Starting service [Tomcat]
+2021-11-29 16:39:16 INFO  o.a.c.c.StandardEngine:173 - 5575425732109718198 1642326604106688113 - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-11-29 16:39:16 INFO  o.a.c.c.C.[.[.[/]:173 - 5575425732109718198 1642326604106688113 - Initializing Spring embedded WebApplicationContext
+2021-11-29 16:39:16 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:290 - 5575425732109718198 1642326604106688113 - Root WebApplicationContext: initialization completed in 1450 ms
+2021-11-29 16:39:17 INFO  o.a.c.h.Http11NioProtocol:173 - 5575425732109718198 1642326604106688113 - Starting ProtocolHandler ["http-nio-8080"]
+2021-11-29 16:39:17 INFO  o.s.b.w.e.t.TomcatWebServer:220 - 5575425732109718198 1642326604106688113 - Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-29 16:39:17 INFO  c.g.t.b.BookDetailsApplication:61 - 5575425732109718198 1642326604106688113 - Started BookDetailsApplication in 3.139 seconds (JVM running for 5.114)
+2021-11-29 16:58:21 INFO  o.a.c.c.C.[.[.[/]:173 - 7807167247651638565 1094492968746698617 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-29 16:58:21 INFO  o.s.w.s.DispatcherServlet:525 - 7807167247651638565 1094492968746698617 - Initializing Servlet 'dispatcherServlet'
+2021-11-29 16:58:21 INFO  o.s.w.s.DispatcherServlet:547 - 7807167247651638565 1094492968746698617 - Completed initialization in 8 ms
+2021-11-29 16:58:22 INFO  c.g.t.b.GraphQLDataFetchers:63 - 7807167247651638565 1358032327772496475 - Getting book with id: book-3
+2021-11-29 17:13:53 INFO  c.g.t.b.BookDetailsApplication:55 - 3839454885030793789 5289409869470916226 - Starting BookDetailsApplication v0.0.5 using Java 1.8.0_291 on COMP-C02DW0E1ML87 with PID 93949 (/Users/lloyd.williams/GitHub/lloydwilliams/datadog/apm/java/macos/book-details-0.0.7.jar started by lloyd.williams in /Users/lloyd.williams/GitHub/lloydwilliams/datadog/apm/java/macos)
+2021-11-29 17:13:53 DEBUG c.g.t.b.BookDetailsApplication:56 - 3839454885030793789 5289409869470916226 - Running with Spring Boot v2.5.1, Spring v5.3.8
+2021-11-29 17:13:53 INFO  c.g.t.b.BookDetailsApplication:659 - 3839454885030793789 5289409869470916226 - No active profile set, falling back to default profiles: default
+2021-11-29 17:13:54 INFO  o.s.b.w.e.t.TomcatWebServer:108 - 3839454885030793789 5289409869470916226 - Tomcat initialized with port(s): 8080 (http)
+2021-11-29 17:13:54 INFO  o.a.c.h.Http11NioProtocol:173 - 3839454885030793789 5289409869470916226 - Initializing ProtocolHandler ["http-nio-8080"]
+2021-11-29 17:13:54 INFO  o.a.c.c.StandardService:173 - 3839454885030793789 5289409869470916226 - Starting service [Tomcat]
+2021-11-29 17:13:54 INFO  o.a.c.c.StandardEngine:173 - 3839454885030793789 5289409869470916226 - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-11-29 17:13:54 INFO  o.a.c.c.C.[.[.[/]:173 - 3839454885030793789 5289409869470916226 - Initializing Spring embedded WebApplicationContext
+2021-11-29 17:13:54 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:290 - 3839454885030793789 5289409869470916226 - Root WebApplicationContext: initialization completed in 1516 ms
+2021-11-29 17:13:55 INFO  o.a.c.h.Http11NioProtocol:173 - 3839454885030793789 5289409869470916226 - Starting ProtocolHandler ["http-nio-8080"]
+2021-11-29 17:13:55 INFO  o.s.b.w.e.t.TomcatWebServer:220 - 3839454885030793789 5289409869470916226 - Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-29 17:13:55 INFO  c.g.t.b.BookDetailsApplication:61 - 3839454885030793789 5289409869470916226 - Started BookDetailsApplication in 3.386 seconds (JVM running for 5.891)
+2021-11-29 17:14:34 INFO  o.a.c.c.C.[.[.[/]:173 - 6504997720050746062 4984319850129543290 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-29 17:14:34 INFO  o.s.w.s.DispatcherServlet:525 - 6504997720050746062 4984319850129543290 - Initializing Servlet 'dispatcherServlet'
+2021-11-29 17:14:34 INFO  o.s.w.s.DispatcherServlet:547 - 6504997720050746062 4984319850129543290 - Completed initialization in 1 ms
+2021-11-29 17:14:49 INFO  c.g.t.b.GraphQLDataFetchers:63 - 1759653083797544137 8176141486682367923 - Getting book with id: book-1
+2021-11-29 17:18:58 INFO  c.g.t.b.GraphQLDataFetchers:63 - 2871783446294766685 2686200942194310138 - Getting book with id: book-1

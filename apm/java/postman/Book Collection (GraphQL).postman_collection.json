@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "9d06db4f-3c87-4bc4-a032-0ea092ce56b8",
+		"name": "Book Collection (GraphQL)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "queries",
+			"item": [
+				{
+					"name": "bookById - Book1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query bookById ($id: ID) {\n    bookById (id: $id) {\n        id\n        name\n        pageCount\n        author {\n            id\n            firstName\n            lastName\n        }\n    }\n}",
+								"variables": "{\n  \"id\": \"book-1\"\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bookById - Book2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query bookById ($id: ID) {\n    bookById (id: $id) {\n        id\n        name\n        pageCount\n        author {\n            id\n            firstName\n            lastName\n        }\n    }\n}",
+								"variables": "{\n  \"id\": \"book-2\"\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bookById - Book3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query bookById ($id: ID) {\n    bookById (id: $id) {\n        id\n        name\n        pageCount\n        author {\n            id\n            firstName\n            lastName\n        }\n    }\n}",
+								"variables": "{\n  \"id\": \"book-3\"\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bookById - Book4",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query bookById ($id: ID) {\n    bookById (id: $id) {\n        id\n        name\n        pageCount\n        author {\n            id\n            firstName\n            lastName\n        }\n    }\n}",
+								"variables": "{\n  \"id\": \"book-4\"\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bookById - Error",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query bookById ($id: ID) {\n    bookById (id: $id) {\n        id\n        name\n        pageCount\n        author {\n            id\n            firstName\n            lastName\n        }\n    }\n}",
+								"variables": "{\n  \"id\": badrequest\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bookById - BookNotFound",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query bookById ($id: ID) {\n    bookById (id: $id) {\n        id\n        name\n        pageCount\n        author {\n            id\n            firstName\n            lastName\n        }\n    }\n}",
+								"variables": "{\n  \"id\": \"book-99\"\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "",
+			"type": "any",
+			"description": "URL for the request."
+		}
+	]
+}
