@@ -50,12 +50,12 @@ One additional step is to set-up Datadog to collect your logs. This program will
 
 Create a folder in the configuration directory (/opt/datadog-agent/etc/conf.d) of the agent for the configuration to collect your logs (e.g. /opt/datadog-agent/etc/conf.d/bookdetails.d)
 
-Create a conf.yaml file as follows with the path to the applications log files (e.g. /Users/lloyd.williams/GitHub/lloydwilliams/datadog/apm/java/macos/logs)
+Create a conf.yaml file as follows with the path to the applications log files (e.g. /Users/lloyd.williams/GitHub/lloydwilliams/datadog/apm/java/logs)
 
 ```
 logs:
     - type: file
-      path: /Users/lloyd.williams/GitHub/lloydwilliams/datadog/apm/java/macos/logs/*.log
+      path: /Users/lloyd.williams/GitHub/lloydwilliams/datadog/apm/java/logs/*.log
       source: java
       service: bookdetails
 ```
@@ -106,11 +106,19 @@ Click on one of the traces that have a Resouce called "POST /graphql" to view th
 
 ![trace-details](images/trace-details.png)
 
+Notice that you can click on the Logs tab and see that the logs are correlated with the traces. This is because we used the parameter dd.logs.injection=true when starting up the Java application which injected the traces into the logs.
+
+```
+-Ddd.logs.injection=true
+```
+
+![logs-with-trace-id](images/logs-with-trace-id.png)
+
 Also go to the logs to see the [Live Tail](https://app.datadoghq.com/logs/livetail) of the logs:
 
 ![logs-live-tail](images/logs-live-tail.png)
 
-
+You can also pivot back to the trace from the logs. 
 
 
 
