@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="fileoutput" format="java">
+      <types:shape format="raml"><![CDATA[#%RAML 1.0 DataType
+type: string]]></types:shape>
+    </types:type>
+    <types:type name="trace" format="json">
+      <types:shape format="weave" example="examples/ddtrace.json"><![CDATA[%dw 2.0
+
+type trace = Array<Array<{|  trace_id: Number {"typeId": "double"},   span_id: Number {"typeId": "double"},   name: String,   resource: String,   service: String,   start: Number {"typeId": "int"},   duration: Number {"typeId": "int"},   error: Number {"typeId": "int"},   meta: {| env: String |},   metrics: {| mymetric: Number {"typeId": "int"} |},   parent_id: Number {"typeId": "double"},   "type": String|}>> {"example": "[[{\\\"trace_id\\\":261376194409063566,\\\"span_id\\\":9999999993,\\\"name\\\":\\\"mytrace\\\",\\\"resource\\\":\\\"postman2\\\",\\\"service\\\":\\\"postman\\\",\\\"start\\\":7000,\\\"duration\\\":50000,\\\"error\\\":0,\\\"meta\\\":{\\\"env\\\":\\\"dev\\\"},\\\"metrics\\\":{\\\"mymetric\\\":10},\\\"parent_id\\\":764810442238384190,\\\"type\\\":\\\"custom\\\"}]]"}
+
+]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#41fb3731-262e-462e-ae33-77b8ece23c36">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="trace"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>

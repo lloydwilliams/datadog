@@ -1,0 +1,2 @@
+For details about the Datadog Trace API, see: https://docs.datadoghq.com/tracing/guide/send_traces_to_agent_by_api/
+

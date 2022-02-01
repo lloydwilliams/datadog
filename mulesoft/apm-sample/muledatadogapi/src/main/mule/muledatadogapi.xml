@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:java="http://www.mulesoft.org/schema/mule/java" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:file="http://www.mulesoft.org/schema/mule/file"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/java http://www.mulesoft.org/schema/mule/java/current/mule-java.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="34090391-9f2f-4d21-baa5-59a7e3b2fc34" >
+		<http:listener-connection host="0.0.0.0" port="9501" />
+	</http:listener-config>
+	<file:config name="File_Config" doc:name="File Config" doc:id="d2294592-e2b7-4d5a-ae5a-57caaf34ecee" >
+		<file:connection workingDir="/Users/lloyd.williams/u01/mulesoft/data" />
+	</file:config>
+	<http:request-config name="DatadogAgent" doc:name="HTTP Request configuration" doc:id="270d9111-4f33-47c5-b4fb-8a4dd84eeed7" >
+		<http:request-connection host="localhost" port="8126" />
+	</http:request-config>
+	<file:config name="File_Config1" doc:name="File Config" doc:id="d569df6e-b30c-472a-9a88-7985dea185ca" >
+		<file:connection workingDir="/Users/lloyd.williams/u01/mulesoft/data" />
+	</file:config>
+	<http:request-config name="Payroll_Configuration" doc:name="HTTP Request configuration" doc:id="cfbbf033-28e9-4e13-a78d-60aca119381e" >
+		<http:request-connection host="localhost" port="8080" />
+	</http:request-config>
+	<flow name="muledatadogapi" doc:id="ec67f1ee-c9fa-4804-b5eb-7d46514e2158" >
+		<http:listener doc:name="HTTP Listener" doc:id="024b8892-b13b-405e-b1b3-5c188b3241c6" config-ref="HTTP_Listener_config" path="/mulesoft"/>
+		<logger level="INFO" doc:name="Log Message Received" doc:id="d06e3ce9-d21e-461c-b21c-a45fd51b84f2" message="#['received a message at: ' ++ now() as String]" />
+		<try doc:name="Try to Setup Datadog Variables" doc:id="61bdb762-2030-471b-967f-f0ac93be2d72" >
+			<set-variable value='#[now() as Number {unit: "milliseconds"}]' doc:name="Set StartTime Variable" doc:id="dc28a633-12a1-4662-bc5b-7d203b919559" variableName="startTime" />
+			<set-variable value="#[%dw 2.0&#10;output application/java&#10;---&#10;if (attributes.headers['x-datadog-trace-id'] == null) &#10;round(random() * 9223372036854775807) as String&#10;else &#10;attributes.headers['x-datadog-trace-id']]" doc:name="Check the Trace ID or Set to Random" doc:id="ce135b59-8a30-4b82-a23c-e57030aec440" variableName="traceid" />
+			<logger level="INFO" doc:name="Log the Trace ID for Debugging" doc:id="d4d03097-e333-4750-8eef-189b8188f6f1" message="#['x-datadog-trace-id: ' ++ vars.traceid as String]" />
+			<set-variable value="#[%dw 2.0&#10;output application/java&#10;---&#10;if (attributes.headers['x-datadog-parent-id'] == null) &#10;0 as String&#10;else &#10;attributes.headers['x-datadog-parent-id']]" doc:name="Check the Parent ID or Set to 0" doc:id="92c7a96f-2739-4a6a-8c59-8413197ba15d" variableName="parentSpanId" />
+			<logger level="INFO" doc:name="Log the Parent Span ID for Debugging" doc:id="1e2298f2-8268-433d-a09b-b05fc66daf64" message="#['x-datadog-parent-id: ' ++ vars.parentSpanId as String]" />
+			<set-variable value="#[attributes.method ++ ' ' ++ attributes.listenerPath]" doc:name="Set the Resource Name Variable" doc:id="88536729-ddd9-49c0-a2c5-7fc6cfea5cb3" variableName="resource" />
+		</try>
+		<try doc:name="Try the business logic" doc:id="a5e2d7cb-6ab1-4636-a2c3-f5f26e97b7a8" >
+			<set-variable value="#[0 as Number]" doc:name="Set Business Logic Error Code" doc:id="2677313f-1cfd-404f-b061-8319ad2bb2a5" variableName="busLogicErrorCode"/>
+			<set-variable value="#[round(random() * 9223372036854775807)]" doc:name="Set the Bus Logic Span Id" doc:id="7f240a05-5048-4c1c-8e25-5c8a511bfa23" variableName="busLogicSpanId"/>
+			<set-variable value='#[now() as Number {unit: "milliseconds"}]' doc:name="Set the Business Logic Start Time" doc:id="7370c5fe-fd47-42fb-a695-cd67938c925a" variableName="busLogicStart"/>
+			<set-variable value="#[payload]" doc:name="Save Input Payload Variable" doc:id="98742ac2-33e5-4e14-aeba-8cb42ee4b085" variableName="inputPayload"/>
+			<ee:transform doc:name="Set Employee Payload" doc:id="e1f11fcb-8ace-4e2f-9d19-3bbdc214914a" >
+				<ee:message >
+					<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+				</ee:message>
+			</ee:transform>
+			<http:request method="POST" doc:name="Add Employee" doc:id="f6099b35-3c4a-492f-9767-2db792949f93" config-ref="Payroll_Configuration" path="/employees" outputMimeType="application/json">
+				<http:headers ><![CDATA[#[output application/x-www-form-urlencoded 
+--- 
+{
+'Content-Type': 'application/json', 
+'x-datadog-trace-id': vars.traceid,
+'x-datadog-parent-id': vars.busLogicSpanId
+}]]]></http:headers>
+			</http:request>
+			<set-variable value='#[now() as Number {unit: "milliseconds"}]' doc:name="Set the Business Logic End Time" doc:id="5c2047ba-cbef-4bf5-9234-f4f285ea6d93" variableName="busLogicEnd"/>
+			<error-handler >
+				<on-error-continue enableNotifications="true" logException="true" doc:name="On Error Continue" doc:id="814103c8-c971-424f-afb8-97e55ec3ce42" type="HTTP:CONNECTIVITY" when="true">
+					<logger level="INFO" doc:name="Logger" doc:id="920d7475-6a3e-4916-ad80-2b30795f96a2" message="#['An error has occcurred for business logic span id:' ++ vars.busLogicSpanId as String]"/>
+					<set-variable value="#[1 as Number]" doc:name="Set Business Logic Error Code " doc:id="68ab8c16-c26c-4125-914c-41cecd83769d" variableName="busLogicErrorCode"/>
+					<set-variable value='#[now() as Number {unit: "milliseconds"}]' doc:name="Set the Business Logic End Time" doc:id="64b6f8d0-2477-4ca6-9973-13a213b15d25" variableName="busLogicEnd"/>
+				</on-error-continue>
+			</error-handler>
+		</try>
+		<try doc:name="Try to Send Trace Spans to Datadog" doc:id="09f1f75e-543b-4a99-81de-777719d1aa8b" >
+			<set-variable value="#[round(random() * 9223372036854775807)]" doc:name="Set MuleSoft Top Span Id " doc:id="19383aae-0b19-403d-9833-30ae7419221c" variableName="topSpanId"/>
+			<ee:transform doc:name="Transform Message to Datadog Trace API" doc:id="41fb3731-262e-462e-ae33-77b8ece23c36">
+			<ee:message>
+				<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+[
+    [
+        {
+            "duration": ((now() as Number {unit: "milliseconds"}) - vars.startTime) * 1000000,
+            "error": 0,
+            "meta": vars.inputPayload,
+            "metrics": {
+                "cost": 22.05
+            },
+            "name": "mulesoft",
+            "parent_id": vars.parentSpanId as Number,
+            "resource": vars.resource,
+            "service": "mymulesoftservice",
+            "span_id": vars.topSpanId,
+            "start": vars.startTime * 1000000,
+            "trace_id": vars.traceid as Number,
+            "type": "web"
+        }
+    ],
+    [
+        {
+            "duration": (vars.busLogicEnd - vars.busLogicStart) * 1000000,
+            "error": vars.busLogicErrorCode,
+            "meta": {
+                "more": "my business data"
+            },
+            "metrics": {
+                "dollars": 212.95
+            },
+            "name": "businesslogic",
+            "parent_id": vars.topSpanId,
+            "resource": "POST /employees",
+            "service": "mymulesoftservice",
+            "span_id": vars.busLogicSpanId,
+            "start": vars.busLogicStart * 1000000,
+            "trace_id": vars.traceid as Number,
+            "type": "web"
+        }
+    ]
+]]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+			<file:write doc:name="Write Payload to Temp File for Debugging" doc:id="c5182e7b-407f-40f9-91d6-ef4859bbe142" config-ref="File_Config1" path="datadog_payload.txt" />
+			<http:request method="PUT" doc:name="Send Trace API Request To Datadog Agent" doc:id="f9963f4b-635e-40e7-835a-21272709e933" config-ref="DatadogAgent" path="/v0.3/traces" />
+		</try>
+	</flow>
+</mule>
