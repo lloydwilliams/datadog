@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>dogstatsd-oracledb</groupId>
+  <artifactId>dogstatsd-oracledb</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <dependencies>	
+		<dependency>
+		    <groupId>com.datadoghq</groupId>
+		    <artifactId>java-dogstatsd-client</artifactId>
+		    <version>3.0.0</version>
+		</dependency>
+  
+		<dependency>
+		    <groupId>com.oracle</groupId>
+		    <artifactId>ojdbc8</artifactId>
+		    <version>1.0</version>
+		    <scope>system</scope>
+		    <systemPath>/Users/lloyd.williams/u01/oracle/jdbc/12.2.0.1/ojdbc8.jar</systemPath>
+		</dependency>
+	
+  </dependencies>
+  
+  
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+
+
+</project>
