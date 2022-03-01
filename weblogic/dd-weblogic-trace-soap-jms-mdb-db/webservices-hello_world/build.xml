@@ -1,0 +1,78 @@
+<project name="webservices-hello_world" default="all">
+  <!-- set global properties for this build -->
+  <property name="wls.username" value="weblogic" />
+  <property name="wls.password" value="welcome1" />
+  <property name="wls.hostname" value="localhost" />
+  <property name="wls.port" value="7101" />
+  <property name="wls.server.name" value="AdminServer" />
+  <property name="ear.deployed.name" value="helloWorldEar" />
+  <property name="example-output" value="output" />
+  <property name="ear-dir" value="${example-output}/helloWorldEar" />
+  <property name="dist.dir" value="${example-output}/dist" />
+  <property name="clientclass-dir" value="${example-output}/clientclasses" />
+  <path id="client.class.path">
+    <pathelement path="${clientclass-dir}"/>
+    <pathelement path="${java.class.path}"/>
+  </path>
+  <taskdef name="wlserver" classname="weblogic.ant.taskdefs.management.WLServer"/>	
+  <taskdef name="jwsc"
+    classname="weblogic.wsee.tools.anttasks.JwscTask" />
+  <taskdef name="clientgen"
+    classname="weblogic.wsee.tools.anttasks.ClientGenTask" />
+  <taskdef name="wldeploy"
+    classname="weblogic.ant.taskdefs.management.WLDeploy"/>
+  <target name="all" depends="clean,build-service,deploy,client" />
+  <target name="clean" depends="undeploy">
+    <delete dir="${example-output}"/>
+  </target>
+  <target name="build-service">
+    <jwsc
+      srcdir="src"
+      destdir="${ear-dir}">
+      <jws file="examples/webservices/hello_world/HelloWorldImpl.java" 
+          type="JAXWS"/>
+    </jwsc>
+  </target>
+<!--	
+  <target name="build-ear">
+	<ear destfile="${dist.dir}/${ear.deployed.name}.ear" appxml="application.xml">
+	  <metainf dir="${ear-dir}/META-INF}"/>
+	  <fileset dir="${ear-dir}" includes="*.jar,*.war"/>
+	</ear>
+  </target>
+-->  
+  <target name="deploy">
+    <wldeploy action="deploy" name="${ear.deployed.name}"
+      source="${ear-dir}" user="${wls.username}"
+      password="${wls.password}" verbose="true"
+      adminurl="t3://${wls.hostname}:${wls.port}"
+      targets="${wls.server.name}" />
+  </target>
+  <target name="undeploy">
+    <wldeploy action="undeploy" name="${ear.deployed.name}"
+      failonerror="false"
+      user="${wls.username}" password="${wls.password}" verbose="true"
+      adminurl="t3://${wls.hostname}:${wls.port}"
+      targets="${wls.server.name}" />
+  </target>
+  <target name="client">
+    <clientgen
+      wsdl="http://${wls.hostname}:${wls.port}/HelloWorldImpl/HelloWorldService?WSDL"
+      destDir="${clientclass-dir}"
+      packageName="examples.webservices.hello_world.client"
+      type="JAXWS"/>
+    <javac
+      srcdir="${clientclass-dir}" destdir="${clientclass-dir}"
+      includes="**/*.java"/>
+    <javac
+      srcdir="src" destdir="${clientclass-dir}"
+      includes="examples/webservices/hello_world/client/**/*.java"/>
+  </target>
+  <target name="run">
+    <java classname="examples.webservices.hello_world.client.Main" 
+          fork="true" failonerror="true" >
+      <classpath refid="client.class.path"/>
+      <arg 
+ line="http://${wls.hostname}:${wls.port}/HelloWorldImpl/HelloWorldService"  />
+    </java> </target>
+</project>

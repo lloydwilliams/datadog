@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application id="Application_ID" version="7" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/application_7.xsd">
+ <display-name>MyHelloEAR</display-name> 
+ <module>
+    <web>
+      <web-uri>HelloWorldImpl.war</web-uri>
+      <context-root>HelloWorldImpl</context-root>
+    </web>
+  </module>
+ </application> 
