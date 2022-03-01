@@ -2,7 +2,13 @@
 
 This example shows tracing through an applcation that uses HTTP-SOAP to put a JMS message on a WebLogic JMS queue and then an MDB (Java code) takes the message from the queue and sends data to an Oracle database. 
 
+![APM-Traces-List](images/APM-Traces-List.png)
 
+The Service Map shows the relationship between the services.
+
+![ServiceMap](images/ServiceMap.png)
+
+For each individal request made, there are traces that have a corresponding "Flame Graph".
 
 ![DD-APM-Trace](images/DD-APM-Trace.png)
 
@@ -18,7 +24,10 @@ Datadog's "Trace Map" shows the flow from the HTTP Request (SOAP) to the JMS Que
 
 Datadog allows you to use custom code to add any information you have as tags which will be shown in Datadog and can used to help in searching and for analytics purposes.
 
+The main Java code modifications can be found here:
 
+https://github.com/lloydwilliams/datadog/blob/main/weblogic/dd-weblogic-trace-soap-jms-mdb-db/JMSEJB/ejbModule/ejb30/MyMDB.java
+https://github.com/lloydwilliams/datadog/blob/main/weblogic/dd-weblogic-trace-soap-jms-mdb-db/JMSEJB/ejbModule/ejb30/MyExtractAdapter.java
 
 
 
