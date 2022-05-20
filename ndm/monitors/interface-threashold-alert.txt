@@ -1,0 +1,28 @@
+{
+	"id": 72084479,
+	"name": "SNMP Monitor - NYC Edge Router {{interface.name}} Interface is too high",
+	"type": "query alert",
+	"query": "avg(last_5m):avg:snmp.ifBandwidthInUsage.rate{snmp_host:nyc-edgrt-001.nyc.edge-router,snmp_device:10.100.70.137} by {snmp_host,interface} > 35",
+	"message": "{{#is_alert}}\nNYC Edge Router Interface {{interface.name}} has exceeded the alert threshold {{threshold}} \nPlease check the SNMP [dashboard](https://app.datadoghq.com/dashboard/myc-7uq-6g4/) \n{{/is_alert}} \n\n{{#is_warning}}\nNYC Edge Router Interface {{interface.name}} has exceeded the warning threshold {{warn_threshold}} \n{{/is_warning}} \n\n{{#is_recovery}}\nNYC Edge Router Interface {{interface.name}} has recovered \n{{/is_recovery}} @servicenow-dev69900-databaseatlanta @lloyd.williams@datadoghq.com",
+	"tags": [],
+	"options": {
+		"thresholds": {
+			"critical": 35,
+			"warning": 30
+		},
+		"notify_audit": false,
+		"require_full_window": false,
+		"notify_no_data": false,
+		"renotify_interval": 0,
+		"renotify_statuses": null,
+		"timeout_h": 0,
+		"silenced": {},
+		"include_tags": true,
+		"new_group_delay": 60,
+		"renotify_occurrences": null,
+		"no_data_timeframe": null,
+		"escalation_message": ""
+	},
+	"priority": null,
+	"restricted_roles": null
+}
