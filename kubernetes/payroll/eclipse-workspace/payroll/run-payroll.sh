@@ -1,0 +1,2 @@
+#!/bin/sh
+java -javaagent:/Users/lloyd.williams/u01/datadog/dd-java-agent.jar -Ddd.profiling.enabled=false -Ddd.logs.injection=true -Ddd.service=payroll -Ddd.env=dev -Ddd.version=1.0.5 -jar target/payroll-1.0.5.jar

@@ -28,3 +28,6 @@ kubernetes/datadog/helm-install-notes.txt
 kubernetes/datadog/DS-delete-secrets.sh
 kubernetes/datadog-operator/temp/4-kubectl-apply-operator.sh
 kubernetes/datadog-operator/temp/datadog-operator.yaml
+kubernetes/payroll/azure-aks/template/parameters.json
+kubernetes/payroll/azure-aks/template/template.json
+*.log

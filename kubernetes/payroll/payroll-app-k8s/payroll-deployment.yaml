@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payroll
+  labels:
+    app: "payroll"
+    name: "payroll"
+    tags.datadoghq.com/env: "prod"
+    tags.datadoghq.com/service: "payroll"
+    tags.datadoghq.com/version: "1.0.5"
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: "payroll"
+  template:
+    metadata:
+      labels:
+        app: "payroll"
+        name: "payroll"
+        tags.datadoghq.com/env: "prod"
+        tags.datadoghq.com/service: "payroll"
+        tags.datadoghq.com/version: "1.0.5"
+#      annotations:
+#        ad.datadoghq.com/payroll.logs: '[{"type":"file", "source":"payroll", "service":"payroll", "path":"/logs/spring-boot-logger.log"}, {"source": "container", "service": "payroll"}]'
+    spec:
+      volumes:
+        - hostPath:
+            path: /var/run/datadog/
+          name: apmsocketpath
+#        - hostPath:
+#            path: /logs
+#          name: logpath
+      containers:
+        - name: payroll
+          image: lloydwilliams/payroll:latest
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: apmsocketpath
+              mountPath: /var/run/datadog
+#           - name: logpath
+#             mountPath: /logs
+          env:
+            - name: JAVA_OPTS
+              value: "-XX:FlightRecorderOptions=stackdepth=256"
+            - name: DD_ENV
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['tags.datadoghq.com/env']
+            - name: DD_SERVICE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['tags.datadoghq.com/service']
+            - name: DD_VERSION
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['tags.datadoghq.com/version']
+            - name: DD_TAGS
+              value: "app:payroll,owner:lloyd"        
+            - name: DD_TRACE_METHODS
+              value: "com.example.payroll.EmployeeController[newEmployee,replaceEmployee];com.example.payroll.LoadDatabase[initDatabase]"
+            - name: DD_PROFILING_ENABLED
+              value: "true"
+            - name: DD_LOGS_INJECTION
+              value: "true"
