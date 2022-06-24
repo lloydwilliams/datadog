@@ -4,6 +4,10 @@ These scripts help you set-up the Datadog agent on Kubernetes (K8S) and configur
 
 ![K8S-Datadog](images/K8S-Datadog.png)
 
+![payroll-apm-flame-graph](images/payroll-apm-flame-graph.png)
+
+
+
 For more information, please refer to:
 
 K8S
@@ -21,5 +25,4 @@ https://www.datadoghq.com/blog/monitoring-kubernetes-with-datadog/#the-datadog-c
 YAML
 
 https://jsonformatter.org/yaml-formatter
-
 
