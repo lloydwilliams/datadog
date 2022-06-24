@@ -6,6 +6,8 @@ These scripts help you set-up the Datadog agent on Kubernetes (K8S) and configur
 
 ![payroll-apm-flame-graph](images/payroll-apm-flame-graph.png)
 
+![payroll-k8s-springboot-trace-map](images/payroll-k8s-springboot-trace-map.png)
+
 
 
 For more information, please refer to:
