@@ -22,4 +22,4 @@ Within the "SimpleInstrumentation" class, add the code to create custom span tag
 
 Please refer to Datadog's documentation for [adding custom span tags in Java](https://docs.datadoghq.com/tracing/trace_collection/custom_instrumentation/java/#add-custom-span-tags) 
 
-![postman](images/postman.png)![datadog-docs-custom-java]()
+![postman](images/postman.png)
