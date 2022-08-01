@@ -1,0 +1,765 @@
+2022-07-25 14:34:51 INFO  c.g.t.b.BookDetailsApplication:55 -   - Starting BookDetailsApplication using Java 1.8.0_291 on COMP-C02DW0E1ML87 with PID 75513 (/Users/lloyd.williams/u01/eclipse-workspaces/graphql/book-details/target/classes started by lloyd.williams in /Users/lloyd.williams/u01/eclipse-workspaces/graphql/book-details)
+2022-07-25 14:34:51 DEBUG c.g.t.b.BookDetailsApplication:56 -   - Running with Spring Boot v2.5.1, Spring v5.3.8
+2022-07-25 14:34:51 INFO  c.g.t.b.BookDetailsApplication:659 -   - No active profile set, falling back to default profiles: default
+2022-07-25 14:34:51 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext:591 -   - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [com.graphqljava.tutorial.bookdetails.BookDetailsApplication]; nested exception is java.lang.IllegalStateException: Failed to introspect annotated methods on class org.springframework.metrics.boot.MetricsConfiguration
+2022-07-25 14:34:51 INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener:136 -   - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-07-25 14:34:51 ERROR o.s.b.SpringApplication:843 -   - Application run failed
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [com.graphqljava.tutorial.bookdetails.BookDetailsApplication]; nested exception is java.lang.IllegalStateException: Failed to introspect annotated methods on class org.springframework.metrics.boot.MetricsConfiguration
+	at org.springframework.context.annotation.ConfigurationClassParser.processImports(ConfigurationClassParser.java:610)
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:311)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:250)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:207)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:175)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:331)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:247)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:311)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:112)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:746)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:564)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:338)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332)
+	at com.graphqljava.tutorial.bookdetails.BookDetailsApplication.main(BookDetailsApplication.java:37)
+Caused by: java.lang.IllegalStateException: Failed to introspect annotated methods on class org.springframework.metrics.boot.MetricsConfiguration
+	at org.springframework.core.type.StandardAnnotationMetadata.getAnnotatedMethods(StandardAnnotationMetadata.java:162)
+	at org.springframework.context.annotation.ConfigurationClassParser.retrieveBeanMethodMetadata(ConfigurationClassParser.java:403)
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:326)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:250)
+	at org.springframework.context.annotation.ConfigurationClassParser.processImports(ConfigurationClassParser.java:600)
+	... 17 common frames omitted
+Caused by: java.lang.ArrayStoreException: sun.reflect.annotation.TypeNotPresentExceptionProxy
+	at sun.reflect.annotation.AnnotationParser.parseClassArray(AnnotationParser.java:724)
+	at sun.reflect.annotation.AnnotationParser.parseArray(AnnotationParser.java:531)
+	at sun.reflect.annotation.AnnotationParser.parseMemberValue(AnnotationParser.java:355)
+	at sun.reflect.annotation.AnnotationParser.parseAnnotation2(AnnotationParser.java:286)
+	at sun.reflect.annotation.AnnotationParser.parseAnnotations2(AnnotationParser.java:120)
+	at sun.reflect.annotation.AnnotationParser.parseAnnotations(AnnotationParser.java:72)
+	at java.lang.reflect.Executable.declaredAnnotations(Executable.java:599)
+	at java.lang.reflect.Executable.declaredAnnotations(Executable.java:597)
+	at java.lang.reflect.Executable.getDeclaredAnnotations(Executable.java:588)
+	at java.lang.reflect.Method.getDeclaredAnnotations(Method.java:630)
+	at java.lang.reflect.AccessibleObject.getAnnotations(AccessibleObject.java:207)
+	at org.springframework.core.type.StandardAnnotationMetadata.isAnnotatedMethod(StandardAnnotationMetadata.java:169)
+	at org.springframework.core.type.StandardAnnotationMetadata.getAnnotatedMethods(StandardAnnotationMetadata.java:153)
+	... 21 common frames omitted
+2022-07-25 14:39:06 INFO  c.g.t.b.BookDetailsApplicationTests:55 -   - Starting BookDetailsApplicationTests using Java 11.0.10 on COMP-C02DW0E1ML87 with PID 76655 (started by lloyd.williams in /Users/lloyd.williams/u01/eclipse-workspaces/graphql/book-details)
+2022-07-25 14:39:06 DEBUG c.g.t.b.BookDetailsApplicationTests:56 -   - Running with Spring Boot v2.5.1, Spring v5.3.8
+2022-07-25 14:39:06 INFO  c.g.t.b.BookDetailsApplicationTests:659 -   - No active profile set, falling back to default profiles: default
+2022-07-25 14:39:09 INFO  c.g.t.b.BookDetailsApplicationTests:61 -   - Started BookDetailsApplicationTests in 4.085 seconds (JVM running for 6.595)
+2022-07-25 14:40:20 INFO  c.g.t.b.BookDetailsApplication:55 -   - Starting BookDetailsApplication using Java 1.8.0_291 on COMP-C02DW0E1ML87 with PID 76981 (/Users/lloyd.williams/u01/eclipse-workspaces/graphql/book-details/target/classes started by lloyd.williams in /Users/lloyd.williams/u01/eclipse-workspaces/graphql/book-details)
+2022-07-25 14:40:20 DEBUG c.g.t.b.BookDetailsApplication:56 -   - Running with Spring Boot v2.5.1, Spring v5.3.8
+2022-07-25 14:40:20 INFO  c.g.t.b.BookDetailsApplication:659 -   - No active profile set, falling back to default profiles: default
+2022-07-25 14:40:21 INFO  o.s.b.w.e.t.TomcatWebServer:108 -   - Tomcat initialized with port(s): 8080 (http)
+2022-07-25 14:40:21 INFO  o.a.c.h.Http11NioProtocol:173 -   - Initializing ProtocolHandler ["http-nio-8080"]
+2022-07-25 14:40:21 INFO  o.a.c.c.StandardService:173 -   - Starting service [Tomcat]
+2022-07-25 14:40:21 INFO  o.a.c.c.StandardEngine:173 -   - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2022-07-25 14:40:22 INFO  o.a.c.c.C.[.[.[/]:173 -   - Initializing Spring embedded WebApplicationContext
+2022-07-25 14:40:22 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:290 -   - Root WebApplicationContext: initialization completed in 1555 ms
+2022-07-25 14:40:23 INFO  o.a.c.h.Http11NioProtocol:173 -   - Starting ProtocolHandler ["http-nio-8080"]
+2022-07-25 14:40:23 INFO  o.s.b.w.e.t.TomcatWebServer:220 -   - Tomcat started on port(s): 8080 (http) with context path ''
+2022-07-25 14:40:23 INFO  c.g.t.b.BookDetailsApplication:61 -   - Started BookDetailsApplication in 3.686 seconds (JVM running for 4.43)
+2022-07-25 14:40:48 INFO  o.a.c.c.C.[.[.[/]:173 -   - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-25 14:40:48 INFO  o.s.w.s.DispatcherServlet:525 -   - Initializing Servlet 'dispatcherServlet'
+2022-07-25 14:40:48 INFO  o.s.w.s.DispatcherServlet:547 -   - Completed initialization in 2 ms
+2022-07-25 14:40:49 INFO  c.g.t.b.RequestLoggingInstrumentation:24 -   - GraphQL execution 8716ebd3-a9c4-42cd-81ca-f25dd706fe8f started
+2022-07-25 14:40:49 INFO  c.g.t.b.RequestLoggingInstrumentation:28 -   - [8716ebd3-a9c4-42cd-81ca-f25dd706fe8f] query: 
+    query IntrospectionQuery {
+      __schema {
+        queryType { name }
+        mutationType { name }
+        subscriptionType { name }
+        types {
+          ...FullType
+        }
+        directives {
+          name
+          description
+          locations
+          args {
+            ...InputValue
+          }
+        }
+      }
+    }
+
+    fragment FullType on __Type {
+      kind
+      name
+      description
+      fields(includeDeprecated: true) {
+        name
+        description
+        args {
+          ...InputValue
+        }
+        type {
+          ...TypeRef
+        }
+        isDeprecated
+        deprecationReason
+      }
+      inputFields {
+        ...InputValue
+      }
+      interfaces {
+        ...TypeRef
+      }
+      enumValues(includeDeprecated: true) {
+        name
+        description
+        isDeprecated
+        deprecationReason
+      }
+      possibleTypes {
+        ...TypeRef
+      }
+    }
+
+    fragment InputValue on __InputValue {
+      name
+      description
+      type { ...TypeRef }
+      defaultValue
+    }
+
+    fragment TypeRef on __Type {
+      kind
+      name
+      ofType {
+        kind
+        name
+        ofType {
+          kind
+          name
+          ofType {
+            kind
+            name
+            ofType {
+              kind
+              name
+              ofType {
+                kind
+                name
+                ofType {
+                  kind
+                  name
+                  ofType {
+                    kind
+                    name
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  
+2022-07-25 14:40:49 INFO  c.g.t.b.RequestLoggingInstrumentation:44 -   - [8716ebd3-a9c4-42cd-81ca-f25dd706fe8f] completed in 338ms
+2022-07-25 14:40:49 INFO  c.g.t.b.RequestLoggingInstrumentation:45 -   - [8716ebd3-a9c4-42cd-81ca-f25dd706fe8f] result: {}
+2022-07-25 14:40:52 INFO  c.g.t.b.RequestLoggingInstrumentation:24 -   - GraphQL execution 14910e7f-fa71-4b5f-a7e2-33e8ef814625 started
+2022-07-25 14:40:52 INFO  c.g.t.b.RequestLoggingInstrumentation:28 -   - [14910e7f-fa71-4b5f-a7e2-33e8ef814625] query: query bookById ($id: ID) {
+    bookById (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+}
+2022-07-25 14:40:52 INFO  c.g.t.b.RequestLoggingInstrumentation:30 -   - [14910e7f-fa71-4b5f-a7e2-33e8ef814625] variables: {id=book-1}
+2022-07-25 14:40:52 INFO  c.g.t.b.GraphQLDataFetchers:63 - 0 0 - Getting book with id: book-1
+2022-07-25 14:40:52 INFO  c.g.t.b.RequestLoggingInstrumentation:44 -   - [14910e7f-fa71-4b5f-a7e2-33e8ef814625] completed in 13ms
+2022-07-25 14:40:52 INFO  c.g.t.b.RequestLoggingInstrumentation:45 -   - [14910e7f-fa71-4b5f-a7e2-33e8ef814625] result: {}
+2022-07-25 14:52:22 INFO  c.g.t.b.BookDetailsApplication:55 -   - Starting BookDetailsApplication using Java 1.8.0_291 on COMP-C02DW0E1ML87 with PID 83106 (/Users/lloyd.williams/u01/eclipse-workspaces/graphql/book-details/target/classes started by lloyd.williams in /Users/lloyd.williams/u01/eclipse-workspaces/graphql/book-details)
+2022-07-25 14:52:22 DEBUG c.g.t.b.BookDetailsApplication:56 -   - Running with Spring Boot v2.5.1, Spring v5.3.8
+2022-07-25 14:52:22 INFO  c.g.t.b.BookDetailsApplication:659 -   - No active profile set, falling back to default profiles: default
+2022-07-25 14:52:23 INFO  o.s.b.w.e.t.TomcatWebServer:108 -   - Tomcat initialized with port(s): 8080 (http)
+2022-07-25 14:52:23 INFO  o.a.c.h.Http11NioProtocol:173 -   - Initializing ProtocolHandler ["http-nio-8080"]
+2022-07-25 14:52:23 INFO  o.a.c.c.StandardService:173 -   - Starting service [Tomcat]
+2022-07-25 14:52:23 INFO  o.a.c.c.StandardEngine:173 -   - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2022-07-25 14:52:23 INFO  o.a.c.c.C.[.[.[/]:173 -   - Initializing Spring embedded WebApplicationContext
+2022-07-25 14:52:23 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:290 -   - Root WebApplicationContext: initialization completed in 907 ms
+2022-07-25 14:52:24 INFO  o.a.c.h.Http11NioProtocol:173 -   - Starting ProtocolHandler ["http-nio-8080"]
+2022-07-25 14:52:24 INFO  o.s.b.w.e.t.TomcatWebServer:220 -   - Tomcat started on port(s): 8080 (http) with context path ''
+2022-07-25 14:52:24 INFO  c.g.t.b.BookDetailsApplication:61 -   - Started BookDetailsApplication in 2.104 seconds (JVM running for 2.529)
+2022-07-25 14:52:36 INFO  o.a.c.c.C.[.[.[/]:173 -   - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-25 14:52:36 INFO  o.s.w.s.DispatcherServlet:525 -   - Initializing Servlet 'dispatcherServlet'
+2022-07-25 14:52:36 INFO  o.s.w.s.DispatcherServlet:547 -   - Completed initialization in 1 ms
+2022-07-25 14:52:36 INFO  c.g.t.b.RequestLoggingInstrumentation:29 -   - GraphQL execution 3cb4634c-9cf8-48f6-ac0d-c5daf19f237d started
+2022-07-25 14:52:36 INFO  c.g.t.b.RequestLoggingInstrumentation:44 - 0 0 - ****** GraphQL Query:query bookById ($id: ID) {
+    bookById (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+}
+2022-07-25 14:52:36 INFO  c.g.t.b.RequestLoggingInstrumentation:53 -   - [3cb4634c-9cf8-48f6-ac0d-c5daf19f237d] query: query bookById ($id: ID) {
+    bookById (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+}
+2022-07-25 14:52:36 INFO  c.g.t.b.RequestLoggingInstrumentation:55 -   - [3cb4634c-9cf8-48f6-ac0d-c5daf19f237d] variables: {id=book-1}
+2022-07-25 14:52:36 INFO  c.g.t.b.GraphQLDataFetchers:63 - 0 0 - Getting book with id: book-1
+2022-07-25 14:52:36 INFO  c.g.t.b.RequestLoggingInstrumentation:69 -   - [3cb4634c-9cf8-48f6-ac0d-c5daf19f237d] completed in 84ms
+2022-07-25 14:52:36 INFO  c.g.t.b.RequestLoggingInstrumentation:70 -   - [3cb4634c-9cf8-48f6-ac0d-c5daf19f237d] result: {}
+2022-07-25 14:53:16 INFO  c.g.t.b.BookDetailsApplicationTests:55 -   - Starting BookDetailsApplicationTests using Java 11.0.10 on COMP-C02DW0E1ML87 with PID 83343 (started by lloyd.williams in /Users/lloyd.williams/u01/eclipse-workspaces/graphql/book-details)
+2022-07-25 14:53:16 DEBUG c.g.t.b.BookDetailsApplicationTests:56 -   - Running with Spring Boot v2.5.1, Spring v5.3.8
+2022-07-25 14:53:16 INFO  c.g.t.b.BookDetailsApplicationTests:659 -   - No active profile set, falling back to default profiles: default
+2022-07-25 14:53:17 INFO  c.g.t.b.BookDetailsApplicationTests:61 -   - Started BookDetailsApplicationTests in 2.014 seconds (JVM running for 2.897)
+2022-07-25 14:56:57 INFO  c.g.t.b.BookDetailsApplicationTests:55 -   - Starting BookDetailsApplicationTests using Java 11.0.10 on COMP-C02DW0E1ML87 with PID 84711 (started by lloyd.williams in /Users/lloyd.williams/u01/eclipse-workspaces/graphql/book-details)
+2022-07-25 14:56:57 DEBUG c.g.t.b.BookDetailsApplicationTests:56 -   - Running with Spring Boot v2.5.1, Spring v5.3.8
+2022-07-25 14:56:57 INFO  c.g.t.b.BookDetailsApplicationTests:659 -   - No active profile set, falling back to default profiles: default
+2022-07-25 14:56:59 INFO  c.g.t.b.BookDetailsApplicationTests:61 -   - Started BookDetailsApplicationTests in 2.253 seconds (JVM running for 3.279)
+2022-07-25 14:57:57 INFO  c.g.t.b.BookDetailsApplication:55 -   - Starting BookDetailsApplication v0.1.9 using Java 1.8.0_322 on COMP-C02DW0E1ML87 with PID 84960 (/Users/lloyd.williams/u01/eclipse-workspaces/graphql/book-details/target/book-details-0.1.9.jar started by lloyd.williams in /Users/lloyd.williams/u01/eclipse-workspaces/graphql/book-details)
+2022-07-25 14:57:57 DEBUG c.g.t.b.BookDetailsApplication:56 -   - Running with Spring Boot v2.5.1, Spring v5.3.8
+2022-07-25 14:57:57 INFO  c.g.t.b.BookDetailsApplication:659 -   - No active profile set, falling back to default profiles: default
+2022-07-25 14:57:59 INFO  o.s.b.w.e.t.TomcatWebServer:108 -   - Tomcat initialized with port(s): 8080 (http)
+2022-07-25 14:57:59 INFO  o.a.c.h.Http11NioProtocol:173 -   - Initializing ProtocolHandler ["http-nio-8080"]
+2022-07-25 14:57:59 INFO  o.a.c.c.StandardService:173 -   - Starting service [Tomcat]
+2022-07-25 14:57:59 INFO  o.a.c.c.StandardEngine:173 -   - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2022-07-25 14:57:59 INFO  o.a.c.c.C.[.[.[/]:173 -   - Initializing Spring embedded WebApplicationContext
+2022-07-25 14:57:59 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:290 -   - Root WebApplicationContext: initialization completed in 1880 ms
+2022-07-25 14:58:00 INFO  o.a.c.h.Http11NioProtocol:173 -   - Starting ProtocolHandler ["http-nio-8080"]
+2022-07-25 14:58:00 INFO  o.s.b.w.e.t.TomcatWebServer:220 -   - Tomcat started on port(s): 8080 (http) with context path ''
+2022-07-25 14:58:00 INFO  c.g.t.b.BookDetailsApplication:61 -   - Started BookDetailsApplication in 4.199 seconds (JVM running for 8.076)
+2022-07-25 14:58:20 INFO  o.a.c.c.C.[.[.[/]:173 - 2110339287796764243 7716669837949548776 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-25 14:58:20 INFO  o.s.w.s.DispatcherServlet:525 - 2110339287796764243 7716669837949548776 - Initializing Servlet 'dispatcherServlet'
+2022-07-25 14:58:20 INFO  o.s.w.s.DispatcherServlet:547 - 2110339287796764243 7716669837949548776 - Completed initialization in 1 ms
+2022-07-25 14:58:20 INFO  c.g.t.b.RequestLoggingInstrumentation:29 - 2110339287796764243 3004338952156285138 - GraphQL execution aee1f1cf-8bf3-44d0-806e-7d3ad5ca6fe4 started
+2022-07-25 14:58:20 INFO  c.g.t.b.RequestLoggingInstrumentation:44 - 2110339287796764243 3004338952156285138 - *** GraphQL Query:query bookById ($id: ID) {
+    bookById (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+}
+2022-07-25 14:58:20 INFO  c.g.t.b.RequestLoggingInstrumentation:53 - 2110339287796764243 3004338952156285138 - [aee1f1cf-8bf3-44d0-806e-7d3ad5ca6fe4] query: query bookById ($id: ID) {
+    bookById (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+}
+2022-07-25 14:58:20 INFO  c.g.t.b.RequestLoggingInstrumentation:55 - 2110339287796764243 3004338952156285138 - [aee1f1cf-8bf3-44d0-806e-7d3ad5ca6fe4] variables: {id=book-1}
+2022-07-25 14:58:20 INFO  c.g.t.b.GraphQLDataFetchers:63 - 2110339287796764243 3004338952156285138 - Getting book with id: book-1
+2022-07-25 14:58:21 INFO  c.g.t.b.RequestLoggingInstrumentation:69 - 2110339287796764243 3004338952156285138 - [aee1f1cf-8bf3-44d0-806e-7d3ad5ca6fe4] completed in 264ms
+2022-07-25 14:58:21 INFO  c.g.t.b.RequestLoggingInstrumentation:70 - 2110339287796764243 3004338952156285138 - [aee1f1cf-8bf3-44d0-806e-7d3ad5ca6fe4] result: {}
+2022-07-25 15:05:09 INFO  c.g.t.b.RequestLoggingInstrumentation:29 - 5846967651793191623 2380260487270642820 - GraphQL execution 9aafaf37-88ed-449b-ad1b-1e26e1e93d31 started
+2022-07-25 15:05:09 INFO  c.g.t.b.RequestLoggingInstrumentation:44 - 5846967651793191623 2380260487270642820 - *** GraphQL Query:query bookById ($id: ID) {
+    bookById (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+}
+2022-07-25 15:05:09 INFO  c.g.t.b.RequestLoggingInstrumentation:53 - 5846967651793191623 2380260487270642820 - [9aafaf37-88ed-449b-ad1b-1e26e1e93d31] query: query bookById ($id: ID) {
+    bookById (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+}
+2022-07-25 15:05:09 INFO  c.g.t.b.RequestLoggingInstrumentation:55 - 5846967651793191623 2380260487270642820 - [9aafaf37-88ed-449b-ad1b-1e26e1e93d31] variables: {id=book-2}
+2022-07-25 15:05:09 INFO  c.g.t.b.GraphQLDataFetchers:63 - 5846967651793191623 2380260487270642820 - Getting book with id: book-2
+2022-07-25 15:05:09 INFO  c.g.t.b.RequestLoggingInstrumentation:69 - 5846967651793191623 2380260487270642820 - [9aafaf37-88ed-449b-ad1b-1e26e1e93d31] completed in 6ms
+2022-07-25 15:05:09 INFO  c.g.t.b.RequestLoggingInstrumentation:70 - 5846967651793191623 2380260487270642820 - [9aafaf37-88ed-449b-ad1b-1e26e1e93d31] result: {}
+2022-07-25 15:59:13 INFO  c.g.t.b.BookDetailsApplicationTests:55 -   - Starting BookDetailsApplicationTests using Java 11.0.10 on COMP-C02DW0E1ML87 with PID 9851 (started by lloyd.williams in /Users/lloyd.williams/u01/eclipse-workspaces/graphql/book-details)
+2022-07-25 15:59:13 DEBUG c.g.t.b.BookDetailsApplicationTests:56 -   - Running with Spring Boot v2.5.1, Spring v5.3.8
+2022-07-25 15:59:13 INFO  c.g.t.b.BookDetailsApplicationTests:659 -   - No active profile set, falling back to default profiles: default
+2022-07-25 15:59:14 INFO  c.g.t.b.BookDetailsApplicationTests:61 -   - Started BookDetailsApplicationTests in 1.989 seconds (JVM running for 3.051)
+2022-07-25 15:59:38 INFO  c.g.t.b.BookDetailsApplication:55 -   - Starting BookDetailsApplication v0.1.9 using Java 1.8.0_322 on COMP-C02DW0E1ML87 with PID 9962 (/Users/lloyd.williams/u01/eclipse-workspaces/graphql/book-details/target/book-details-0.1.9.jar started by lloyd.williams in /Users/lloyd.williams/u01/eclipse-workspaces/graphql/book-details)
+2022-07-25 15:59:38 DEBUG c.g.t.b.BookDetailsApplication:56 -   - Running with Spring Boot v2.5.1, Spring v5.3.8
+2022-07-25 15:59:38 INFO  c.g.t.b.BookDetailsApplication:659 -   - No active profile set, falling back to default profiles: default
+2022-07-25 15:59:40 INFO  o.s.b.w.e.t.TomcatWebServer:108 -   - Tomcat initialized with port(s): 8080 (http)
+2022-07-25 15:59:40 INFO  o.a.c.h.Http11NioProtocol:173 -   - Initializing ProtocolHandler ["http-nio-8080"]
+2022-07-25 15:59:40 INFO  o.a.c.c.StandardService:173 -   - Starting service [Tomcat]
+2022-07-25 15:59:40 INFO  o.a.c.c.StandardEngine:173 -   - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2022-07-25 15:59:40 INFO  o.a.c.c.C.[.[.[/]:173 -   - Initializing Spring embedded WebApplicationContext
+2022-07-25 15:59:40 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:290 -   - Root WebApplicationContext: initialization completed in 1957 ms
+2022-07-25 15:59:41 INFO  o.a.c.h.Http11NioProtocol:173 -   - Starting ProtocolHandler ["http-nio-8080"]
+2022-07-25 15:59:41 INFO  o.s.b.w.e.t.TomcatWebServer:220 -   - Tomcat started on port(s): 8080 (http) with context path ''
+2022-07-25 15:59:41 INFO  c.g.t.b.BookDetailsApplication:61 -   - Started BookDetailsApplication in 4.304 seconds (JVM running for 6.851)
+2022-07-25 15:59:53 INFO  o.a.c.c.C.[.[.[/]:173 - 388551367622098378 133314223161809792 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-25 15:59:53 INFO  o.s.w.s.DispatcherServlet:525 - 388551367622098378 133314223161809792 - Initializing Servlet 'dispatcherServlet'
+2022-07-25 15:59:53 INFO  o.s.w.s.DispatcherServlet:547 - 388551367622098378 133314223161809792 - Completed initialization in 1 ms
+2022-07-25 15:59:53 INFO  c.g.t.b.RequestLoggingInstrumentation:32 - 388551367622098378 4826100089113682720 - GraphQL execution 70846a5e-90a8-4db1-bcc7-17cc93e86cd6 started
+2022-07-25 15:59:53 INFO  c.g.t.b.RequestLoggingInstrumentation:43 - 388551367622098378 4826100089113682720 - [70846a5e-90a8-4db1-bcc7-17cc93e86cd6] query: query bookById ($id: ID) {
+    bookById (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+}
+2022-07-25 15:59:53 INFO  c.g.t.b.RequestLoggingInstrumentation:45 - 388551367622098378 4826100089113682720 - [70846a5e-90a8-4db1-bcc7-17cc93e86cd6] variables: {id=book-3}
+2022-07-25 15:59:53 INFO  c.g.t.b.GraphQLDataFetchers:63 - 388551367622098378 4826100089113682720 - Getting book with id: book-3
+2022-07-25 15:59:53 INFO  c.g.t.b.RequestLoggingInstrumentation:76 - 388551367622098378 4826100089113682720 - [70846a5e-90a8-4db1-bcc7-17cc93e86cd6] completed in 144ms
+2022-07-25 15:59:53 INFO  c.g.t.b.RequestLoggingInstrumentation:77 - 388551367622098378 4826100089113682720 - [70846a5e-90a8-4db1-bcc7-17cc93e86cd6] result: {"data":{"bookById":{"id":"book-3","name":"Interview with the vampire","pageCount":371,"author":{"id":"author-3","firstName":"Anne","lastName":"Rice"}}}}
+2022-07-25 16:07:12 INFO  c.g.t.b.BookDetailsApplicationTests:55 -   - Starting BookDetailsApplicationTests using Java 11.0.10 on COMP-C02DW0E1ML87 with PID 12594 (started by lloyd.williams in /Users/lloyd.williams/u01/eclipse-workspaces/graphql/book-details)
+2022-07-25 16:07:12 DEBUG c.g.t.b.BookDetailsApplicationTests:56 -   - Running with Spring Boot v2.5.1, Spring v5.3.8
+2022-07-25 16:07:12 INFO  c.g.t.b.BookDetailsApplicationTests:659 -   - No active profile set, falling back to default profiles: default
+2022-07-25 16:07:13 INFO  c.g.t.b.BookDetailsApplicationTests:61 -   - Started BookDetailsApplicationTests in 1.855 seconds (JVM running for 3.086)
+2022-07-25 16:10:23 INFO  c.g.t.b.BookDetailsApplication:55 -   - Starting BookDetailsApplication v2.1.0 using Java 1.8.0_322 on COMP-C02DW0E1ML87 with PID 13613 (/Users/lloyd.williams/u01/eclipse-workspaces/graphql/book-details/target/book-details-2.1.0.jar started by lloyd.williams in /Users/lloyd.williams/u01/eclipse-workspaces/graphql/book-details)
+2022-07-25 16:10:23 DEBUG c.g.t.b.BookDetailsApplication:56 -   - Running with Spring Boot v2.5.1, Spring v5.3.8
+2022-07-25 16:10:23 INFO  c.g.t.b.BookDetailsApplication:659 -   - No active profile set, falling back to default profiles: default
+2022-07-25 16:10:25 INFO  o.s.b.w.e.t.TomcatWebServer:108 -   - Tomcat initialized with port(s): 8080 (http)
+2022-07-25 16:10:25 INFO  o.a.c.h.Http11NioProtocol:173 -   - Initializing ProtocolHandler ["http-nio-8080"]
+2022-07-25 16:10:25 INFO  o.a.c.c.StandardService:173 -   - Starting service [Tomcat]
+2022-07-25 16:10:25 INFO  o.a.c.c.StandardEngine:173 -   - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2022-07-25 16:10:25 INFO  o.a.c.c.C.[.[.[/]:173 -   - Initializing Spring embedded WebApplicationContext
+2022-07-25 16:10:25 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:290 -   - Root WebApplicationContext: initialization completed in 1803 ms
+2022-07-25 16:10:26 INFO  o.a.c.h.Http11NioProtocol:173 -   - Starting ProtocolHandler ["http-nio-8080"]
+2022-07-25 16:10:26 INFO  o.s.b.w.e.t.TomcatWebServer:220 -   - Tomcat started on port(s): 8080 (http) with context path ''
+2022-07-25 16:10:26 INFO  c.g.t.b.BookDetailsApplication:61 -   - Started BookDetailsApplication in 4.159 seconds (JVM running for 6.49)
+2022-07-25 16:10:42 INFO  o.a.c.c.C.[.[.[/]:173 - 4337358322816276412 1782326685608569378 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-25 16:10:42 INFO  o.s.w.s.DispatcherServlet:525 - 4337358322816276412 1782326685608569378 - Initializing Servlet 'dispatcherServlet'
+2022-07-25 16:10:42 INFO  o.s.w.s.DispatcherServlet:547 - 4337358322816276412 1782326685608569378 - Completed initialization in 1 ms
+2022-07-25 16:10:42 INFO  c.g.t.b.RequestLoggingInstrumentation:32 - 4337358322816276412 5594761687244980368 - GraphQL execution a7fb2a89-b259-45a3-9aad-5ef25efb7d5f started
+2022-07-25 16:10:42 INFO  c.g.t.b.RequestLoggingInstrumentation:43 - 4337358322816276412 5594761687244980368 - [a7fb2a89-b259-45a3-9aad-5ef25efb7d5f] query: query bookById ($id: ID) {
+    bookById (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+}
+2022-07-25 16:10:42 INFO  c.g.t.b.RequestLoggingInstrumentation:45 - 4337358322816276412 5594761687244980368 - [a7fb2a89-b259-45a3-9aad-5ef25efb7d5f] variables: {id=book-1}
+2022-07-25 16:10:42 INFO  c.g.t.b.GraphQLDataFetchers:63 - 4337358322816276412 5594761687244980368 - Getting book with id: book-1
+2022-07-25 16:10:42 INFO  c.g.t.b.RequestLoggingInstrumentation:76 - 4337358322816276412 5594761687244980368 - [a7fb2a89-b259-45a3-9aad-5ef25efb7d5f] completed in 169ms
+2022-07-25 16:10:42 INFO  c.g.t.b.RequestLoggingInstrumentation:77 - 4337358322816276412 5594761687244980368 - [a7fb2a89-b259-45a3-9aad-5ef25efb7d5f] result: {"data":{"bookById":{"id":"book-1","name":"Harry Potter and the Philosopher's Stone","pageCount":223,"author":{"id":"author-1","firstName":"Joanne","lastName":"Rowling"}}}}
+2022-07-25 16:18:09 INFO  c.g.t.b.RequestLoggingInstrumentation:32 - 4934419512409763152 1364890429299833923 - GraphQL execution 985a5121-91f7-4aee-9c49-b38b261fe3a7 started
+2022-07-25 16:18:09 INFO  c.g.t.b.RequestLoggingInstrumentation:43 - 4934419512409763152 1364890429299833923 - [985a5121-91f7-4aee-9c49-b38b261fe3a7] query: query bookById ($id: ID) {
+    bookById (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+}
+2022-07-25 16:18:09 INFO  c.g.t.b.RequestLoggingInstrumentation:45 - 4934419512409763152 1364890429299833923 - [985a5121-91f7-4aee-9c49-b38b261fe3a7] variables: {id=book-2}
+2022-07-25 16:18:09 INFO  c.g.t.b.GraphQLDataFetchers:63 - 4934419512409763152 1364890429299833923 - Getting book with id: book-2
+2022-07-25 16:18:09 INFO  c.g.t.b.RequestLoggingInstrumentation:76 - 4934419512409763152 1364890429299833923 - [985a5121-91f7-4aee-9c49-b38b261fe3a7] completed in 5ms
+2022-07-25 16:18:09 INFO  c.g.t.b.RequestLoggingInstrumentation:77 - 4934419512409763152 1364890429299833923 - [985a5121-91f7-4aee-9c49-b38b261fe3a7] result: {"data":{"bookById":{"id":"book-2","name":"Moby Dick","pageCount":635,"author":{"id":"author-2","firstName":"Herman","lastName":"Melville"}}}}
+2022-07-25 16:19:52 INFO  c.g.t.b.RequestLoggingInstrumentation:32 - 317929762609575844 7304920847245636936 - GraphQL execution bacca194-26ae-4858-9ab3-0e2ecce6a878 started
+2022-07-25 16:19:52 INFO  c.g.t.b.RequestLoggingInstrumentation:43 - 317929762609575844 7304920847245636936 - [bacca194-26ae-4858-9ab3-0e2ecce6a878] query: query bookById ($id: ID) {
+    bookById (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+}
+2022-07-25 16:19:52 INFO  c.g.t.b.RequestLoggingInstrumentation:45 - 317929762609575844 7304920847245636936 - [bacca194-26ae-4858-9ab3-0e2ecce6a878] variables: {id=book-3}
+2022-07-25 16:19:52 INFO  c.g.t.b.GraphQLDataFetchers:63 - 317929762609575844 7304920847245636936 - Getting book with id: book-3
+2022-07-25 16:19:52 INFO  c.g.t.b.RequestLoggingInstrumentation:76 - 317929762609575844 7304920847245636936 - [bacca194-26ae-4858-9ab3-0e2ecce6a878] completed in 6ms
+2022-07-25 16:19:52 INFO  c.g.t.b.RequestLoggingInstrumentation:77 - 317929762609575844 7304920847245636936 - [bacca194-26ae-4858-9ab3-0e2ecce6a878] result: {"data":{"bookById":{"id":"book-3","name":"Interview with the vampire","pageCount":371,"author":{"id":"author-3","firstName":"Anne","lastName":"Rice"}}}}
+2022-07-25 16:19:54 INFO  c.g.t.b.RequestLoggingInstrumentation:32 - 7552109532002156672 7456967407605086638 - GraphQL execution 049c8c27-16de-4935-a338-7e9e46781eb8 started
+2022-07-25 16:19:54 INFO  c.g.t.b.RequestLoggingInstrumentation:43 - 7552109532002156672 7456967407605086638 - [049c8c27-16de-4935-a338-7e9e46781eb8] query: query bookById ($id: ID) {
+    bookById (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+}
+2022-07-25 16:19:54 INFO  c.g.t.b.RequestLoggingInstrumentation:45 - 7552109532002156672 7456967407605086638 - [049c8c27-16de-4935-a338-7e9e46781eb8] variables: {id=book-3}
+2022-07-25 16:19:54 INFO  c.g.t.b.GraphQLDataFetchers:63 - 7552109532002156672 7456967407605086638 - Getting book with id: book-3
+2022-07-25 16:19:54 INFO  c.g.t.b.RequestLoggingInstrumentation:76 - 7552109532002156672 7456967407605086638 - [049c8c27-16de-4935-a338-7e9e46781eb8] completed in 5ms
+2022-07-25 16:19:54 INFO  c.g.t.b.RequestLoggingInstrumentation:77 - 7552109532002156672 7456967407605086638 - [049c8c27-16de-4935-a338-7e9e46781eb8] result: {"data":{"bookById":{"id":"book-3","name":"Interview with the vampire","pageCount":371,"author":{"id":"author-3","firstName":"Anne","lastName":"Rice"}}}}
+2022-07-25 16:22:48 INFO  c.g.t.b.RequestLoggingInstrumentation:32 - 596287441430594919 511420630632782166 - GraphQL execution 893b0312-a0eb-43a5-aa26-e2248e467ead started
+2022-07-25 16:22:48 INFO  c.g.t.b.RequestLoggingInstrumentation:43 - 596287441430594919 511420630632782166 - [893b0312-a0eb-43a5-aa26-e2248e467ead] query: query bookById ($id: ID) {
+    bookById (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+}
+2022-07-25 16:22:48 INFO  c.g.t.b.RequestLoggingInstrumentation:45 - 596287441430594919 511420630632782166 - [893b0312-a0eb-43a5-aa26-e2248e467ead] variables: {id=book-1}
+2022-07-25 16:22:48 INFO  c.g.t.b.GraphQLDataFetchers:63 - 596287441430594919 511420630632782166 - Getting book with id: book-1
+2022-07-25 16:22:48 INFO  c.g.t.b.RequestLoggingInstrumentation:76 - 596287441430594919 511420630632782166 - [893b0312-a0eb-43a5-aa26-e2248e467ead] completed in 5ms
+2022-07-25 16:22:48 INFO  c.g.t.b.RequestLoggingInstrumentation:77 - 596287441430594919 511420630632782166 - [893b0312-a0eb-43a5-aa26-e2248e467ead] result: {"data":{"bookById":{"id":"book-1","name":"Harry Potter and the Philosopher's Stone","pageCount":223,"author":{"id":"author-1","firstName":"Joanne","lastName":"Rowling"}}}}
+2022-07-25 16:22:50 INFO  c.g.t.b.RequestLoggingInstrumentation:32 - 1756331807167072637 4771440929968922092 - GraphQL execution eb6fe20a-068d-4bdf-b44d-f44580cb8864 started
+2022-07-25 16:22:50 INFO  c.g.t.b.RequestLoggingInstrumentation:43 - 1756331807167072637 4771440929968922092 - [eb6fe20a-068d-4bdf-b44d-f44580cb8864] query: query bookById ($id: ID) {
+    bookById (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+}
+2022-07-25 16:22:50 INFO  c.g.t.b.RequestLoggingInstrumentation:45 - 1756331807167072637 4771440929968922092 - [eb6fe20a-068d-4bdf-b44d-f44580cb8864] variables: {id=book-1}
+2022-07-25 16:22:50 INFO  c.g.t.b.GraphQLDataFetchers:63 - 1756331807167072637 4771440929968922092 - Getting book with id: book-1
+2022-07-25 16:22:50 INFO  c.g.t.b.RequestLoggingInstrumentation:76 - 1756331807167072637 4771440929968922092 - [eb6fe20a-068d-4bdf-b44d-f44580cb8864] completed in 6ms
+2022-07-25 16:22:50 INFO  c.g.t.b.RequestLoggingInstrumentation:77 - 1756331807167072637 4771440929968922092 - [eb6fe20a-068d-4bdf-b44d-f44580cb8864] result: {"data":{"bookById":{"id":"book-1","name":"Harry Potter and the Philosopher's Stone","pageCount":223,"author":{"id":"author-1","firstName":"Joanne","lastName":"Rowling"}}}}
+2022-07-25 16:22:50 INFO  c.g.t.b.RequestLoggingInstrumentation:32 - 7483524860359880788 1548980654559650909 - GraphQL execution 31f4e65a-74af-4f76-b950-c44a9c21c843 started
+2022-07-25 16:22:50 INFO  c.g.t.b.RequestLoggingInstrumentation:43 - 7483524860359880788 1548980654559650909 - [31f4e65a-74af-4f76-b950-c44a9c21c843] query: query bookById ($id: ID) {
+    bookById (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+}
+2022-07-25 16:22:50 INFO  c.g.t.b.RequestLoggingInstrumentation:45 - 7483524860359880788 1548980654559650909 - [31f4e65a-74af-4f76-b950-c44a9c21c843] variables: {id=book-1}
+2022-07-25 16:22:50 INFO  c.g.t.b.GraphQLDataFetchers:63 - 7483524860359880788 1548980654559650909 - Getting book with id: book-1
+2022-07-25 16:22:50 INFO  c.g.t.b.RequestLoggingInstrumentation:76 - 7483524860359880788 1548980654559650909 - [31f4e65a-74af-4f76-b950-c44a9c21c843] completed in 4ms
+2022-07-25 16:22:50 INFO  c.g.t.b.RequestLoggingInstrumentation:77 - 7483524860359880788 1548980654559650909 - [31f4e65a-74af-4f76-b950-c44a9c21c843] result: {"data":{"bookById":{"id":"book-1","name":"Harry Potter and the Philosopher's Stone","pageCount":223,"author":{"id":"author-1","firstName":"Joanne","lastName":"Rowling"}}}}
+2022-07-25 16:22:53 INFO  c.g.t.b.RequestLoggingInstrumentation:32 - 5630744700736214763 1905461305756611960 - GraphQL execution 64edc381-c58c-498e-ac95-293ab7d860b2 started
+2022-07-25 16:22:53 INFO  c.g.t.b.RequestLoggingInstrumentation:43 - 5630744700736214763 1905461305756611960 - [64edc381-c58c-498e-ac95-293ab7d860b2] query: query bookById ($id: ID) {
+    bookById (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+}
+2022-07-25 16:22:53 INFO  c.g.t.b.RequestLoggingInstrumentation:45 - 5630744700736214763 1905461305756611960 - [64edc381-c58c-498e-ac95-293ab7d860b2] variables: {id=book-2}
+2022-07-25 16:22:53 INFO  c.g.t.b.GraphQLDataFetchers:63 - 5630744700736214763 1905461305756611960 - Getting book with id: book-2
+2022-07-25 16:22:53 INFO  c.g.t.b.RequestLoggingInstrumentation:76 - 5630744700736214763 1905461305756611960 - [64edc381-c58c-498e-ac95-293ab7d860b2] completed in 5ms
+2022-07-25 16:22:53 INFO  c.g.t.b.RequestLoggingInstrumentation:77 - 5630744700736214763 1905461305756611960 - [64edc381-c58c-498e-ac95-293ab7d860b2] result: {"data":{"bookById":{"id":"book-2","name":"Moby Dick","pageCount":635,"author":{"id":"author-2","firstName":"Herman","lastName":"Melville"}}}}
+2022-07-25 16:28:33 INFO  c.g.t.b.BookDetailsApplication:55 -   - Starting BookDetailsApplication v2.1.0 using Java 1.8.0_322 on COMP-C02DW0E1ML87 with PID 24590 (/Users/lloyd.williams/u01/eclipse-workspaces/graphql/book-details/target/book-details-2.1.0.jar started by lloyd.williams in /Users/lloyd.williams/u01/eclipse-workspaces/graphql/book-details)
+2022-07-25 16:28:33 DEBUG c.g.t.b.BookDetailsApplication:56 -   - Running with Spring Boot v2.5.1, Spring v5.3.8
+2022-07-25 16:28:33 INFO  c.g.t.b.BookDetailsApplication:659 -   - No active profile set, falling back to default profiles: default
+2022-07-25 16:28:34 INFO  o.s.b.w.e.t.TomcatWebServer:108 -   - Tomcat initialized with port(s): 8080 (http)
+2022-07-25 16:28:34 INFO  o.a.c.h.Http11NioProtocol:173 -   - Initializing ProtocolHandler ["http-nio-8080"]
+2022-07-25 16:28:34 INFO  o.a.c.c.StandardService:173 -   - Starting service [Tomcat]
+2022-07-25 16:28:34 INFO  o.a.c.c.StandardEngine:173 -   - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2022-07-25 16:28:35 INFO  o.a.c.c.C.[.[.[/]:173 -   - Initializing Spring embedded WebApplicationContext
+2022-07-25 16:28:35 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:290 -   - Root WebApplicationContext: initialization completed in 1897 ms
+2022-07-25 16:28:36 INFO  o.a.c.h.Http11NioProtocol:173 -   - Starting ProtocolHandler ["http-nio-8080"]
+2022-07-25 16:28:36 INFO  o.s.b.w.e.t.TomcatWebServer:220 -   - Tomcat started on port(s): 8080 (http) with context path ''
+2022-07-25 16:28:36 INFO  c.g.t.b.BookDetailsApplication:61 -   - Started BookDetailsApplication in 4.83 seconds (JVM running for 7.771)
+2022-07-25 16:29:02 INFO  o.a.c.c.C.[.[.[/]:173 - 8558686135453487583 2663781652936969308 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-25 16:29:02 INFO  o.s.w.s.DispatcherServlet:525 - 8558686135453487583 2663781652936969308 - Initializing Servlet 'dispatcherServlet'
+2022-07-25 16:29:02 INFO  o.s.w.s.DispatcherServlet:547 - 8558686135453487583 2663781652936969308 - Completed initialization in 2 ms
+2022-07-25 16:29:02 INFO  c.g.t.b.RequestLoggingInstrumentation:32 - 8558686135453487583 4612066586451826110 - GraphQL execution e53ae6a0-47e6-4218-b32f-8a109eace2db started
+2022-07-25 16:29:02 INFO  c.g.t.b.RequestLoggingInstrumentation:43 - 8558686135453487583 4612066586451826110 - [e53ae6a0-47e6-4218-b32f-8a109eace2db] query: query bookById ($id: ID) {
+    bookById (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+}
+2022-07-25 16:29:02 INFO  c.g.t.b.RequestLoggingInstrumentation:45 - 8558686135453487583 4612066586451826110 - [e53ae6a0-47e6-4218-b32f-8a109eace2db] variables: {id=book-2}
+2022-07-25 16:29:02 INFO  c.g.t.b.GraphQLDataFetchers:63 - 8558686135453487583 4612066586451826110 - Getting book with id: book-2
+2022-07-25 16:29:02 INFO  c.g.t.b.RequestLoggingInstrumentation:76 - 8558686135453487583 4612066586451826110 - [e53ae6a0-47e6-4218-b32f-8a109eace2db] completed in 421ms
+2022-07-25 16:29:02 INFO  c.g.t.b.RequestLoggingInstrumentation:77 - 8558686135453487583 4612066586451826110 - [e53ae6a0-47e6-4218-b32f-8a109eace2db] result: {"data":{"bookById":{"id":"book-2","name":"Moby Dick","pageCount":635,"author":{"id":"author-2","firstName":"Herman","lastName":"Melville"}}}}
+2022-07-25 16:29:17 INFO  c.g.t.b.RequestLoggingInstrumentation:32 - 4707604087256523172 2385823821746879535 - GraphQL execution b6e1e15e-f1aa-4cf7-bb6b-729c376af947 started
+2022-07-25 16:29:17 INFO  c.g.t.b.RequestLoggingInstrumentation:43 - 4707604087256523172 2385823821746879535 - [b6e1e15e-f1aa-4cf7-bb6b-729c376af947] query: query bookById ($id: ID) {
+    bookById (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+}
+2022-07-25 16:29:17 INFO  c.g.t.b.RequestLoggingInstrumentation:45 - 4707604087256523172 2385823821746879535 - [b6e1e15e-f1aa-4cf7-bb6b-729c376af947] variables: {id=book-1}
+2022-07-25 16:29:17 INFO  c.g.t.b.GraphQLDataFetchers:63 - 4707604087256523172 2385823821746879535 - Getting book with id: book-1
+2022-07-25 16:29:17 INFO  c.g.t.b.RequestLoggingInstrumentation:76 - 4707604087256523172 2385823821746879535 - [b6e1e15e-f1aa-4cf7-bb6b-729c376af947] completed in 8ms
+2022-07-25 16:29:17 INFO  c.g.t.b.RequestLoggingInstrumentation:77 - 4707604087256523172 2385823821746879535 - [b6e1e15e-f1aa-4cf7-bb6b-729c376af947] result: {"data":{"bookById":{"id":"book-1","name":"Harry Potter and the Philosopher's Stone","pageCount":223,"author":{"id":"author-1","firstName":"Joanne","lastName":"Rowling"}}}}
+2022-07-25 16:31:32 INFO  c.g.t.b.RequestLoggingInstrumentation:32 - 5523863047559513540 4840428646868363255 - GraphQL execution 0ec6107a-f744-42db-a991-5e643c3e1c7a started
+2022-07-25 16:31:32 INFO  c.g.t.b.RequestLoggingInstrumentation:43 - 5523863047559513540 4840428646868363255 - [0ec6107a-f744-42db-a991-5e643c3e1c7a] query: query bookById ($id: ID) {
+    bookById (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+}
+2022-07-25 16:31:32 INFO  c.g.t.b.RequestLoggingInstrumentation:45 - 5523863047559513540 4840428646868363255 - [0ec6107a-f744-42db-a991-5e643c3e1c7a] variables: {id=book-1}
+2022-07-25 16:31:32 INFO  c.g.t.b.GraphQLDataFetchers:63 - 5523863047559513540 4840428646868363255 - Getting book with id: book-1
+2022-07-25 16:31:32 INFO  c.g.t.b.RequestLoggingInstrumentation:76 - 5523863047559513540 4840428646868363255 - [0ec6107a-f744-42db-a991-5e643c3e1c7a] completed in 6ms
+2022-07-25 16:31:32 INFO  c.g.t.b.RequestLoggingInstrumentation:77 - 5523863047559513540 4840428646868363255 - [0ec6107a-f744-42db-a991-5e643c3e1c7a] result: {"data":{"bookById":{"id":"book-1","name":"Harry Potter and the Philosopher's Stone","pageCount":223,"author":{"id":"author-1","firstName":"Joanne","lastName":"Rowling"}}}}
+2022-07-25 16:31:33 INFO  c.g.t.b.RequestLoggingInstrumentation:32 - 3653558072788582890 4527263439440591913 - GraphQL execution 2fdb5303-90bb-45a7-946c-1d23711192e1 started
+2022-07-25 16:31:33 INFO  c.g.t.b.RequestLoggingInstrumentation:43 - 3653558072788582890 4527263439440591913 - [2fdb5303-90bb-45a7-946c-1d23711192e1] query: query bookById ($id: ID) {
+    bookById (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+}
+2022-07-25 16:31:33 INFO  c.g.t.b.RequestLoggingInstrumentation:45 - 3653558072788582890 4527263439440591913 - [2fdb5303-90bb-45a7-946c-1d23711192e1] variables: {id=book-1}
+2022-07-25 16:31:33 INFO  c.g.t.b.GraphQLDataFetchers:63 - 3653558072788582890 4527263439440591913 - Getting book with id: book-1
+2022-07-25 16:31:33 INFO  c.g.t.b.RequestLoggingInstrumentation:76 - 3653558072788582890 4527263439440591913 - [2fdb5303-90bb-45a7-946c-1d23711192e1] completed in 4ms
+2022-07-25 16:31:33 INFO  c.g.t.b.RequestLoggingInstrumentation:77 - 3653558072788582890 4527263439440591913 - [2fdb5303-90bb-45a7-946c-1d23711192e1] result: {"data":{"bookById":{"id":"book-1","name":"Harry Potter and the Philosopher's Stone","pageCount":223,"author":{"id":"author-1","firstName":"Joanne","lastName":"Rowling"}}}}
+2022-07-25 16:31:34 INFO  c.g.t.b.RequestLoggingInstrumentation:32 - 8390605001538701136 1557910084037066211 - GraphQL execution 2e7f1de0-3ef7-43c1-88aa-9b05a57525ad started
+2022-07-25 16:31:34 INFO  c.g.t.b.RequestLoggingInstrumentation:43 - 8390605001538701136 1557910084037066211 - [2e7f1de0-3ef7-43c1-88aa-9b05a57525ad] query: query bookById ($id: ID) {
+    bookById (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+}
+2022-07-25 16:31:34 INFO  c.g.t.b.RequestLoggingInstrumentation:45 - 8390605001538701136 1557910084037066211 - [2e7f1de0-3ef7-43c1-88aa-9b05a57525ad] variables: {id=book-1}
+2022-07-25 16:31:34 INFO  c.g.t.b.GraphQLDataFetchers:63 - 8390605001538701136 1557910084037066211 - Getting book with id: book-1
+2022-07-25 16:31:34 INFO  c.g.t.b.RequestLoggingInstrumentation:76 - 8390605001538701136 1557910084037066211 - [2e7f1de0-3ef7-43c1-88aa-9b05a57525ad] completed in 7ms
+2022-07-25 16:31:34 INFO  c.g.t.b.RequestLoggingInstrumentation:77 - 8390605001538701136 1557910084037066211 - [2e7f1de0-3ef7-43c1-88aa-9b05a57525ad] result: {"data":{"bookById":{"id":"book-1","name":"Harry Potter and the Philosopher's Stone","pageCount":223,"author":{"id":"author-1","firstName":"Joanne","lastName":"Rowling"}}}}
+2022-07-25 16:31:36 INFO  c.g.t.b.RequestLoggingInstrumentation:32 - 8152284324121671015 7351873138057749711 - GraphQL execution cf24ae3e-e2e0-4d25-9cbc-688729606af9 started
+2022-07-25 16:31:36 INFO  c.g.t.b.RequestLoggingInstrumentation:43 - 8152284324121671015 7351873138057749711 - [cf24ae3e-e2e0-4d25-9cbc-688729606af9] query: query bookById ($id: ID) {
+    bookById (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+}
+2022-07-25 16:31:36 INFO  c.g.t.b.RequestLoggingInstrumentation:45 - 8152284324121671015 7351873138057749711 - [cf24ae3e-e2e0-4d25-9cbc-688729606af9] variables: {id=book-1}
+2022-07-25 16:31:36 INFO  c.g.t.b.GraphQLDataFetchers:63 - 8152284324121671015 7351873138057749711 - Getting book with id: book-1
+2022-07-25 16:31:36 INFO  c.g.t.b.RequestLoggingInstrumentation:76 - 8152284324121671015 7351873138057749711 - [cf24ae3e-e2e0-4d25-9cbc-688729606af9] completed in 4ms
+2022-07-25 16:31:36 INFO  c.g.t.b.RequestLoggingInstrumentation:77 - 8152284324121671015 7351873138057749711 - [cf24ae3e-e2e0-4d25-9cbc-688729606af9] result: {"data":{"bookById":{"id":"book-1","name":"Harry Potter and the Philosopher's Stone","pageCount":223,"author":{"id":"author-1","firstName":"Joanne","lastName":"Rowling"}}}}
+2022-07-25 16:32:10 INFO  c.g.t.b.RequestLoggingInstrumentation:32 - 4273183205296835082 1371487126147360278 - GraphQL execution a673ba1f-1359-4359-adf4-8f7876fea371 started
+2022-07-25 16:32:10 INFO  c.g.t.b.RequestLoggingInstrumentation:43 - 4273183205296835082 1371487126147360278 - [a673ba1f-1359-4359-adf4-8f7876fea371] query: query bookById ($id: ID) {
+    bookById (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+}
+2022-07-25 16:32:10 INFO  c.g.t.b.RequestLoggingInstrumentation:45 - 4273183205296835082 1371487126147360278 - [a673ba1f-1359-4359-adf4-8f7876fea371] variables: {id=book-1}
+2022-07-25 16:32:10 INFO  c.g.t.b.GraphQLDataFetchers:63 - 4273183205296835082 1371487126147360278 - Getting book with id: book-1
+2022-07-25 16:32:10 INFO  c.g.t.b.RequestLoggingInstrumentation:76 - 4273183205296835082 1371487126147360278 - [a673ba1f-1359-4359-adf4-8f7876fea371] completed in 3ms
+2022-07-25 16:32:10 INFO  c.g.t.b.RequestLoggingInstrumentation:77 - 4273183205296835082 1371487126147360278 - [a673ba1f-1359-4359-adf4-8f7876fea371] result: {"data":{"bookById":{"id":"book-1","name":"Harry Potter and the Philosopher's Stone","pageCount":223,"author":{"id":"author-1","firstName":"Joanne","lastName":"Rowling"}}}}
+2022-07-25 16:32:11 INFO  c.g.t.b.RequestLoggingInstrumentation:32 - 5458688053794762530 4962308375293933962 - GraphQL execution 454f512f-e282-41c9-bc1d-92b0c8475799 started
+2022-07-25 16:32:11 INFO  c.g.t.b.RequestLoggingInstrumentation:43 - 5458688053794762530 4962308375293933962 - [454f512f-e282-41c9-bc1d-92b0c8475799] query: query bookById ($id: ID) {
+    bookById (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+}
+2022-07-25 16:32:11 INFO  c.g.t.b.RequestLoggingInstrumentation:45 - 5458688053794762530 4962308375293933962 - [454f512f-e282-41c9-bc1d-92b0c8475799] variables: {id=book-1}
+2022-07-25 16:32:11 INFO  c.g.t.b.GraphQLDataFetchers:63 - 5458688053794762530 4962308375293933962 - Getting book with id: book-1
+2022-07-25 16:32:11 INFO  c.g.t.b.RequestLoggingInstrumentation:76 - 5458688053794762530 4962308375293933962 - [454f512f-e282-41c9-bc1d-92b0c8475799] completed in 5ms
+2022-07-25 16:32:11 INFO  c.g.t.b.RequestLoggingInstrumentation:77 - 5458688053794762530 4962308375293933962 - [454f512f-e282-41c9-bc1d-92b0c8475799] result: {"data":{"bookById":{"id":"book-1","name":"Harry Potter and the Philosopher's Stone","pageCount":223,"author":{"id":"author-1","firstName":"Joanne","lastName":"Rowling"}}}}
+2022-07-25 16:38:16 INFO  c.g.t.b.BookDetailsApplication:55 -   - Starting BookDetailsApplication v2.1.0 using Java 1.8.0_322 on COMP-C02DW0E1ML87 with PID 31727 (/Users/lloyd.williams/u01/eclipse-workspaces/graphql/book-details/target/book-details-2.1.0.jar started by lloyd.williams in /Users/lloyd.williams/u01/eclipse-workspaces/graphql/book-details)
+2022-07-25 16:38:16 DEBUG c.g.t.b.BookDetailsApplication:56 -   - Running with Spring Boot v2.5.1, Spring v5.3.8
+2022-07-25 16:38:16 INFO  c.g.t.b.BookDetailsApplication:659 -   - No active profile set, falling back to default profiles: default
+2022-07-25 16:38:17 INFO  o.s.b.w.e.t.TomcatWebServer:108 -   - Tomcat initialized with port(s): 8080 (http)
+2022-07-25 16:38:17 INFO  o.a.c.h.Http11NioProtocol:173 -   - Initializing ProtocolHandler ["http-nio-8080"]
+2022-07-25 16:38:18 INFO  o.a.c.c.StandardService:173 -   - Starting service [Tomcat]
+2022-07-25 16:38:18 INFO  o.a.c.c.StandardEngine:173 -   - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2022-07-25 16:38:18 INFO  o.a.c.c.C.[.[.[/]:173 -   - Initializing Spring embedded WebApplicationContext
+2022-07-25 16:38:18 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:290 -   - Root WebApplicationContext: initialization completed in 1526 ms
+2022-07-25 16:38:19 INFO  o.a.c.h.Http11NioProtocol:173 -   - Starting ProtocolHandler ["http-nio-8080"]
+2022-07-25 16:38:19 INFO  o.s.b.w.e.t.TomcatWebServer:220 -   - Tomcat started on port(s): 8080 (http) with context path ''
+2022-07-25 16:38:19 INFO  c.g.t.b.BookDetailsApplication:61 -   - Started BookDetailsApplication in 3.673 seconds (JVM running for 6.089)
+2022-07-25 16:39:11 INFO  o.a.c.c.C.[.[.[/]:173 - 8122466118974641010 5233448541931088503 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-25 16:39:11 INFO  o.s.w.s.DispatcherServlet:525 - 8122466118974641010 5233448541931088503 - Initializing Servlet 'dispatcherServlet'
+2022-07-25 16:39:11 INFO  o.s.w.s.DispatcherServlet:547 - 8122466118974641010 5233448541931088503 - Completed initialization in 1 ms
+2022-07-25 16:39:11 INFO  c.g.t.b.RequestLoggingInstrumentation:32 - 8122466118974641010 7964230468847499659 - GraphQL execution 9a02e0fc-02f3-4d52-99cc-93133534731e started
+2022-07-25 16:39:11 INFO  c.g.t.b.RequestLoggingInstrumentation:43 - 8122466118974641010 7964230468847499659 - [9a02e0fc-02f3-4d52-99cc-93133534731e] query: query bookById ($id: ID) {
+    bookById (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+}
+2022-07-25 16:39:11 INFO  c.g.t.b.RequestLoggingInstrumentation:45 - 8122466118974641010 7964230468847499659 - [9a02e0fc-02f3-4d52-99cc-93133534731e] variables: {id=book-1}
+2022-07-25 16:39:11 INFO  c.g.t.b.GraphQLDataFetchers:63 - 8122466118974641010 7964230468847499659 - Getting book with id: book-1
+2022-07-25 16:39:11 INFO  c.g.t.b.RequestLoggingInstrumentation:76 - 8122466118974641010 7964230468847499659 - [9a02e0fc-02f3-4d52-99cc-93133534731e] completed in 193ms
+2022-07-25 16:39:11 INFO  c.g.t.b.RequestLoggingInstrumentation:77 - 8122466118974641010 7964230468847499659 - [9a02e0fc-02f3-4d52-99cc-93133534731e] result: {"data":{"bookById":{"id":"book-1","name":"Harry Potter and the Philosopher's Stone","pageCount":223,"author":{"id":"author-1","firstName":"Joanne","lastName":"Rowling"}}}}
+2022-07-25 16:39:12 INFO  c.g.t.b.RequestLoggingInstrumentation:32 - 198004151655036112 6593570223036758358 - GraphQL execution d9e60540-c9bc-47df-9c0f-4f9f023dfcb2 started
+2022-07-25 16:39:12 INFO  c.g.t.b.RequestLoggingInstrumentation:43 - 198004151655036112 6593570223036758358 - [d9e60540-c9bc-47df-9c0f-4f9f023dfcb2] query: query bookById ($id: ID) {
+    bookById (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+}
+2022-07-25 16:39:12 INFO  c.g.t.b.RequestLoggingInstrumentation:45 - 198004151655036112 6593570223036758358 - [d9e60540-c9bc-47df-9c0f-4f9f023dfcb2] variables: {id=book-1}
+2022-07-25 16:39:12 INFO  c.g.t.b.GraphQLDataFetchers:63 - 198004151655036112 6593570223036758358 - Getting book with id: book-1
+2022-07-25 16:39:12 INFO  c.g.t.b.RequestLoggingInstrumentation:76 - 198004151655036112 6593570223036758358 - [d9e60540-c9bc-47df-9c0f-4f9f023dfcb2] completed in 7ms
+2022-07-25 16:39:12 INFO  c.g.t.b.RequestLoggingInstrumentation:77 - 198004151655036112 6593570223036758358 - [d9e60540-c9bc-47df-9c0f-4f9f023dfcb2] result: {"data":{"bookById":{"id":"book-1","name":"Harry Potter and the Philosopher's Stone","pageCount":223,"author":{"id":"author-1","firstName":"Joanne","lastName":"Rowling"}}}}
+2022-07-25 16:39:15 INFO  c.g.t.b.RequestLoggingInstrumentation:32 - 3805674176689755392 2053389467549126777 - GraphQL execution 0b891b1d-dc91-42c8-8cdd-67407c93b953 started
+2022-07-25 16:39:15 INFO  c.g.t.b.RequestLoggingInstrumentation:43 - 3805674176689755392 2053389467549126777 - [0b891b1d-dc91-42c8-8cdd-67407c93b953] query: query bookById ($id: ID) {
+    bookById (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+}
+2022-07-25 16:39:15 INFO  c.g.t.b.RequestLoggingInstrumentation:45 - 3805674176689755392 2053389467549126777 - [0b891b1d-dc91-42c8-8cdd-67407c93b953] variables: {id=book-2}
+2022-07-25 16:39:15 INFO  c.g.t.b.GraphQLDataFetchers:63 - 3805674176689755392 2053389467549126777 - Getting book with id: book-2
+2022-07-25 16:39:15 INFO  c.g.t.b.RequestLoggingInstrumentation:76 - 3805674176689755392 2053389467549126777 - [0b891b1d-dc91-42c8-8cdd-67407c93b953] completed in 6ms
+2022-07-25 16:39:15 INFO  c.g.t.b.RequestLoggingInstrumentation:77 - 3805674176689755392 2053389467549126777 - [0b891b1d-dc91-42c8-8cdd-67407c93b953] result: {"data":{"bookById":{"id":"book-2","name":"Moby Dick","pageCount":635,"author":{"id":"author-2","firstName":"Herman","lastName":"Melville"}}}}
+2022-07-25 16:39:32 INFO  c.g.t.b.RequestLoggingInstrumentation:32 - 1507843704314900630 2773762375737965037 - GraphQL execution 85691a9e-f91a-4f63-a713-98d8a10597d9 started
+2022-07-25 16:39:32 INFO  c.g.t.b.RequestLoggingInstrumentation:43 - 1507843704314900630 2773762375737965037 - [85691a9e-f91a-4f63-a713-98d8a10597d9] query: query bookById ($id: ID) {
+    bookById (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+}
+2022-07-25 16:39:32 INFO  c.g.t.b.RequestLoggingInstrumentation:45 - 1507843704314900630 2773762375737965037 - [85691a9e-f91a-4f63-a713-98d8a10597d9] variables: {id=book-3}
+2022-07-25 16:39:32 INFO  c.g.t.b.GraphQLDataFetchers:63 - 1507843704314900630 2773762375737965037 - Getting book with id: book-3
+2022-07-25 16:39:32 INFO  c.g.t.b.RequestLoggingInstrumentation:76 - 1507843704314900630 2773762375737965037 - [85691a9e-f91a-4f63-a713-98d8a10597d9] completed in 5ms
+2022-07-25 16:39:32 INFO  c.g.t.b.RequestLoggingInstrumentation:77 - 1507843704314900630 2773762375737965037 - [85691a9e-f91a-4f63-a713-98d8a10597d9] result: {"data":{"bookById":{"id":"book-3","name":"Interview with the vampire","pageCount":371,"author":{"id":"author-3","firstName":"Anne","lastName":"Rice"}}}}
+2022-07-25 16:41:24 INFO  c.g.t.b.RequestLoggingInstrumentation:32 - 4133568557355221109 7451523495581840896 - GraphQL execution aa088aca-c161-47e7-a12c-7d3d91093c6c started
+2022-07-25 16:41:24 INFO  c.g.t.b.RequestLoggingInstrumentation:43 - 4133568557355221109 7451523495581840896 - [aa088aca-c161-47e7-a12c-7d3d91093c6c] query: query bookById ($id: ID) {
+    bookById (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+}
+2022-07-25 16:41:24 INFO  c.g.t.b.RequestLoggingInstrumentation:45 - 4133568557355221109 7451523495581840896 - [aa088aca-c161-47e7-a12c-7d3d91093c6c] variables: {id=book-3}
+2022-07-25 16:41:24 INFO  c.g.t.b.GraphQLDataFetchers:63 - 4133568557355221109 7451523495581840896 - Getting book with id: book-3
+2022-07-25 16:41:24 INFO  c.g.t.b.RequestLoggingInstrumentation:76 - 4133568557355221109 7451523495581840896 - [aa088aca-c161-47e7-a12c-7d3d91093c6c] completed in 8ms
+2022-07-25 16:41:24 INFO  c.g.t.b.RequestLoggingInstrumentation:77 - 4133568557355221109 7451523495581840896 - [aa088aca-c161-47e7-a12c-7d3d91093c6c] result: {"data":{"bookById":{"id":"book-3","name":"Interview with the vampire","pageCount":371,"author":{"id":"author-3","firstName":"Anne","lastName":"Rice"}}}}
+2022-07-25 16:41:27 INFO  c.g.t.b.RequestLoggingInstrumentation:32 - 6921311506758506962 6178853395765128387 - GraphQL execution fe3cb0df-ef7a-4d70-9ad1-4d6f9aac59d6 started
+2022-07-25 16:41:27 INFO  c.g.t.b.RequestLoggingInstrumentation:43 - 6921311506758506962 6178853395765128387 - [fe3cb0df-ef7a-4d70-9ad1-4d6f9aac59d6] query: query bookById ($id: ID) {
+    bookById (id: $id) {
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+}
+2022-07-25 16:41:27 INFO  c.g.t.b.RequestLoggingInstrumentation:45 - 6921311506758506962 6178853395765128387 - [fe3cb0df-ef7a-4d70-9ad1-4d6f9aac59d6] variables: {id=book-1}
+2022-07-25 16:41:27 INFO  c.g.t.b.GraphQLDataFetchers:63 - 6921311506758506962 6178853395765128387 - Getting book with id: book-1
+2022-07-25 16:41:27 INFO  c.g.t.b.RequestLoggingInstrumentation:76 - 6921311506758506962 6178853395765128387 - [fe3cb0df-ef7a-4d70-9ad1-4d6f9aac59d6] completed in 5ms
+2022-07-25 16:41:27 INFO  c.g.t.b.RequestLoggingInstrumentation:77 - 6921311506758506962 6178853395765128387 - [fe3cb0df-ef7a-4d70-9ad1-4d6f9aac59d6] result: {"data":{"bookById":{"id":"book-1","name":"Harry Potter and the Philosopher's Stone","pageCount":223,"author":{"id":"author-1","firstName":"Joanne","lastName":"Rowling"}}}}

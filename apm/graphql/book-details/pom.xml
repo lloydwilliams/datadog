@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.5.1</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.graphql-java.tutorial</groupId>
+	<artifactId>book-details</artifactId>
+	<version>2.2.0</version>
+	<name>book-details</name>
+	<description>Demo project for Spring Boot</description>
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/com.graphql-java/graphql-java -->
+		<dependency>
+		    <groupId>com.graphql-java</groupId>
+		    <artifactId>graphql-java</artifactId>
+		    <version>16.2</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/com.graphql-java/graphql-java-spring-boot-starter-webmvc -->
+		<dependency>
+		    <groupId>com.graphql-java</groupId>
+		    <artifactId>graphql-java-spring-boot-starter-webmvc</artifactId>
+		    <version>2021-03-29T16-31-33-ae4bd96</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+		<dependency>
+		    <groupId>com.google.guava</groupId>
+		    <artifactId>guava</artifactId>
+		    <version>30.1.1-jre</version>
+		</dependency>
+
+ 
+		<!-- https://mvnrepository.com/artifact/com.datadoghq/dd-trace-api -->
+		<dependency>
+		    <groupId>com.datadoghq</groupId>
+		    <artifactId>dd-trace-api</artifactId>
+		    <version>0.82.0</version>
+		</dependency>
+		
+	  	<!-- https://mvnrepository.com/artifact/io.opentracing/opentracing-api -->
+		<dependency>
+		    <groupId>io.opentracing</groupId>
+		    <artifactId>opentracing-api</artifactId>
+		    <version>0.33.0</version>
+		</dependency>
+	  	<!-- https://mvnrepository.com/artifact/io.opentracing/opentracing-util -->
+		<dependency>
+		    <groupId>io.opentracing</groupId>
+		    <artifactId>opentracing-util</artifactId>
+		    <version>0.33.0</version>
+		</dependency>
+
+		<!-- 
+		https://docs.spring.io/spring-metrics/docs/current/public/datadog
+		 -->
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.metrics/spring-metrics --> 
+		<dependency>
+		    <groupId>org.springframework.metrics</groupId>
+		    <artifactId>spring-metrics</artifactId>
+		    <version>0.5.1.RELEASE</version>
+		</dependency>	
+		
+
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+<!--
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-core</artifactId>
+		    <version>2.13.3</version>
+		</dependency>
+-->
+
+<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.alibaba</groupId>
+		    <artifactId>fastjson</artifactId>
+		    <version>1.2.76</version>
+		</dependency>
+
+		<dependency>
+            <groupId>ch.qos.logback.contrib</groupId>
+            <artifactId>logback-json-classic</artifactId>
+            <version>0.1.5</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback.contrib</groupId>
+            <artifactId>logback-jackson</artifactId>
+            <version>0.1.5</version>
+        </dependency>
+
+
+<!-- 
+<dependency>
+  <group>io.prometheus</group>
+  <artifact>simpleclient_common</artifact>
+  <version>${prom.version}</version>
+</dependency>
+-->
+
+		<!-- https://mvnrepository.com/artifact/com.netflix.spectator/spectator-api -->
+<!--  
+		<dependency>
+		    <groupId>com.netflix.spectator</groupId>
+		    <artifactId>spectator-api</artifactId>
+		    <version>0.131.0</version>
+		</dependency>
+-->
+			
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
