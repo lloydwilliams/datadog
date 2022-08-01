@@ -22,4 +22,10 @@ Within the "SimpleInstrumentation" class, add the code to create custom span tag
 
 Please refer to Datadog's documentation for [adding custom span tags in Java](https://docs.datadoghq.com/tracing/trace_collection/custom_instrumentation/java/#add-custom-span-tags) 
 
-![postman](images/postman.png)
+Search the traces in the Datadog APM section:
+
+![apm-traces-live-search](images/apm-traces-live-search.png)
+
+Create facets and custom views in the Datadog APM Analytics section:
+
+![apm-custom-views](images/apm-custom-views.png)
