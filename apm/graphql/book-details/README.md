@@ -1,46 +1,25 @@
-This is a graphql sample that runs on an embedded tomcat
+# Datadog Java Springboot with GraphQL
 
-This came from:
-https://www.graphql-java.com/tutorials/getting-started-with-spring-boot/
+This sample shows how to configure a Java Springboot application so that you can see details about the requests in Datadog. 
 
-The URL is:
-http://localhost:8080/graphql
+![apm-trace](images/apm-trace.png)
 
-You can put this in GraphQL Playground:
+It shows the GraphQL query execution time in milliseconds, the execution id, the query and the variables. Normally, you may not want to add the result to the span since it could potentially be very large, but it is shown for illustration purposes for cases where the result will always be very small. 
 
-{
-  bookById(id: "book-1"){
-    id
-    name
-    pageCount
-    author {
-      firstName
-      lastName
-    }
-  }
-}
+This is done very easily with the Java Springboot framework by adding an Instrumentation Provider to your GraphQL microservice.
 
-{
-  bookById(id: "book-2"){
-    id
-    name
-    pageCount
-    author {
-      firstName
-      lastName
-    }
-  }
-}
+![graphql-provider](images/graphql-provider.png)
 
-Test using curl:
+Then supply the class that implements "SimpleInstrumentation".
 
-curl 'http://localhost:8080/graphql' -H 'Accept-Encoding: gzip, deflate, br' \
-   -H 'Content-Type: application/json' -H 'Accept: application/json' \
-   -H 'Connection: keep-alive' -H 'DNT: 1' \
-   -H 'Origin: file://' --data-binary '{"query":"{\n  bookById(id: \"book-1\"){\n    id\n    name\n    pageCount\n    author {\n      firstName\n      lastName\n    }\n  }\n}"}' --compressed
-   
-   
-curl 'http://localhost:8080/graphql' -H 'Accept-Encoding: gzip, deflate, br' \
-   -H 'Content-Type: application/json' -H 'Accept: application/json' \
-   -H 'Connection: keep-alive' -H 'DNT: 1' \
-   -H 'Origin: file://' --data-binary '{"query":"{\n  bookById(id: \"book-2\"){\n    id\n    name\n    pageCount\n    author {\n      firstName\n      lastName\n    }\n  }\n}"}' --compressed
+![simple-instrumentation](images/simple-instrumentation.png)
+
+Within the "SimpleInstrumentation" class, add the code to create custom span tags. 
+
+![custom-span-tags](images/custom-span-tags.png)
+
+
+
+Please refer to Datadog's documentation for [adding custom span tags in Java](https://docs.datadoghq.com/tracing/trace_collection/custom_instrumentation/java/#add-custom-span-tags) 
+
+![datadog-docs-custom-java](images/datadog-docs-custom-java.png)
