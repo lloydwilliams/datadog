@@ -1,5 +1,6 @@
 #!/bin/bash
- 
+echo setting the current context default namespace to datadog 
+kubectl config set-context --current --namespace datadog 
  
 # https://github.com/DataDog/helm-charts/tree/master/charts/datadog#all-configuration-options
  

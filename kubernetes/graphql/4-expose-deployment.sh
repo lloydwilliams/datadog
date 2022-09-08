@@ -11,7 +11,7 @@ kubectl expose deployment bookdetails-deployment --type=NodePort --port=8080
 #kubectl get svc
 kubectl get service bookdetails-deployment
 
-echo 'use GraphQL Playground http://localhost:8180/graphql'
-kubectl port-forward $(kubectl get pod --selector="app=bookdetails-deployment" --output jsonpath='{.items[0].metadata.name}') 8180:8080
+echo 'use GraphQL Playground http://localhost:8080/graphql'
+kubectl port-forward $(kubectl get pod --selector="app=bookdetails-deployment" --output jsonpath='{.items[0].metadata.name}') 8080:8080
 
 

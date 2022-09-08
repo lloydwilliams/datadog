@@ -1,0 +1,12 @@
+dd.agent.host=localhost
+dd.trace.agent.port=8126
+dd.service=weblogic
+dd.env=dev
+dd.version=12.2.1.4
+dd.trace.enabled=true
+dd.jmxfetch.enabled=false
+dd.logs.injection=true
+dd.integration.jax-ws.enabled=true
+dd.trace.split-by-tags=servlet.context
+#dd.trace.classes.exclude=com.riverbed*
+#dd.trace.sample.rate=1.0

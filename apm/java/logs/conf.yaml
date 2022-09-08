@@ -1,0 +1,5 @@
+logs:
+    - type: file
+      path: /u01/demo/books/logs/*.log
+      source: java
+      service: books
