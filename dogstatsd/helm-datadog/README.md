@@ -2,9 +2,6 @@ These scripts help you set-up the Datadog agent on Kubernetes (K8S) with a Load 
 
 This was tested on Azure Kubernetes Service (AKS).
 
-
-![K8S-Datadog](images/K8S-Datadog.png)
-
 For more information, please refer to:
 
 https://www.datadoghq.com/blog/monitoring-kubernetes-with-datadog/#the-datadog-cluster-agent
