@@ -6,7 +6,9 @@ kubectl get pods | grep datadog-agent-cluster-agent
 
 # echo 'see: https://docs.datadoghq.com/agent/cluster_agent/clusterchecksrunner/?tab=helm'
 echo '=== cluster agent clusterchecks ==='
-kubectl exec datadog-agent-cluster-agent-c69d658b6-s4qgv -- agent clusterchecks
+#  kubectl exec datadog-agent-cluster-agent-c69d658b6-s4qgv -- agent clusterchecks
+
+kubectl exec $1 -- agent clusterchecks
 
 sleep 5
 echo ''
