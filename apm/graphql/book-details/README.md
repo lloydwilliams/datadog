@@ -6,6 +6,14 @@ As of version 0.109.0 of the Datadog Java trace agent, the creation of GraphQL q
 
 ![GraphQL-v0.109](images/GraphQL-v0.109.png)
 
+It also reports validation errors:
+
+![GraphQL-Error1](images/GraphQL-Error1.png)
+
+![GraphQL-Error2](images/GraphQL-Error2.png)
+
+
+
 For more details see:
 
 https://github.com/DataDog/dd-trace-java/pull/3703
