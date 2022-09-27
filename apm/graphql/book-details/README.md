@@ -1,5 +1,17 @@
 # Datadog Java Springboot with GraphQL
 
+### UPDATE: 2022-09-27
+
+As of version 0.109.0 of the Datadog Java trace agent, the creation of GraphQL query spans is automatically supported. 
+
+![GraphQL-v0.109](images/GraphQL-v0.109.png)
+
+For more details see:
+
+https://github.com/DataDog/dd-trace-java/pull/3703
+
+--
+
 This sample shows how to configure a Java Springboot application so that you can see details about the requests in Datadog. 
 
 ![apm-trace](images/apm-trace.png)
