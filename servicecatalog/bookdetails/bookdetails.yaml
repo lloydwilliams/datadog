@@ -1,0 +1,30 @@
+---
+schema-version: v2
+dd-service: bookdetails
+team: bookstore
+contacts:
+  - type: slack
+    contact: https://datadogincidents.slack.com/archives/C02JZKM13D5
+  - type: email
+    contact: lloyd.williams@datadoghq.com
+links:
+  - name: Demo Dashboard
+    type: dashboard
+    url: https://app.datadoghq.com/dashboard/hrt-hc2-zjf/dogstatsd-custom-metrics-dashboard
+  - name: Runbook
+    type: runbook
+    url: https://app.datadoghq.com/notebook/3904415/runbook-for-auth-dotnet-service
+repos:
+  - name: Source
+    provider: github
+    url: https://github.com/lloydwilliams/datadog/tree/main/kubernetes/graphql
+  - name: Deployment
+    provider: github
+    url: https://github.com/lloydwilliams/datadog/blob/main/kubernetes/graphql/bookdetails-deployment.yaml
+docs:
+  - name: Datadog Doc
+    provider: link
+    url: https://docs.datadoghq.com/
+tags: ["priority:high","other:something"]
+integrations:
+  pagerduty: https://my-org.pagerduty.com/service-directory/PMyService
