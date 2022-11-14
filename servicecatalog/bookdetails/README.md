@@ -24,7 +24,11 @@ You can also see all of the service dependencies using the "Map" button on the m
 
 
 
+To use the [register](https://github.com/lloydwilliams/datadog/blob/main/servicecatalog/bookdetails/register.sh) script in this folder, you will need to either set your Datadog API key and Datadog APP key (DD_API_KEY and DD_APP_KEY) as environment variables or modify the script. 
 
+Create a [yaml file](https://github.com/lloydwilliams/datadog/blob/main/servicecatalog/bookdetails/bookdetails.yaml) containing the information for your service and replace the file name in the script with the name of your file. 
+
+See the [Service Definition Datadog API](https://docs.datadoghq.com/api/latest/service-definition/) docs for full details. 
 
 
 
