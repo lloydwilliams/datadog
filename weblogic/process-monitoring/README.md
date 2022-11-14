@@ -1,6 +1,10 @@
-Here is an example of setting up process monitoring for WebLogic:
+The following is an example of setting up process monitoring for WebLogic using the [Datadog Processes Integration](https://docs.datadoghq.com/integrations/process/).
 
+The [data collected section](https://docs.datadoghq.com/integrations/process/#data-collected) explains all of the addtional metrics that will be collected as a result of configuring this integration. 
 
+### Process Data Collected
+
+![process-data-collected](images/process-data-collected.png)
 
 #### Datadog Config
 
