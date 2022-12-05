@@ -12,7 +12,7 @@
 
     <appender name="RollingFile"
         class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOGS}/spring-boot-logger.log</file>
+        <file>${LOGS}/payroll-app.log</file>
         <encoder
             class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <!--  <Pattern>%d %p %C{1.} [%t] %m%n</Pattern> -->
@@ -22,8 +22,7 @@
         <rollingPolicy
             class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- rollover daily and when the file reaches 10 MegaBytes -->
-            <fileNamePattern>${LOGS}/archived/spring-boot-logger-%d{yyyy-MM-dd}.%i.log
-            </fileNamePattern>
+            <fileNamePattern>${LOGS}/archived/payroll-app-logger-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy
                 class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>10MB</maxFileSize>
@@ -37,8 +36,8 @@
         <appender-ref ref="Console" />
     </root>
 
-    <!-- LOG "com.example.payroll" at TRACE level -->
-    <logger name="com.example.payroll" level="trace" additivity="false">
+    <!-- LOG "ccom.graphqljava.tutorial.bookdetails*" at TRACE level -->
+    <logger name="com.graphqljava.tutorial.bookdetails" level="trace" additivity="false">
         <appender-ref ref="RollingFile" />
         <appender-ref ref="Console" />
     </logger>
