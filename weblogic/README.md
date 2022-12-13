@@ -156,6 +156,12 @@ Some installations have a setStartupEnv.sh file and you may want to put the para
 
 ![Screen Shot 2021-10-21 at 8.28.15 PM](images/WL_setStartupEnv.png)
 
+Other installations will allow you to create a "setUserOverrides.sh" script which will get called during start-up. This is so your changes don't get overriden if the WebLogic administrator reconfigures the domain to make some changes. 
+
+![img](images/WL_setUserOverrides.png)
+
+![img](images/WL_setUserOverrides2.png)
+
 Datadog allows you to specify a file to keep most of the property setting separately, so that they are easier to change. You do this by setting -Ddd.trace.config = the location of the separate config file.  For example,
 
 ```-Ddd.trace.config=/u01/datadog/dd-config.properties```
