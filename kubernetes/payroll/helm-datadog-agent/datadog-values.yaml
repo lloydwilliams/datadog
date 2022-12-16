@@ -30,7 +30,7 @@ datadog:
   # datadog.apiKey -- Your Datadog API key
 
   ## ref: https://app.datadoghq.com/account/settings#agent/kubernetes
-  apiKey: <DATADOG_API_KEY>
+  apiKey:  # <DATADOG_API_KEY>
 
   # datadog.apiKeyExistingSecret -- Use existing Secret which stores API key instead of creating a new one. The value should be set with the `api-key` key inside the secret.
 
@@ -155,6 +155,7 @@ datadog:
     # datadog.kubeStateMetricsCore.useClusterCheckRunners -- For large clusters where the Kubernetes State Metrics Check Core needs to be distributed on dedicated workers.
 
     ## Configuring this field will create a separate deployment which will run Cluster Checks, including Kubernetes State Metrics Core.
+    ## If clusterChecksRunner.enabled is true, it's recommended to set this flag to true as well to better utilize dedicated workers and reduce load on the Cluster Agent.
     ## ref: https://docs.datadoghq.com/agent/cluster_agent/clusterchecksrunner?tab=helm
     useClusterCheckRunners: false
 
@@ -171,6 +172,25 @@ datadog:
     ## Warning: the label must match the transformation done by kube-state-metrics,
     ## for example tags.datadoghq.com/version becomes tags_datadoghq_com_version.
     labelsAsTags: {}
+    #  pod:
+    #    app: app
+    #  node:
+    #    zone: zone
+    #    team: team
+
+    # datadog.kubeStateMetricsCore.annotationsAsTags -- Extra annotations to collect from resources and to turn into datadog tag.
+
+    ## It has the following structure:
+    ## annotationsAsTags:
+    ##   <resource1>:        # can be pod, deployment, node, etc.
+    ##     <annotation1>: <tag1>  # where <annotation1> is the kubernetes annotation and <tag1> is the datadog tag
+    ##     <annotation2>: <tag2>
+    ##   <resource2>:
+    ##     <annotation3>: <tag3>
+    ##
+    ## Warning: the annotation must match the transformation done by kube-state-metrics,
+    ## for example tags.datadoghq.com/version becomes tags_datadoghq_com_version.
+    annotationsAsTags: {}
     #  pod:
     #    app: app
     #  node:
@@ -230,7 +250,7 @@ datadog:
           fieldPath: status.hostIP
     # datadog.kubelet.tlsVerify -- Toggle kubelet TLS verification
     # @default -- true
-    tlsVerify:  # false
+    tlsVerify:  false
     # datadog.kubelet.hostCAPath -- Path (on host) where the Kubelet CA certificate is stored
     # @default -- None (no mount from host)
     hostCAPath:
@@ -326,12 +346,12 @@ datadog:
     # datadog.logs.enabled -- Enables this to activate Datadog Agent log collection
 
     ## ref: https://docs.datadoghq.com/agent/basic_agent_usage/kubernetes/#log-collection-setup
-    enabled: false
+    enabled: true
 
     # datadog.logs.containerCollectAll -- Enable this to allow log collection for all containers
 
     ## ref: https://docs.datadoghq.com/agent/basic_agent_usage/kubernetes/#log-collection-setup
-    containerCollectAll: false
+    containerCollectAll: true
 
     # datadog.logs.containerCollectUsingFiles -- Collect logs from files in /var/log/pods instead of using container runtime API
 
@@ -465,7 +485,7 @@ datadog:
     # datadog.processAgent.processCollection -- Set this to true to enable process collection in process monitoring agent
 
     ## Requires processAgent.enabled to be set to true to have any effect
-    processCollection: false
+    processCollection: true
 
     # datadog.processAgent.stripProcessArguments -- Set this to scrub all arguments from collected processes
 
@@ -510,12 +530,6 @@ datadog:
     # datadog.systemProbe.enableOOMKill -- Enable the OOM kill eBPF-based check
     enableOOMKill: false
 
-    # datadog.systemProbe.enableRuntimeCompiler -- Enable the runtime compiler for eBPF probes
-    enableRuntimeCompiler: false
-
-    # datadog.systemProbe.enableKernelHeaderDownload -- Enable the downloading of kernel headers for runtime compilation of eBPF probes
-    enableKernelHeaderDownload: true
-
     # datadog.systemProbe.mountPackageManagementDirs -- Enables mounting of specific package management directories when runtime compilation is enabled
     mountPackageManagementDirs: []
     ## For runtime compilation to be able to download kernel headers, the host's package management folders
@@ -527,6 +541,9 @@ datadog:
 
     # datadog.systemProbe.runtimeCompilationAssetDir -- Specify a directory for runtime compilation assets to live in
     runtimeCompilationAssetDir: /var/tmp/datadog-agent/system-probe
+
+    # datadog.systemProbe.btfPath -- Specify the path to a BTF file for your kernel
+    btfPath: ""
 
     # datadog.systemProbe.collectDNSStats -- Enable DNS stat collection
     collectDNSStats: true
@@ -577,20 +594,20 @@ datadog:
 
   networkMonitoring:
     # datadog.networkMonitoring.enabled -- Enable network performance monitoring
-    enabled: false
+    enabled: true
 
   ## Universal Service Monitoring is currently in private beta.
 
   ## See https://www.datadoghq.com/blog/universal-service-monitoring-datadog/ for more details and private beta signup.
   serviceMonitoring:
     # datadog.serviceMonitoring.enabled -- Enable Universal Service Monitoring
-    enabled: false
+    enabled: true
 
   ## Enable security agent and provide custom configs
   securityAgent:
     compliance:
       # datadog.securityAgent.compliance.enabled -- Set to true to enable Cloud Security Posture Management (CSPM)
-      enabled: false
+      enabled: true
 
       # datadog.securityAgent.compliance.configMap -- Contains CSPM compliance benchmarks that will be used
       configMap:
@@ -600,10 +617,10 @@ datadog:
 
     runtime:
       # datadog.securityAgent.runtime.enabled -- Set to true to enable Cloud Workload Security (CWS)
-      enabled: false
+      enabled: true
 
       # datadog.securityAgent.runtime.fimEnabled -- Set to true to enable Cloud Workload Security (CWS) File Integrity Monitoring
-      fimEnabled: false
+      fimEnabled: true
 
       policies:
         # datadog.securityAgent.runtime.policies.configMap -- Contains CWS policies that will be used
@@ -615,11 +632,11 @@ datadog:
 
       network:
         # datadog.securityAgent.runtime.network.enabled -- Set to true to enable the collection of CWS network events
-        enabled: false
+        enabled: true
 
       activityDump:
         # datadog.securityAgent.runtime.activityDump.enabled -- Set to true to enable the collection of CWS activity dumps
-        enabled: false
+        enabled: true
 
         # datadog.securityAgent.runtime.activityDump.tracedCgroupsCount -- Set to the number of containers that should be traced concurrently
         tracedCgroupsCount: 3
@@ -812,7 +829,7 @@ clusterAgent:
   # Enable the metricsProvider to be able to scale based on metrics in Datadog
   metricsProvider:
     # clusterAgent.metricsProvider.enabled -- Set this to true to enable Metrics Provider
-    enabled: true
+    enabled: false
 
     # clusterAgent.metricsProvider.wpaController -- Enable informer and controller of the watermark pod autoscaler
 
@@ -1491,6 +1508,8 @@ agents:
 clusterChecksRunner:
   # clusterChecksRunner.enabled -- If true, deploys agent dedicated for running the Cluster Checks instead of running in the Daemonset's agents.
 
+  ## If both clusterChecksRunner.enabled and datadog.kubeStateMetricsCore.enabled are true, consider enabling datadog.kubeStateMetricsCore.useClusterCheckRunners as well.
+  ## If datadog.kubeStateMetricsCore.useClusterCheckRunners is enabled, it's recommended to enable this flag as well so all Cluster Checks run on Cluster Checks Runners instead of node agents.
   ## ref: https://docs.datadoghq.com/agent/autodiscovery/clusterchecks/
   enabled: false
 
@@ -1510,7 +1529,7 @@ clusterChecksRunner:
     ## Ex:
     ##  jmx        to enable jmx fetch collection
     ##  servercore to get Windows images based on servercore
-    tagSuffix: ""
+    tagSuffix: "jmx"
 
     # clusterChecksRunner.image.repository -- Override default registry + image.name for Cluster Check Runners
     repository:
@@ -1737,4 +1756,7 @@ providers:
       ## IMDS metadata endpoint is not accesible to containers. This flag mounts the host's
       ## `/var/lib/cloud/data/instance-id` and uses that for Agent's hostname instead.
       useHostnameFromFile: false
+  aks:
+    # providers.aks.enabled -- Activate all specifities related to AKS configuration. Required as currently we cannot auto-detect AKS.
+    enabled: true
 
