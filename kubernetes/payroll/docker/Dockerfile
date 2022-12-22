@@ -1,4 +1,4 @@
-FROM eclipse-temurin:8u345-b01-jdk
+FROM eclipse-temurin:8u352-b08-jdk
 ADD https://dtdg.co/latest-java-tracer /dd-java-agent.jar
 RUN apt-get update && apt-get install -y procps
 ARG JAR_FILE=target/*.jar

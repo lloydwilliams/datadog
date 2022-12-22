@@ -7,9 +7,9 @@ metadata:
     name: payroll
     tags.datadoghq.com/env: prod
     tags.datadoghq.com/service: payroll
-    tags.datadoghq.com/version: 1.0.2
+    tags.datadoghq.com/version: 3.0.1
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: payroll
@@ -20,7 +20,7 @@ spec:
         name: payroll
         tags.datadoghq.com/env: prod
         tags.datadoghq.com/service: payroll
-        tags.datadoghq.com/version: 1.0.2
+        tags.datadoghq.com/version: 3.0.1
 #      annotations:
 #        ad.datadoghq.com/payroll.logs: '[{"source":"payroll","service":"payroll"}]'
     spec:
@@ -28,9 +28,9 @@ spec:
         - name: apmsocketpath
           hostPath:
             path: /var/run/datadog/
-        - name: applogs
-          hostPath:
-            path: /logs
+#        - name: applogs
+#          hostPath:
+#            path: /logs
       containers:
         - name: payroll
           image: 'lloydwilliams/payroll:latest'
@@ -38,11 +38,11 @@ spec:
           volumeMounts:
             - name: apmsocketpath
               mountPath: /var/run/datadog
-            - name: applogs
-              mountPath: /logs
+#            - name: applogs
+#              mountPath: /logs
           env:
-            - name: JAVA_OPTS
-              value: '-XX:FlightRecorderOptions=stackdepth=256'
+#            - name: JAVA_OPTS
+#              value: '-XX:FlightRecorderOptions=stackdepth=256'
             - name: DD_ENV
               valueFrom:
                 fieldRef:
@@ -61,6 +61,6 @@ spec:
               value: >-
                 com.example.payroll.EmployeeController[*];com.example.payroll.LoadDatabase[initDatabase]
             - name: DD_PROFILING_ENABLED
-              value: 'true'
+              value: 'false'
             - name: DD_LOGS_INJECTION
               value: 'true'
