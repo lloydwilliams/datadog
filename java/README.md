@@ -86,6 +86,18 @@ Here is an [example](https://github.com/lloydwilliams/datadog/blob/main/kubernet
 
 ![006-log-pattern-with-dd-trace-id](images/006-log-pattern-with-dd-trace-id.png)
 
+You will also need to configre a `Log Pipeline` in Datadog 
+
+![007-Datadog-log-pipeline](images/007-Datadog-log-pipeline.png)
+
+with a `Grok Parser` to parse the logs (including the trace id).
+
+![008-grok-parser](images/008-grok-parser.png)
+
+Also, use a `Trace Id Remapper` to tell Datadog the name of the variable that you used when you parsed the trace id from the log.
+
+![009-trace-id-remapper](images/009-trace-id-remapper.png)
+
 ## Java J2EE / Jakarta EE
 
 Java 2 Platform, Enterprise Edition [J2EE](https://www.oracle.com/java/technologies/appmodel.html) or [JakartaEE](https://jakarta.ee/) is a framework for running enterprise applications on top of an enterprise application server (e.g. WebLogic, WebSphere, JBoss, Apache Tomcat). These Java applications are usually packaged as either EAR files or just WAR files. 
