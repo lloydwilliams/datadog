@@ -53,3 +53,4 @@ kubernetes/payroll/helm-datadog-agent/backup/datadog-values.yaml.2022-10-28
 kubernetes/payroll/helm-datadog-agent/backup/datadog-values.txt
 kubernetes/payroll/helm-datadog-agent/datadog-values.1
 kubernetes/payroll/helm-datadog-agent/datadog-values.txt
+kubernetes/payroll/eclipse-workspace/payroll/target/payroll-3.0.1.jar.original

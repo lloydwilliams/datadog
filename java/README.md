@@ -12,6 +12,8 @@
 
 The [Spring Boot](https://spring.io/projects/spring-boot) project makes it easy to create stand-alone, production-grade Spring based Applications that you can "just run".
 
+The [Spring Initializr](https://start.spring.io/) can help you get started. 
+
 This is an example of a [Spring Boot application](https://github.com/lloydwilliams/datadog/tree/main/kubernetes/payroll/eclipse-workspace/payroll).
 
 ## Datadog APM
