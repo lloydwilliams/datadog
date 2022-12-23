@@ -80,6 +80,12 @@ Notice that you can also configure the application to [inject the trace id into 
 
 ![005-trace-jane-doe](images/005-trace-jane-doe.png)
 
+You may need to modify the logging pattern that you are using to include the Datadog trace id and span id (even if you have set -Ddd.logs.injection=true).
+
+Here is an [example](https://github.com/lloydwilliams/datadog/blob/main/kubernetes/payroll/eclipse-workspace/payroll/src/main/resources/logback-spring.xml).
+
+![006-log-pattern-with-dd-trace-id](images/006-log-pattern-with-dd-trace-id.png)
+
 ## Java J2EE / Jakarta EE
 
 Java 2 Platform, Enterprise Edition [J2EE](https://www.oracle.com/java/technologies/appmodel.html) or [JakartaEE](https://jakarta.ee/) is a framework for running enterprise applications on top of an enterprise application server (e.g. WebLogic, WebSphere, JBoss, Apache Tomcat). These Java applications are usually packaged as either EAR files or just WAR files. 
