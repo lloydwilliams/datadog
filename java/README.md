@@ -29,10 +29,12 @@ wget --no-check-certificate -O dd-java-agent.jar https://dtdg.co/latest-java-tra
 or check the version that you have using:
 
 ```
-get-new-dd-java-agent.sh
+java -jar dd-java-agent.jar
 ```
 
-You might want to put this in a script that you can run periodically to get the latest version because new features of the Java Trace Library are released on a regular basis. 
+You might want to put this in a [script](https://github.com/lloydwilliams/datadog/blob/main/java/get-new-dd-java-agent.sh) that you can run periodically to get the latest version because new features of the Java Trace Library are released on a regular basis. 
+
+This tracing library sends the traces to the [Datadog agent](https://docs.datadoghq.com/agent/) installed on the host. So you must have that running also to accept the traces. 
 
 For example:
 
@@ -60,15 +62,33 @@ curl --location --request POST 'localhost:8080/employees' \
 }'
 ```
 
-or use a popular tool like [Postman](https://www.postman.com/downloads/) to make the API call. 
+or use a popular tool like [Postman](https://www.postman.com/downloads/) 
 
 ![002-postman](images/002-postman.png)
+
+
+
+or [Insomnia](https://insomnia.rest/) to make the REST API call. 
+
+![004-insomnia](images/004-insomnia.png)
 
 Datadog APM will trace each call to the application and automatically generate spans for [certain types of activities](https://docs.datadoghq.com/tracing/trace_collection/compatibility/java/#networking-framework-compatibility) such as JDBC calls to a database. 
 
 Notice that you can also configure the application to [inject the trace id into the logs](https://docs.datadoghq.com/tracing/other_telemetry/connect_logs_and_traces/java). This makes it very easy to see the logs related to this one specifc call without having to switch to a different tool. 
 
 ![payroll-trace](images/003-payroll-trace.png)
+
+![005-trace-jane-doe](images/005-trace-jane-doe.png)
+
+## Java J2EE / Jakarta EE
+
+Java 2 Platform, Enterprise Edition [J2EE](https://www.oracle.com/java/technologies/appmodel.html) or [JakartaEE](https://jakarta.ee/) is a framework for running enterprise applications on top of an enterprise application server (e.g. WebLogic, WebSphere, JBoss, Apache Tomcat). These Java applications are usually packaged as either EAR files or just WAR files. 
+
+[The JAR file is a file that has Java class files, related metadata, and resource combined into a single file to execute a Java application. The WAR file is a file that contains files such as a servlet, JSP, HTML, JavaScript, etc. that are necessary to develop web applications. EAR is a Java EE file that packages one or more modules into a single archive to deploy them on to an application server. That is the difference between JAR WAR and EAR files.](https://pediaa.com/what-is-the-difference-between-jar-war-and-ear/)
+
+In this situation, when you want to instrument these Java applications that are packaged as a WAR file or EAR file, you want to instrument the underlying Java runtime, which is the application server itself by following the [Datadog instructions for that application server](https://docs.datadoghq.com/tracing/trace_collection/dd_libraries/java/?tab=tomcat#add-the-java-tracer-to-the-jvm). 
+
+
 
 
 
