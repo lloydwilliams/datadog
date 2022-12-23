@@ -14,11 +14,25 @@ The [Spring Boot](https://spring.io/projects/spring-boot) project makes it easy 
 
 The [Spring Initializr](https://start.spring.io/) can help you get started. 
 
-This is an example of a [Spring Boot application](https://github.com/lloydwilliams/datadog/tree/main/kubernetes/payroll/eclipse-workspace/payroll).
+This is an example of a [Spring Boot application](https://github.com/lloydwilliams/datadog/tree/main/kubernetes/payroll/eclipse-workspace/payroll) for Java 8. 
 
 ## Datadog APM
 
 Any application packaged into a .jar file (such as a Spring Boot application) can be easily traced using the [Datadog tracing library available on GitHub](https://github.com/DataDog/dd-trace-java) by [adding the java tracer to the VM using -javaagent](https://docs.datadoghq.com/tracing/trace_collection/dd_libraries/java/?tab=springboot#add-the-java-tracer-to-the-jvm). 
+
+You can easily get the latest version of the Datadog Java Trace library by running the command:
+
+```
+wget --no-check-certificate -O dd-java-agent.jar https://dtdg.co/latest-java-tracer
+```
+
+or check the version that you have using:
+
+```
+get-new-dd-java-agent.sh
+```
+
+You might want to put this in a script that you can run periodically to get the latest version because new features of the Java Trace Library are released on a regular basis. 
 
 For example:
 
