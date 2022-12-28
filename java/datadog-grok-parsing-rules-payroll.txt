@@ -1,0 +1,18 @@
+-- EXAMPLES -- 
+
+2022-06-24 13:18:46 INFO  o.s.w.s.DispatcherServlet:525 - 6351347550975297033 652446694323368400 - Initializing Servlet 'dispatcherServlet'
+
+2022-06-24 13:18:46 INFO  c.e.p.EmployeeController:51 - 6351347550975297033 1080586716298555638 - Adding new employee with name: Samwise Gamgee and role: gardener
+
+2022-06-24 13:21:03 INFO  c.e.p.EmployeeController:90 - 2401272240603693340 4075082025960867707 - Upating employee id: 3 with name: Lloyd Williams and role: sales engineer
+
+-- RULES --
+
+myRule1 %{date("yyyy-MM-dd HH:mm:ss"):date}\s+%{word:level}\s+%{data:javaclass}:%{number:line}\s+-\s+%{word:dd.trace_id}\s+%{word:dd.span_id}\s-\s+Adding new employee with name: %{data:firstname}\s%{data:lastname} and role: %{data:role}
+
+myRule1 %{date("yyyy-MM-dd HH:mm:ss,S"):date}\s+%{word:level}\s+%{data:javaclass}:%{number:line}\s+-\s+%{word:dd.trace_id}\s+%{word:dd.span_id}\s-\s+Adding new employee with name: %{data:firstname}\s%{data:lastname} and role: %{data:role}
+
+autoFilledRule1 %{date("yyyy-MM-dd HH:mm:ss"):date}\s+%{word:level}\s+%{data:javaclass}:%{number:line}\s+-\s+%{word:dd.trace_id}\s+%{word:dd.span_id}\s-\s+%{data:message}
+
+autoFilledRule2 %{date("yyyy-MM-dd HH:mm:ss"):date}\s+%{word:level}\s+%{data}
+
