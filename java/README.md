@@ -90,7 +90,9 @@ You will also need to configre a `Log Pipeline` in Datadog
 
 ![007-Datadog-log-pipeline](images/007-Datadog-log-pipeline.png)
 
-with a `Grok Parser` to parse the logs (including the trace id).
+with a `Grok Parser` to parse the logs (including the trace id). 
+
+For convenience, a text file with these log samples and parsing rules are available in the file [datadog-grok-parsing-rules-payroll.txt](./datadog-grok-parsing-rules-payroll.txt) 
 
 ![008-grok-parser](images/008-grok-parser.png)
 
