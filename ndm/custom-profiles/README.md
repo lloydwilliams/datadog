@@ -16,7 +16,7 @@ You will need to then put these in a folder that is accessble to the Datadog age
 
 ### Summary steps to implement this example for an Aruba Mobility Controller: 
 
-1. Create a folder on the server running the Datadog agent (e.g. `/opt/datadog-agent/custom_pysnmp_mibs`) and copy the files from the `custom_pysnmp_mibs` folder to that folder. (You can download the zip file [aruba-mobility.zip](https://github.com/lloydwilliams/datadog/blob/main/ndm/custom-profiles/custom_pysnmp_mibs/aruba-mobility.zip) and unzip it on your machine)
+1. Create a folder on the server running the Datadog agent (e.g. `/opt/datadog-agent/custom_pysnmp_mibs/aruba-mobility`) and copy the files from the `custom_pysnmp_mibs` folder to that folder. (You can download the zip file [aruba-mobility.zip](https://github.com/lloydwilliams/datadog/blob/main/ndm/custom-profiles/custom_pysnmp_mibs/aruba-mobility.zip) and unzip it on your machine)
 
 2. Add the profile `aruba-mobility.yaml` to the SNMP config profiles folder (e.g. `/etc/datadog-agent/conf.d/snmp.d/profiles`). This contains all of the possible metrics in the metrics section. **You may want to carefully remove any metrics from this file that you do not want to collect. Otherwise, you will be periodically polling the device for all of these metrics.** 
 
