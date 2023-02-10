@@ -28,9 +28,6 @@ spec:
         - name: apmsocketpath
           hostPath:
             path: /var/run/datadog/
-#        - name: applogs
-#          hostPath:
-#            path: /logs
       containers:
         - name: payroll
           image: 'lloydwilliams/payroll:latest'
@@ -38,8 +35,6 @@ spec:
           volumeMounts:
             - name: apmsocketpath
               mountPath: /var/run/datadog
-#            - name: applogs
-#              mountPath: /logs
           env:
 #            - name: JAVA_OPTS
 #              value: '-XX:FlightRecorderOptions=stackdepth=256'
@@ -64,3 +59,5 @@ spec:
               value: 'false'
             - name: DD_LOGS_INJECTION
               value: 'true'
+            - name: DD_APPSEC_ENABLED
+              value: "true"
