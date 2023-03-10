@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "f3f20dcc-a772-474e-8282-ddd2760ffcd7",
+		"name": "Gate Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14488755"
+	},
+	"item": [
+		{
+			"name": "Halifax",
+			"item": [
+				{
+					"name": "Gate IN -  Halifax 91",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"gatenum\": \"91\",\n    \"location\": \"Halifax\",\n    \"identity\": \"TruckingCo\",\n\t\"direction\": \"IN\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/gate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gate OUT - Halifax 91",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"gatenum\": \"91\",\n    \"location\": \"Halifax\",\n    \"identity\": \"TruckingCo\",\n\t\"direction\": \"OUT\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/gate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Calgary",
+			"item": [
+				{
+					"name": "Gate IN - Calgary 121A",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"gatenum\": \"121A\",\n    \"location\": \"Calgary\",\n    \"identity\": \"ABC\",\n\t\"direction\": \"IN\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/gate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gate OUT - Calgary 121A",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"gatenum\": \"121A\",\n    \"location\": \"Calgary\",\n    \"identity\": \"ABC\",\n\t\"direction\": \"OUT\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/gate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,74 @@
+data_dir: "./var/lib/observability-pipelines-worker"
+
+enterprise:
+  api_key: "${DD_API_KEY}"
+  configuration_key: "${DD_OP_CONFIG_KEY}"
+  site: "datadoghq.com"
+
+sources:
+  logs:
+    type: file
+    include:
+      - ./logs/gate-activity.log
+
+transforms:
+  modify:
+    type: remap
+    inputs:
+      - logs
+    source: |-
+        . |= parse_grok!(.message, "%{TIMESTAMP_ISO8601:timestamp} %{LOGLEVEL:level} %{WORD:gatelabel}:%{WORD:gate} %{WORD:locationlabel}:%{WORD:location} %{WORD:idlabel}:%{WORD:identity} %{WORD:direction}")
+        .timestamp = parse_timestamp(.timestamp, "%Y-%m-%d'T'%H:%M:%S%z") ?? now()
+        my_result = {"timestamp": .timestamp}
+        my_result |= {"gate": .gate}
+        my_result |= {"location": .location}
+        my_result |= {"identity": .identity}
+        my_result |= {"direction": .direction}
+
+  reduce:
+    type: reduce
+    inputs:
+      - modify
+    ends_when: ".direction == s'OUT'"
+    expire_after_ms: 60000
+    flush_period_ms: 2000
+    group_by: [gate,identity]
+    merge_strategies:
+      direction: concat
+
+  combined:
+    type: remap
+    inputs:
+      - reduce
+    source: |-
+        my_result = {"file": "gate-activity.log"} 
+        my_result |= {"unique_id": uuid_v4()} 
+        my_result |= {"gate": .gate} 
+        my_result |= {"direction": .direction} 
+        my_result |= {"location": .location} 
+        my_result |= {"id": .identity} 
+        my_result |= {"timestamp_in": .timestamp} 
+        my_result |= {"timestamp_out": .timestamp_end}
+        .unix_timestamp_in = to_unix_timestamp(.timestamp, unit: "milliseconds") ?? now()
+        my_result |= {"unixtime_in": .unix_timestamp_in}
+        .unix_timestamp_out = to_unix_timestamp(.timestamp_end, unit: "milliseconds") ?? now()
+        my_result |= {"unixtime_out": .unix_timestamp_out}
+        .timediff = to_int(.unix_timestamp_out) - to_int(.unix_timestamp_in) 
+        my_result |= {"unix_difference": .timediff}
+        my_result |= {"host": "COMP-C02DW0E1ML87"} 
+        my_result |= {"service": "gate-app"} 
+        my_result |= {"ddsource": "observability-pipelines"} 
+        . = my_result
+
+sinks:
+  console: 
+    inputs:
+      - combined
+    type: console
+    encoding: 
+      codec: json
+  datadog:
+    default_api_key: "${DD_API_KEY}" 
+    inputs:
+      - combined
+    type: datadog_logs
