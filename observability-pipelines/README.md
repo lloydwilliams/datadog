@@ -22,7 +22,7 @@ You can test your logic VRL logic using a command line interface which is access
 vector vrl
 ```
 
-or use this bash script: vrl/start-vrl-repl.sh
+or use this [bash script](./vrl/start-vrl-repl.sh).
 
 ![Screenshot 2023-03-09 at 10.26.50 AM](images/vector-vrl.png)
 
