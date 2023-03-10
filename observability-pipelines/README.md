@@ -112,3 +112,5 @@ enterprise:
 ## Datadog Dashboards
 
 ![dashboard-gate](images/dashboard-gate.png)
+
+This [dashboard](./examples/gates-app/GateDashboard.json) can be imported into your Datadog environment. 
