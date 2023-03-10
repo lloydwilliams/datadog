@@ -138,3 +138,7 @@ enterprise:
 ![dashboard-gate](images/dashboard-gate.png)
 
 This [dashboard](./examples/gates-app/GateDashboard.json) can be imported into your Datadog environment. 
+
+You can also track the version history and monitor the performance of your Datadog Observability Pipeline.
+
+![op-version-performance](images/op-version-performance.png)
