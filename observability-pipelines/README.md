@@ -38,6 +38,30 @@ You'll see that it used Grok to parse the log message and output JSON.
 { "direction": "IN", "gatelabel": "GATE", "gatenum": "5", "identity": "abc", "idlabel": "ID", "level": "INFO", "location": "calgary", "locationlabel": "LOCATION", "timestamp": "2023-03-06T14:48:34.592Z" }
 ```
 
+## Datadog Observability Pipelines Configuration Keys
+
+In you Datadog account, go Observability Pipelines under Logs: 
+
+![ddog-op-menu](images/ddog-op-menu.png)
+
+Click on the New Pipeline button and set the name of your pipeline. If you click on the Get Started button or switch to the Pipeline view, you can start building a new pipeline in the Datadog UI.
+
+![ddog-op-builder](images/ddog-op-builder.png)
+
+Try building a valid pipeline by connecting the demo logs to Datadog.  
+
+![op-demo-logs](images/op-demo-logs.png)
+
+![op-first-pipeline](images/op-first-pipeline.png)
+
+Click on "View Setup Instructions".
+
+![DD_OP_CONFIG_KEY](images/DD_OP_CONFIG_KEY.png)
+
+If you are installing on a Debian-based linux, you can follow the instructions. 
+
+*** IMPORTANT *** Make a note of the `DD_OP_CONFIG_KEY`, you wil need it in the next step.
+
 ## Log Reduce Example - Gates App
 
 This sample shows how to collapse two log lines into one. It uses [reduce](https://docs.datadoghq.com/observability_pipelines/reference/transforms/#reduce) to collapse an “IN” log and an “OUT” log into a single log.
@@ -48,7 +72,7 @@ This sample shows how to collapse two log lines into one. It uses [reduce](https
 4. Set your Datadog API key as the environment varible called `DD_API_KEY` and the Datadog Observability Pipelines Key as the environment variable `DD_OP_CONFIG_KEY` or modify the [start-observability-pipelines-worker.sh](./examples/gates-app/start-observability-pipelines-worker.sh) file and replace `${DD_API_KEY}` with your Datadog API key and `${DD_OP_CONFIG_KEY}` with the Datadog Observability Pipelines Config key.
 5. Start the Observabilty Pipeline using the [start-observability-pipelines-worker.sh](./examples/gates-app/start-observability-pipelines-worker.sh) script which will run this [observabilty pipelines-worker](./examples/gates-app/observability-pipelines-worker.yaml).
 
-NOTE: remove this part of the pipeline if you are using the instructions for [Installing Observability Pipelines on Linux](https://docs.datadoghq.com/observability_pipelines/installation/?tab=linux).
+NOTE: remove this part of the pipeline if you used the instructions for [Installing Observability Pipelines on Linux](https://docs.datadoghq.com/observability_pipelines/installation/?tab=linux).
 
 ```
 enterprise:
