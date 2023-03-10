@@ -55,3 +55,4 @@ kubernetes/payroll/helm-datadog-agent/datadog-values.1
 kubernetes/payroll/helm-datadog-agent/datadog-values.txt
 kubernetes/payroll/eclipse-workspace/payroll/target/payroll-3.0.1.jar.original
 observability-pipelines/examples/gates-app/logs/gate-activity.log
+observability-pipelines/examples/gates-app/logs/gate-activity.log
