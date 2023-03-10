@@ -42,11 +42,11 @@ You'll see that it used Grok to parse the log message and output JSON.
 
 This sample shows how to collapse two log lines into one. It uses [reduce](https://docs.datadoghq.com/observability_pipelines/reference/transforms/#reduce) to collapse an “IN” log and an “OUT” log into a single log.
 
-1. You can run the application using the script [run-gates-app.sh](./run-gates-app.sh)
-2. You can test it by running the script [test-gates-app.sh](./test-gates-app.sh) or by importing [this Postman collection](Gate Collection.postman_collection.json) into [Postman](https://www.postman.com/) and sending your own payloads. 
-3. This application will generate a log file called: [gate-activity.log](./gate-activity.log) that will read by the observability pipeline. 
-4. Set your Datadog API key as the environment varible called DD_API_KEY and the Datadog Observability Pipelines Key as the environment variable DD_OP_CONFIG_KEY or modify the [start-observability-pipelines-worker.sh](start-observability-pipelines-worker.sh) file and replace ${DD_API_KEY} with your Datadog API key and ${DD_OP_CONFIG_KEY} with the Datadog Observability Pipelines Config key.
-5. Start the Observabilty Pipeline using the [start-observability-pipelines-worker.sh](start-observability-pipelines-worker.sh) script which will run this [observabilty pipelines-worker](./observability-pipelines-worker.yaml).
+1. You can run the application using the script [run-gates-app.sh](./examples/run-gates-app.sh)
+2. You can test it by running the script [test-gates-app.sh](./examples/test-gates-app.sh) or by importing [this Postman collection](./examples/Gate Collection.postman_collection.json) into [Postman](https://www.postman.com/) and sending your own payloads. 
+3. This application will generate a log file called: [gate-activity.log](./examples/gate-activity.log) that will read by the observability pipeline. 
+4. Set your Datadog API key as the environment varible called DD_API_KEY and the Datadog Observability Pipelines Key as the environment variable DD_OP_CONFIG_KEY or modify the [start-observability-pipelines-worker.sh](./examples/start-observability-pipelines-worker.sh) file and replace ${DD_API_KEY} with your Datadog API key and ${DD_OP_CONFIG_KEY} with the Datadog Observability Pipelines Config key.
+5. Start the Observabilty Pipeline using the [start-observability-pipelines-worker.sh](./examples/start-observability-pipelines-worker.sh) script which will run this [observabilty pipelines-worker](./examples/observability-pipelines-worker.yaml).
 
 NOTE: remove this part of the pipeline if you are using the instructions for [Installing Observability Pipelines on Linux](https://docs.datadoghq.com/observability_pipelines/installation/?tab=linux).
 
