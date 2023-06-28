@@ -362,7 +362,7 @@ datadog:
     # datadog.logs.autoMultiLineDetection -- Allows the Agent to detect common multi-line patterns automatically.
 
     ## ref: https://docs.datadoghq.com/agent/logs/advanced_log_collection/?tab=configurationfile#automatic-multi-line-aggregation
-    autoMultiLineDetection: false
+    autoMultiLineDetection: true
 
   ## Enable apm agent and provide custom configs
   apm:
@@ -578,14 +578,15 @@ datadog:
     container_scrubbing:
       enabled: true
 
+    ## LLOYD - 2023/04/23 
   helmCheck:
     # datadog.helmCheck.enabled -- Set this to true to enable the Helm check (Requires Agent 7.35.0+ and Cluster Agent 1.19.0+)
     # This requires clusterAgent.enabled to be set to true
-    enabled: false
+    enabled: true
 
     # datadog.helmCheck.collectEvents -- Set this to true to enable event collection in the Helm Check (Requires Agent 7.36.0+ and Cluster Agent 1.20.0+)
     # This requires datadog.HelmCheck.enabled to be set to true
-    collectEvents: false
+    collectEvents: true
 
     # datadog.helmCheck.valuesAsTags -- Collects Helm values from a release and uses them as tags (Requires Agent and Cluster Agent 7.40.0+).
     # This requires datadog.HelmCheck.enabled to be set to true

@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payroll
+  labels:
+    app: payroll
+    name: payroll
+    tags.datadoghq.com/env: prod
+    tags.datadoghq.com/service: payroll
+    tags.datadoghq.com/version: 11.0.1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: payroll
+  template:
+    metadata:
+      labels:
+        app: payroll
+        name: payroll
+        tags.datadoghq.com/env: prod
+        tags.datadoghq.com/service: payroll
+        tags.datadoghq.com/version: 11.0.1
+    annotations:
+        ad.datadoghq.com/payroll.logs: '[{"source":"payroll","service":"payroll"}]'
+    spec:
+      volumes:
+        - name: apmsocketpath
+          hostPath:
+            path: /var/run/datadog/
+      containers:
+        - name: payroll
+          image: 'lloydwilliams/payroll-suse-jdk11:11.0.1'
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: apmsocketpath
+              mountPath: /var/run/datadog
+          env:
+            - name: JAVA_TOOL_OPTIONS
+              value: '-javaagent:/dd-java-agent.jar'
+            - name: JAVA_OPTS
+              value: '-XX:FlightRecorderOptions=stackdepth=256'
+            - name: DD_ENV
+              valueFrom:
+                fieldRef:
+                  fieldPath: 'metadata.labels[''tags.datadoghq.com/env'']'
+            - name: DD_SERVICE
+              valueFrom:
+                fieldRef:
+                  fieldPath: 'metadata.labels[''tags.datadoghq.com/service'']'
+            - name: DD_VERSION
+              valueFrom:
+                fieldRef:
+                  fieldPath: 'metadata.labels[''tags.datadoghq.com/version'']'
+            - name: DD_TAGS
+              value: 'app:payroll,owner:lloyd'
+            - name: DD_TRACE_METHODS
+              value: >-
+                com.example.payroll.EmployeeController[*];com.example.payroll.LoadDatabase[initDatabase]
+            - name: DD_PROFILING_ENABLED
+              value: 'true'
+            - name: DD_PROFILING_DDPROF_MEMLEAK_ENABLED
+              value: 'true'
+            - name: DD_LOGS_INJECTION
+              value: 'true'
+            - name: DD_APPSEC_ENABLED
+              value: "true"

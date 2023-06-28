@@ -1,10 +1,10 @@
 #!/bin/sh
 echo "Installing Bitnami Kafka .... \n"
 
-#kubectl create namespace kafka
+kubectl create namespace kafka
 
 #helm install bitnami-kafka bitnami/kafka -n kafka -f ./values.yaml
-helm install bitnami-kafka bitnami/kafka -f ./values.yaml
+helm install bitnami-kafka bitnami/kafka -f values.yaml -n kafka
 #helm install bitnami-kafka bitnami/kafka
 
 
