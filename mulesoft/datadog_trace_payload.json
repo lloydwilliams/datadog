@@ -1,0 +1,43 @@
+[
+  [
+    {
+      "duration": 21000000,
+      "error": 0,
+      "meta": {
+        "name": "Lloyd Williams",
+        "role": "Enterprise Sales Engineer"
+      },
+      "metrics": {
+        "cost": 22.05
+      },
+      "name": "mulesoft",
+      "parent_id": 0,
+      "resource": "POST /mulesoft",
+      "service": "mymulesoftservice",
+      "span_id": 4565176405920887799,
+      "start": 1670251259077000000,
+      "trace_id": 5431303205771487064,
+      "type": "web"
+    }
+  ],
+  [
+    {
+      "duration": 13000000,
+      "error": 0,
+      "meta": {
+        "more": "my business data"
+      },
+      "metrics": {
+        "dollars": 212.95
+      },
+      "name": "businesslogic",
+      "parent_id": 4565176405920887799,
+      "resource": "POST /employees",
+      "service": "mymulesoftservice",
+      "span_id": 4214745809468030858,
+      "start": 1670251259083000000,
+      "trace_id": 5431303205771487064,
+      "type": "web"
+    }
+  ]
+]
