@@ -56,7 +56,6 @@ const transport1 = new transports.DailyRotateFile({
 });
 
 const logger = createLogger({
-  // change level if in dev environment versus production
   level: 'info',
   format: format.combine(
     format.timestamp({
@@ -75,3 +74,19 @@ const logger = createLogger({
 ![logs1-datadog](images/logs1-datadog.png)
 
 ![console-currentlog](images/console-currentlog.png)
+
+Configure Datadog to use the `current.log` file (e.g. /etc/conf.d/nodejs.d/conf.yaml)
+
+```
+init_config:
+
+logs:
+
+  - type: file
+    path: "/Users/lloyd.williams/u01/nodejs/hapi-winston/myproject/logs/current.log"
+    service: nodejs-hapi-winston
+    source: nodejs
+```
+
+
+
