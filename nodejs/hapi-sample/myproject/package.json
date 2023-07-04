@@ -11,6 +11,7 @@
   "dependencies": {
     "@hapi/hapi": "^20.2.1",
     "dd-trace": "^1.5.0",
-    "winston": "^3.3.3"
+    "winston": "^3.3.3",
+    "winston-daily-rotate-file": "^4.7.1"
   }
 }

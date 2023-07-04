@@ -33,3 +33,45 @@ and you will also see how to create logs which contain additional information in
 ![06 NodeJS Logs with Error and Event Attr](images/06_NodeJS_Logs_with_Error_and_Event_Attr.png)
 
 You can create facets from any of the event attributes to allow you to analyze the logs any way you want. 
+
+
+
+
+
+### Updated with Log file rotation:
+
+https://github.com/winstonjs/winston-daily-rotate-file
+
+```
+
+const transport1 = new transports.DailyRotateFile({
+  level: 'info',
+  filename: `${logDir}/application-%DATE%.log`,
+  datePattern: 'YYYY-MM-DD-HH-MM',
+  zippedArchive: false,
+  maxFiles: '4d',
+  maxSize: '2m',
+  createSymlink: true,
+  symlinkName: 'current.log'
+});
+
+const logger = createLogger({
+  // change level if in dev environment versus production
+  level: 'info',
+  format: format.combine(
+    format.timestamp({
+      format: 'YYYY-MM-DD HH:mm:ss'
+    }),
+    format.json()
+  ),
+  transports: [
+    transport1
+  ]
+});
+```
+
+
+
+![logs1-datadog](images/logs1-datadog.png)
+
+![console-currentlog](images/console-currentlog.png)
