@@ -125,7 +125,7 @@ datadog:
 
   ## ref: https://github.com/kubernetes/kube-state-metrics/tree/kube-state-metrics-helm-chart-2.13.2/charts/kube-state-metrics
   # The kubeStateMetricsEnabled option will be removed in the 4.0 version of the Datadog Agent chart.
-  kubeStateMetricsEnabled: true
+  kubeStateMetricsEnabled: false
 
   kubeStateMetricsNetworkPolicy:
     # datadog.kubeStateMetricsNetworkPolicy.create -- If true, create a NetworkPolicy for kube state metrics
@@ -263,7 +263,7 @@ datadog:
           fieldPath: status.hostIP
     # datadog.kubelet.tlsVerify -- Toggle kubelet TLS verification
     # @default -- true
-    tlsVerify: false
+    tlsVerify:  false
     # datadog.kubelet.hostCAPath -- Path (on host) where the Kubelet CA certificate is stored
     # @default -- None (no mount from host)
     hostCAPath: /etc/kubernetes/certs/kubeletserver.crt
@@ -401,7 +401,7 @@ datadog:
     # datadog.logs.containerCollectAll -- Enable this to allow log collection for all containers
 
     ## ref: https://docs.datadoghq.com/agent/basic_agent_usage/kubernetes/#log-collection-setup
-    containerCollectAll: true
+    containerCollectAll: false
 
     # datadog.logs.containerCollectUsingFiles -- Collect logs from files in /var/log/pods instead of using container runtime API
 
@@ -654,10 +654,6 @@ datadog:
     # datadog.serviceMonitoring.enabled -- Enable Universal Service Monitoring
     enabled: false
 
-  dataStreamsMonitoring:
-    # datadog.dataStreamsMonitoring.enabled -- Enable Data Streams Monitoring.
-    enabled: false
-
   ## Enable security agent and provide custom configs
   securityAgent:
     compliance:
@@ -735,7 +731,7 @@ datadog:
   ## ref: https://docs.datadoghq.com/agent/kubernetes/prometheus/
   prometheusScrape:
     # datadog.prometheusScrape.enabled -- Enable autodiscovering pods and services exposing prometheus metrics.
-    enabled: true
+    enabled: false
     # datadog.prometheusScrape.serviceEndpoints -- Enable generating dedicated checks for service endpoints.
     serviceEndpoints: false
     # datadog.prometheusScrape.additionalConfigs -- Allows adding advanced openmetrics check configurations with custom discovery rules. (Requires Agent version 7.27+)
@@ -816,8 +812,7 @@ clusterAgent:
     name: cluster-agent
 
     # clusterAgent.image.tag -- Cluster Agent image tag to use
-    # tag: 7.45.0
-    tag: latest
+    tag: 7.46.0
 
     # clusterAgent.image.digest -- Cluster Agent image digest to use, takes precedence over tag if specified
     digest: ""
@@ -933,7 +928,10 @@ clusterAgent:
 
   ## The Cluster-Agent supports many additional environment variables
   ## ref: https://docs.datadoghq.com/agent/cluster_agent/commands/#cluster-agent-options
-  env: []
+  ## env: []
+  env:
+    - name: "DD_ADMISSION_CONTROLLER_ADD_AKS_SELECTORS"
+      value: "true"
 
   # clusterAgent.envFrom --  Set environment variables specific to Cluster Agent from configMaps and/or secrets
 
@@ -983,13 +981,6 @@ clusterAgent:
   ## ref: https://docs.datadoghq.com/agent/autodiscovery/
   ## confd: {}
   confd:
-    kube_apiserver_metrics.yaml: |-
-      cluster_check: true
-      init_config:
-      instances:
-        - prometheus_url: https://kubernetes.default/metrics
-          ssl_ca_cert: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
-          bearer_token_auth: true
     snmp.yaml: |-
       cluster_check: true
       init_config:
@@ -1004,6 +995,13 @@ clusterAgent:
           retries: 5
           loader: core
           use_device_id_as_hostname: true
+  #   mysql.yaml: |-
+  #     cluster_check: true
+  #     instances:
+  #       - host: <EXTERNAL_IP>
+  #         port: 3306
+  #         username: datadog
+  #         password: <YOUR_CHOSEN_PASSWORD>
 
   # clusterAgent.advancedConfd -- Provide additional cluster check configurations. Each key is an integration containing several config files.
 
@@ -1226,8 +1224,7 @@ agents:
     name: agent
 
     # agents.image.tag -- Define the Agent version to use
-    # tag: 7.45.0
-    tag: latest
+    tag: 7.46.0
 
     # agents.image.digest -- Define Agent image digest to use, takes precedence over tag if specified
     digest: ""
@@ -1693,8 +1690,7 @@ clusterChecksRunner:
     name: agent
 
     # clusterChecksRunner.image.tag -- Define the Agent version to use
-    # tag: 7.45.0
-    tag: latest
+    tag: 7.46.0
 
     # clusterChecksRunner.image.digest -- Define Agent image digest to use, takes precedence over tag if specified
     digest: ""
@@ -1953,11 +1949,11 @@ providers:
       useHostnameFromFile: false
   aks:
     # providers.aks.enabled -- Activate all specifities related to AKS configuration. Required as currently we cannot auto-detect AKS.
-    enabled: false
+    enabled: true
 
 remoteConfiguration:
   # remoteConfiguration.enabled -- Set to true to enable remote configuration on the Cluster Agent (if set) and the node agent.
   # This will override `datadog.remoteConfiguration.enabled` and `clusterAgent.admissionController.remoteInstrumentation.enabled`.
   # Preferred way to enable Remote Configuration.
-  enabled: false
+  enabled: true
 
