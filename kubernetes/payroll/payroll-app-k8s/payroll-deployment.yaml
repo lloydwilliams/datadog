@@ -21,8 +21,8 @@ spec:
         tags.datadoghq.com/env: prod
         tags.datadoghq.com/service: payroll
         tags.datadoghq.com/version: 3.0.1
-#      annotations:
-#        ad.datadoghq.com/payroll.logs: '[{"source":"payroll","service":"payroll"}]'
+      annotations:
+        ad.datadoghq.com/payroll.logs: '[{"source":"payroll","service":"payroll"}]'
     spec:
       volumes:
         - name: apmsocketpath
