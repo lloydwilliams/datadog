@@ -8,6 +8,10 @@ The pre-req for this is to configure the set-up of the database according to the
 
 In order to do this you can supply a section in the oracle-dbm.d/conf.yaml file.
 
+Verify that your configuration is located in the `conf.d/oracle-dbm.d/` directory. 
+
+Note the folder `conf.d/oracle.d/` is used for the legacy integration and is deprecated. Do **NOT** use this one. 
+
 See [example file](conf.yaml)
 
 ```    custom_queries:
