@@ -21,6 +21,7 @@ instances:
        tags:
        - test:lloyd
        pdb: ORCLPDB1
+     - metric_prefix: oracle.custom_query
        query: SELECT attr1, attr2, attr3, value2 FROM LLOYD.METRICS
        columns:
        - name: attr1
