@@ -2,6 +2,7 @@
 #runs the graphql example that returns information about books
 cd /Users/lloyd.williams/u01/eclipse-workspaces/graphql/book-details
 
+
 echo 'use GraphQL Playground with http://localhost:8080/graphql'
 echo 'or run test.sh to test with curl'
 
