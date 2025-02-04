@@ -60,3 +60,5 @@ observability-pipelines/vagrant/ubuntu/start-op-worker.sh
 observability-pipelines/vagrant/ubuntu/start-op-worker.sh
 observability-pipelines/examples/gates-app/logs/gate-activity.log
 observability-pipelines/vagrant/ubuntu/start-op-worker.sh
+apm/graphql/.DS_Store
+.DS_Store
