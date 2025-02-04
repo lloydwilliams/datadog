@@ -6,8 +6,6 @@
 
 ## Pre-Work
 
----
-
 [Introduction to Obseservability](https://learn.datadoghq.com/courses/introduction-to-observability)
 
 [The Learning Environment](https://learn.datadoghq.com/courses/the-learning-environment)
@@ -15,8 +13,6 @@
 
 
 ## Beginner
-
----
 
 [Datadog Foundation](https://learn.datadoghq.com/courses/datadog-foundation)
 
